@@ -1,16 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.phamagest.pharmagest.HelloController">
-  <padding>
-    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-  </padding>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-  <Label fx:id="welcomeText"/>
-  <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="450.0" prefWidth="600.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10; -fx-border-width: 1; -fx-border-color: black; -fx-border-radius: 10;" BorderPane.alignment="CENTER">
+         <children>
+            <Text fill="#159ee3" layoutX="367.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CONNEXION" wrappingWidth="99.82666015625">
+               <font>
+                  <Font name="Calibri Bold Italic" size="19.0" />
+               </font>
+            </Text>
+            <Label layoutX="306.0" layoutY="145.0" text="Identifiant">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="306.0" layoutY="225.0" text="Mot de passe">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <TextField layoutX="306.0" layoutY="165.0" prefHeight="37.0" prefWidth="222.0" style="-fx-background-color: #bae2f658;" />
+            <TextField layoutX="306.0" layoutY="245.0" prefHeight="37.0" prefWidth="222.0" style="-fx-background-color: #bae2f658;" />
+            <Button layoutX="305.0" layoutY="303.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="222.0" style="-fx-background-radius: 10; -fx-background-color: #B2E3C2;" text="se connecter" textFill="#767575">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Button>
+            <AnchorPane layoutX="2.0" layoutY="3.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="444.0" prefWidth="222.0" style="-fx-background-color: #AEDFF7; -fx-background-radius: 10 0 0 10; -fx-padding: 5;">
+               <children>
+                  <Button layoutX="37.0" layoutY="381.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="154.0" text="Quitter">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="37.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/pharmacie.jpg" />
+                     </image>
+                  </ImageView>
+                  <Text fill="WHITE" layoutX="28.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pharmagest">
+                     <font>
+                        <Font name="System Bold" size="31.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <Label layoutX="272.0" layoutY="43.0" prefHeight="29.0" prefWidth="282.0" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
