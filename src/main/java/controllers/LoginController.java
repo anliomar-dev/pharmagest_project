@@ -1,4 +1,5 @@
 package controllers;
+import dataBase.DatabaseConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -6,9 +7,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
+
 import javafx.scene.Parent;
 import javafx.stage.StageStyle;
 import utils.Utils;
@@ -35,10 +35,16 @@ public class LoginController {
             return;
         }else{
             Utils hasher = new Utils();
-            String hashedPassword = hasher.hashWithSHA256(password);
-            loginMessageLabel.setText("");
+            String hashedPassword = Utils.hashWithSHA256(password);
+            boolean isAutenticated = authenticate(username, hashedPassword);
+            if(isAutenticated){
+                loginMessageLabel.setText("authentification réussi");
+                return;
+            }
+            loginMessageLabel.setText("nom d'utilisateur et/ou mot de passe \n incorrect");
         }
     }
+
 
     /**
      * Exits the application when the cancel button is clicked.
@@ -50,5 +56,35 @@ public class LoginController {
     }
 
 
+    /**
+     * Authenticates a user based on their username and password.
+     *
+     * @param username The username to authenticate.
+     * @param password The plain-text password, which will be hashed for comparison.
+     * @return true if the user is successfully authenticated, false otherwise.
+     * @throws RuntimeException If a SQL error occurs during the authentication attempt.
+     */
+    private static boolean authenticate(String username, String password){
+        boolean isAuthenticated = false;
+        try {
+            // connection  to database
+            Connection connection = DatabaseConnection.getConnection();
+            String query = "SELECT * FROM public.\"utilisateur\" WHERE identifiant = ? AND mot_de_passe = ?";
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setString(1, username);
+            statement.setString(2, password);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                isAuthenticated = true;
+            }
+
+            resultSet.close();
+            statement.close();
+            connection.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return  isAuthenticated;
+    }
 
 }

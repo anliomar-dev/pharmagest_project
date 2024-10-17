@@ -56,7 +56,7 @@
                </children>
             </AnchorPane>
             <Label layoutX="272.0" layoutY="43.0" prefHeight="29.0" prefWidth="282.0" />
-            <Label fx:id="loginMessageLabel" layoutX="293.0" layoutY="43.0" prefHeight="27.0" prefWidth="248.0" textFill="RED">
+            <Label fx:id="loginMessageLabel" layoutX="294.0" layoutY="43.0" prefHeight="50.0" prefWidth="254.0" textAlignment="CENTER" textFill="RED">
                <font>
                   <Font size="14.0" />
                </font>
