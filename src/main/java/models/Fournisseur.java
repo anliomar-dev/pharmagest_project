@@ -1,31 +1,31 @@
 package models;
 
 public class Fournisseur {
-    private int id; // ID auto-incrémenté
     private String nom;
     private String adresse;
+    private String telephone;
+    private String email;
+    private String pays;
 
     // Constructeur
-    public Fournisseur(String nom, String adresse) {
+    public Fournisseur(String nom, String adresse, String telephone, String email, String pays) {
         this.nom = nom;
         this.adresse = adresse;
+        this.telephone = telephone;
+        this.email = email;
+        this.pays = pays;
     }
 
-    // Getters
-    public int getId() {
-        return id;
+    // Méthodes
+    public void ajouterFournisseur() {
+        // Logique pour ajouter un fournisseur
     }
 
-    public String getNom() {
-        return nom;
+    public void updateFournisseur() {
+        // Logique pour mettre à jour un fournisseur
     }
 
-    public String getAdresse() {
-        return adresse;
-    }
-
-    // Setter pour l'ID
-    public void setId(int id) {
-        this.id = id;
+    public void supprimerFournisseur() {
+        // Logique pour supprimer un fournisseur
     }
 }

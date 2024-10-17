@@ -22,6 +22,6 @@ public class MaintenanceController {
     public void founisseurButtonOnAction(ActionEvent event) throws IOException {
         Utils sceneLoader = new Utils();
         // swith to maintenace interface
-        sceneLoader.loadScene("Maintenance.fxml", "Maintenance founisseurs", founisseurButton);
+        sceneLoader.loadScene("Fournisseurs.fxml", "Maintenance founisseurs", founisseurButton);
     }
 }
