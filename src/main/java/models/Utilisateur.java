@@ -33,7 +33,18 @@ public class Utilisateur {
         this.permission = permission;
     }
 
-    // Getters et Setters
-    // (à ajouter ici)
+
+    // Méthodes
+    public void creerUtilisateur() {
+        // Logique pour créer un utilisateur
+    }
+
+    public void modifierUtilisateur() {
+        // Logique pour modifier un utilisateur
+    }
+
+    public void supprimerUtilisateur() {
+        // Logique pour supprimer un utilisateur
+    }
 }
 

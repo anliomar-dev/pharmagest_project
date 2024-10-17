@@ -11,7 +11,7 @@
       <Button layoutX="347.0" layoutY="165.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: #3399CC; -fx-border-color: gray;" text="Famille" textFill="WHITE" />
       <Button layoutX="180.0" layoutY="165.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: #3399CC; -fx-border-color: gray;" text="Forme" textFill="WHITE" />
       <Button fx:id="returnButton" layoutX="180.0" layoutY="319.0" mnemonicParsing="false" onAction="#returnButtonOnAction" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: gray;" text="Retour" textFill="WHITE" />
-      <Button layoutX="14.0" layoutY="224.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: #3399CC; -fx-border-color: gray;" text="Fournisseur" textFill="WHITE" />
+      <Button fx:id="founisseurButton" layoutX="14.0" layoutY="224.0" mnemonicParsing="false" onAction="#founisseurButtonOnAction" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: #3399CC; -fx-border-color: gray;" text="Fournisseur" textFill="WHITE" />
       <Button fx:id="utilisateurButton" layoutX="180.0" layoutY="224.0" mnemonicParsing="false" onAction="#utilisateurButtonOnAction" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: #3399CC; -fx-border-color: gray;" text="Utilisateur" textFill="WHITE" />
       <Button layoutX="347.0" layoutY="224.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: #3399CC; -fx-border-color: gray;" text=" MAJ Liste de Prix" textFill="WHITE" />
       <ImageView fitHeight="113.0" fitWidth="120.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
