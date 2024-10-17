@@ -39,6 +39,7 @@ public class LoginController {
             boolean isAutenticated = authenticate(username, hashedPassword);
             if(isAutenticated){
                 Utils sceneLoader = new Utils();
+                // swith to dashboard after successful login
                 sceneLoader.loadScene("Dashboard.fxml", username, loginButton);
                 loginMessageLabel.setText("authentification réussi");
             }else{
@@ -79,9 +80,11 @@ public class LoginController {
             if (resultSet.next()) {
                 isAuthenticated = true;
             }
-
+            // Close the ResultSet to release the resources it holds.
             resultSet.close();
+            // Close the Statement to free up the database resources associated with it.
             statement.close();
+            // Close the Connection to the database to release all resources associated with it.
             connection.close();
         } catch (SQLException e) {
             throw new RuntimeException(e);

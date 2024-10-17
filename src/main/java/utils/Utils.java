@@ -49,6 +49,7 @@ public class Utils {
      * @throws IOException if the FXML file cannot be loaded
      */
     public void loadScene(String fxmlFile, String title, Button button) throws IOException {
+        // path where fxml file is located
         String pathToFxmlFile = "/com/phamagest/pharmagest/";
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(pathToFxmlFile + fxmlFile));
@@ -57,7 +58,7 @@ public class Utils {
             stage.setScene(newScene);
             stage.setTitle(title);
         } catch (IOException e) {
-            e.printStackTrace(); // or use a logger
+            e.printStackTrace();
         }
     }
 
