@@ -5,7 +5,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.login.LoginController">
+<AnchorPane prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MaintenanceController">
    <children>
       <Button layoutX="14.0" layoutY="165.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: #3399CC; -fx-border-color: gray;" text="Médicament" textFill="WHITE" />
       <Button layoutX="347.0" layoutY="165.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: #3399CC; -fx-border-color: gray;" text="Famille" textFill="WHITE" />
@@ -16,7 +16,7 @@
       <Button layoutX="347.0" layoutY="224.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: #3399CC; -fx-border-color: gray;" text=" MAJ Liste de Prix" textFill="WHITE" />
       <ImageView fitHeight="113.0" fitWidth="120.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@PharmaGest_logo.png" />
+            <Image url="@../../../images/PharmaGest_logo.png" />
          </image>
       </ImageView>
    </children>

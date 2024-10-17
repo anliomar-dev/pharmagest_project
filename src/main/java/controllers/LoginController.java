@@ -41,7 +41,6 @@ public class LoginController {
                 Utils sceneLoader = new Utils();
                 // swith to dashboard after successful login
                 sceneLoader.loadScene("Dashboard.fxml", username, loginButton);
-                loginMessageLabel.setText("authentification réussi");
             }else{
                 loginMessageLabel.setText("nom d'utilisateur et/ou mot de passe \n incorrect");
             }
