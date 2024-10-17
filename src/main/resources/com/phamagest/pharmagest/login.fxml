@@ -45,7 +45,7 @@
                   </Button>
                   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="37.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../images/pharmacie.jpg" />
+                        <Image url="@../../../images/PharmaGest_logo.png" />
                      </image>
                   </ImageView>
                   <Text fill="WHITE" layoutX="28.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pharmagest">

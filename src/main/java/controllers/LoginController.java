@@ -38,10 +38,12 @@ public class LoginController {
             String hashedPassword = Utils.hashWithSHA256(password);
             boolean isAutenticated = authenticate(username, hashedPassword);
             if(isAutenticated){
+                Utils sceneLoader = new Utils();
+                sceneLoader.loadScene("Dashboard.fxml", username, loginButton);
                 loginMessageLabel.setText("authentification réussi");
-                return;
+            }else{
+                loginMessageLabel.setText("nom d'utilisateur et/ou mot de passe \n incorrect");
             }
-            loginMessageLabel.setText("nom d'utilisateur et/ou mot de passe \n incorrect");
         }
     }
 
