@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FournisseurController">
     <style>
@@ -18,11 +25,92 @@
             <Insets bottom="15.0" left="15.0" top="15.0" />
          </BorderPane.margin>
          <children>
-             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="37.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
-                 <image>
-                     <Image url="@../../../images/svgs/home.svg" />
-                 </image>
-             </ImageView>
+            <AnchorPane prefHeight="61.0" prefWidth="210.0" style="-fx-background-color: #D07ADC; -fx-background-radius: 10; -fx-border-radius: 10;">
+               <children>
+                  <ImageView fitHeight="41.0" fitWidth="43.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/PharmaGest_logo.png" />
+                     </image>
+                  </ImageView>
+                  <Text fill="WHITE" layoutX="65.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pharmagest">
+                     <font>
+                        <Font name="System Bold Italic" size="21.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="111.0" prefWidth="210.0">
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+               <children>
+                  <AnchorPane layoutX="75.0" layoutY="14.0" prefHeight="40.0" prefWidth="46.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+                     <children>
+                        <ImageView fitHeight="37.0" fitWidth="39.0" layoutX="5.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/icons/user%20(2).png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <Label layoutX="62.0" layoutY="58.0" text="anliomar">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Line endX="54.20001220703125" layoutX="134.0" layoutY="97.0" startX="-113.4000015258789" stroke="#a4a1a1" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="45.0" prefWidth="210.0" style="-fx-background-color: #FFD1DC;">
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+               <children>
+                  <AnchorPane layoutX="14.0" layoutY="5.0" prefHeight="34.0" prefWidth="42.0" style="-fx-background-color: white; -fx-background-radius: 15;">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                     <children>
+                        <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="5.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/icons/home.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <Text layoutX="66.0" layoutY="29.0" stroke="#3374a6" strokeType="INSIDE" text="Dashboard" wrappingWidth="96.5367202758789">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="20.0" layoutY="224.0" prefHeight="45.0" prefWidth="210.0">
+               <children>
+                  <AnchorPane layoutX="14.0" layoutY="5.0" prefHeight="34.0" prefWidth="42.0">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="28.0" layoutX="7.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/icons/home.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <Button layoutX="56.0" layoutY="9.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="110.0" text="Button" />
+               </children>
+               <VBox.margin>
+                  <Insets top="8.0" />
+               </VBox.margin>
+            </AnchorPane>
          </children>
         </VBox>
     </left>
