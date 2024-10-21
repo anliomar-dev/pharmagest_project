@@ -36,3 +36,10 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+## database connection ##
+DatabaseConnection.java
+TestConnection.java
+
+## fxml ##
+login.fxml

@@ -90,7 +90,7 @@
             </AnchorPane>
             <AnchorPane layoutX="20.0" layoutY="224.0" prefHeight="45.0" prefWidth="210.0">
                <children>
-                  <AnchorPane layoutX="14.0" layoutY="5.0" prefHeight="34.0" prefWidth="42.0">
+                  <AnchorPane layoutY="5.0" prefHeight="34.0" prefWidth="37.0">
                      <effect>
                         <DropShadow />
                      </effect>
@@ -98,14 +98,10 @@
                         <Cursor fx:constant="DEFAULT" />
                      </cursor>
                      <children>
-                        <ImageView fitHeight="30.0" fitWidth="28.0" layoutX="7.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../images/icons/home.png" />
-                           </image>
-                        </ImageView>
+                        <ImageView fitHeight="27.0" fitWidth="30.0" layoutX="4.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
                      </children>
                   </AnchorPane>
-                  <Button layoutX="56.0" layoutY="9.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="110.0" text="Button" />
+                  <Button layoutX="66.0" layoutY="9.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="122.0" text="Button" />
                </children>
                <VBox.margin>
                   <Insets top="8.0" />
