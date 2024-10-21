@@ -13,7 +13,7 @@ import javafx.scene.Parent;
 import javafx.stage.StageStyle;
 import utils.Utils;
 public class LoginController {
-    @FXML public PasswordField passwordPasswordFiled;
+    @FXML public PasswordField passwordPasswordField;
     @FXML private Button loginButton;
     @FXML private Button cancelButton;
     @FXML private TextField usernameTextField;
@@ -28,7 +28,7 @@ public class LoginController {
      */
     public void loginButtonOnAction(ActionEvent event) throws IOException {
         String username = usernameTextField.getText().trim();
-        String password = passwordPasswordFiled.getText().trim();
+        String password = passwordPasswordField.getText().trim();
 
         if(username.isBlank() || password.isBlank()){
             loginMessageLabel.setText("Les deux champ doivent être rempli");
