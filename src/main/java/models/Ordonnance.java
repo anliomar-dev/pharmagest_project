@@ -18,6 +18,38 @@ public class Ordonnance {
         this.client = client;
     }
 
+    public Date getDateOrd() {
+        return dateOrd;
+    }
+
+    public void setDateOrd(Date dateOrd) {
+        this.dateOrd = dateOrd;
+    }
+
+    public String getNomMedecin() {
+        return nomMedecin;
+    }
+
+    public void setNomMedecin(String nomMedecin) {
+        this.nomMedecin = nomMedecin;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public int getNumOrd() {
+        return numOrd;
+    }
+
+    public void setNumOrd(int numOrd) {
+        this.numOrd = numOrd;
+    }
+
     // Getters et Setters
     // (à ajouter ici)
 }

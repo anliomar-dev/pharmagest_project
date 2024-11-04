@@ -39,4 +39,3 @@ public class LigneVendu {
         this.vente = vente;
     }
 }
-

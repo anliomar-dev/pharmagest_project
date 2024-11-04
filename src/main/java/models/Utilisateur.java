@@ -17,6 +17,94 @@ public class Utilisateur {
     // Associations
     private Permission permission;
 
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public Date getDateNaissance() {
+        return dateNaissance;
+    }
+
+    public void setDateNaissance(Date dateNaissance) {
+        this.dateNaissance = dateNaissance;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
+
+    public String getIdentifiant() {
+        return identifiant;
+    }
+
+    public void setIdentifiant(String identifiant) {
+        this.identifiant = identifiant;
+    }
+
+    public String getMotDePasse() {
+        return motDePasse;
+    }
+
+    public void setMotDePasse(String motDePasse) {
+        this.motDePasse = motDePasse;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public boolean isEstSuperAdmin() {
+        return estSuperAdmin;
+    }
+
+    public void setEstSuperAdmin(boolean estSuperAdmin) {
+        this.estSuperAdmin = estSuperAdmin;
+    }
+
+    public Permission getPermission() {
+        return permission;
+    }
+
+    public void setPermission(Permission permission) {
+        this.permission = permission;
+    }
+
     // Constructeur
     public Utilisateur(String prenom, String nom, Date dateNaissance, String telephone, String email, String adresse,
                        String identifiant, String motDePasse, String status, boolean estSuperAdmin, Permission permission) {
@@ -35,15 +123,15 @@ public class Utilisateur {
 
 
     // Méthodes
-    public void creerUtilisateur() {
+    public void createUtilisateur() {
         // Logique pour créer un utilisateur
     }
 
-    public void modifierUtilisateur() {
+    public void updateUtilisateur() {
         // Logique pour modifier un utilisateur
     }
 
-    public void supprimerUtilisateur() {
+    public void deleteUtilisateur() {
         // Logique pour supprimer un utilisateur
     }
 }

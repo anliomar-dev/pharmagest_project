@@ -11,6 +11,62 @@ public class Medicament {
     private Forme forme;
     private Famille famille;
 
+    public String getDosage() {
+        return dosage;
+    }
+
+    public void setDosage(String dosage) {
+        this.dosage = dosage;
+    }
+
+    public String getDCI() {
+        return DCI;
+    }
+
+    public void setDCI(String DCI) {
+        this.DCI = DCI;
+    }
+
+    public double getPrixUnitVente() {
+        return prixUnitVente;
+    }
+
+    public void setPrixUnitVente(double prixUnitVente) {
+        this.prixUnitVente = prixUnitVente;
+    }
+
+    public double getPrixUnitAchat() {
+        return prixUnitAchat;
+    }
+
+    public void setPrixUnitAchat(double prixUnitAchat) {
+        this.prixUnitAchat = prixUnitAchat;
+    }
+
+    public int getQteStock() {
+        return qteStock;
+    }
+
+    public void setQteStock(int qteStock) {
+        this.qteStock = qteStock;
+    }
+
+    public Forme getForme() {
+        return forme;
+    }
+
+    public void setForme(Forme forme) {
+        this.forme = forme;
+    }
+
+    public Famille getFamille() {
+        return famille;
+    }
+
+    public void setFamille(Famille famille) {
+        this.famille = famille;
+    }
+
     // Constructeur
     public Medicament(String DCI, String dosage, double prixUnitVente, double prixUnitAchat, int qteStock, Forme forme, Famille famille) {
         this.DCI = DCI;
@@ -25,4 +81,3 @@ public class Medicament {
     // Getters et Setters
     // (générer en conséquence)
 }
-
