@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.gluonhq.charm.glisten.control.TextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -17,12 +18,10 @@
 <?import javafx.scene.text.Text?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FournisseurController">
-    <style>
-        -fx-background-color: linear-gradient(to bottom right, #E0D6FF, #F3E5FF);
-    </style>
+    <style>-fx-background-color: #E6E6FA;</style>
 
     <left>
-        <VBox prefWidth="230.0" spacing="0" style="-fx-background-color: #F4F0FF; -fx-background-radius: 15; -fx-border-radius: 15; -fx-padding: 10 10 10 10;">
+        <VBox prefHeight="670.0" prefWidth="261.0" spacing="0" style="-fx-background-color: #C0B2E1; -fx-background-radius: 15; -fx-border-radius: 15; -fx-padding: 10 10 10 10;">
          <BorderPane.margin>
             <Insets bottom="15.0" left="15.0" top="15.0" />
          </BorderPane.margin>
@@ -32,29 +31,29 @@
                   <Insets top="15.0" />
                </VBox.margin>
                <children>
-                  <AnchorPane layoutX="75.0" layoutY="14.0" prefHeight="40.0" prefWidth="46.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+                  <AnchorPane layoutX="94.0" layoutY="14.0" prefHeight="35.0" prefWidth="36.0" style="-fx-background-color: white; -fx-background-radius: 10;">
                      <children>
-                        <ImageView fitHeight="37.0" fitWidth="39.0" layoutX="5.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="37.0" fitWidth="39.0" layoutX="2.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../images/icons/user%20(2).png" />
                            </image>
                         </ImageView>
                      </children>
                   </AnchorPane>
-                  <Label layoutX="62.0" layoutY="58.0" text="anliomar">
+                  <Label layoutX="79.0" layoutY="52.0" text="anliomar">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Line endX="54.20001220703125" layoutX="134.0" layoutY="97.0" startX="-113.4000015258789" stroke="#a4a1a1" />
+                  <Line endX="54.20001220703125" layoutX="143.0" layoutY="88.0" startX="-113.4000015258789" stroke="#a4a1a1" />
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="45.0" prefWidth="210.0" style="-fx-background-color: #FFD1DC;">
+            <AnchorPane prefHeight="49.0" prefWidth="242.0" style="-fx-background-color: #1E90FF;">
                <VBox.margin>
                   <Insets top="15.0" />
                </VBox.margin>
                <children>
-                  <AnchorPane layoutX="14.0" layoutY="5.0" prefHeight="34.0" prefWidth="42.0" style="-fx-background-color: white; -fx-background-radius: 15;">
+                  <AnchorPane layoutX="19.0" layoutY="11.0" prefHeight="32.0" prefWidth="37.0" style="-fx-background-color: white; -fx-background-radius: 15;">
                      <effect>
                         <DropShadow />
                      </effect>
@@ -62,21 +61,21 @@
                         <Cursor fx:constant="DEFAULT" />
                      </cursor>
                      <children>
-                        <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="5.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="3.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../images/icons/home.png" />
                            </image>
                         </ImageView>
                      </children>
                   </AnchorPane>
-                  <Text layoutX="66.0" layoutY="29.0" stroke="#3374a6" strokeType="INSIDE" text="Dashboard" wrappingWidth="96.5367202758789">
+                  <Text fill="#fff4f4" layoutX="65.0" layoutY="34.0" stroke="WHITE" strokeType="INSIDE" text="Dashboard" wrappingWidth="96.5367202758789">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="20.0" layoutY="224.0" prefHeight="36.0" prefWidth="210.0" style="-fx-border-width: 1; -fx-border-color: #E0D6FF; -fx-background-color: white;">
+            <AnchorPane layoutX="20.0" layoutY="224.0" prefHeight="36.0" prefWidth="210.0" style="-fx-border-width: 1; -fx-border-color: #E0D6FF; -fx-background-color: #8A2BE2;">
                <children>
                   <AnchorPane layoutY="5.0" prefHeight="34.0" prefWidth="37.0">
                      <effect>
@@ -85,17 +84,17 @@
                      <cursor>
                         <Cursor fx:constant="DEFAULT" />
                      </cursor>
-                     <children>
-                        <ImageView fitHeight="27.0" fitWidth="30.0" layoutX="10.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../images/icons/users.png" />
-                           </image></ImageView>
-                     </children>
                   </AnchorPane>
-                  <Button layoutX="50.0" layoutY="9.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="122.0" style="-fx-background-color: white;" text="Utilisateurs">
+                  <Button layoutX="3.0" layoutY="6.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="237.0" style="-fx-background-color: #8A2BE2;" text="Utilisateurs">
                      <font>
                         <Font size="13.0" />
-                     </font></Button>
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="27.0" fitWidth="30.0" layoutX="23.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/icons/users.png" />
+                     </image>
+                  </ImageView>
                </children>
                <VBox.margin>
                   <Insets top="10.0" />
@@ -108,7 +107,7 @@
     <center>
         <AnchorPane prefHeight="674.0" prefWidth="1500.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView layoutX="42.0" layoutY="86.0" prefHeight="264.0" prefWidth="1165.0">
+            <TableView layoutX="28.0" layoutY="109.0" prefHeight="264.0" prefWidth="1165.0" style="-fx-background-radius: 15;">
               <columns>
                 <TableColumn prefWidth="50.0" />
                 <TableColumn prefWidth="180.0" text="Prenom" />
@@ -119,6 +118,8 @@
                   <TableColumn prefWidth="200.0" text="Actions" />
               </columns>
             </TableView>
+            <Button layoutX="1123.0" layoutY="61.0" mnemonicParsing="false" text="Button" />
+            <TextField layoutX="882.0" layoutY="59.0" prefHeight="35.0" prefWidth="218.0" style="-fx-background-radius: 6; -fx-background-color: white;" />
          </children>
         </AnchorPane>
     </center>

@@ -22,7 +22,6 @@ public class Vente {
         this.utilisateur = utilisateur;
     }
 
-    // Getters et Setters
-    // (à ajouter ici)
+
 }
 

@@ -21,11 +21,11 @@ public class Fournisseur {
         // Logique pour ajouter un fournisseur
     }
 
-    public void updateFournisseur() {
+    public void updateFournisseur(int id) {
         // Logique pour mettre à jour un fournisseur
     }
 
-    public void supprimerFournisseur() {
+    public void supprimerFournisseur(int id) {
         // Logique pour supprimer un fournisseur
     }
 }
