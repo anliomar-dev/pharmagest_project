@@ -68,4 +68,18 @@ public class Fournisseur {
         this.pays = pays;
     }
 
+
+    //
+    @Override
+    public String toString() {
+        return "Fournisseur{" +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
+                ", pays='" + pays + '\'' +
+                ", adresse='" + adresse + '\'' +
+                ", email='" + email + '\'' +
+                ", telephone='" + telephone + '\'' +
+                '}';
+    }
+
 }

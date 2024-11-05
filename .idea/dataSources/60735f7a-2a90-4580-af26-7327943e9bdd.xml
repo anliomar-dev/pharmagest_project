@@ -3,17 +3,9 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.53">
     <root id="1">
       <DateStyle>dmy</DateStyle>
-      <Grants>1||-9223372036854775808|c|G
-1||10|c|G
-1||10|C|G
-1||10|T|G
-4||-9223372036854775808|c|G
-4||10|c|G
-4||10|C|G
-4||10|T|G</Grants>
-      <IntrospectionStateNumber>789</IntrospectionStateNumber>
+      <IntrospectionStateNumber>795</IntrospectionStateNumber>
       <ServerVersion>16.2</ServerVersion>
-      <StartupTime>1729507370</StartupTime>
+      <StartupTime>1730620745</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -54,9 +46,9 @@ false Africa/Bissau
 false Africa/Blantyre
 false Africa/Brazzaville
 false Africa/Bujumbura
-true Africa/Cairo
+false Africa/Cairo
 false Africa/Casablanca
-true Africa/Ceuta
+false Africa/Ceuta
 false Africa/Conakry
 false Africa/Dakar
 false Africa/Dar_es_Salaam
@@ -95,8 +87,8 @@ false Africa/Timbuktu
 false Africa/Tripoli
 false Africa/Tunis
 false Africa/Windhoek
-true America/Adak
-true America/Anchorage
+false America/Adak
+false America/Anchorage
 false America/Anguilla
 false America/Antigua
 false America/Araguaina
@@ -116,7 +108,7 @@ false America/Argentina/Ushuaia
 false America/Aruba
 true America/Asuncion
 false America/Atikokan
-true America/Atka
+false America/Atka
 false America/Bahia
 false America/Bahia_Banderas
 false America/Barbados
@@ -125,18 +117,18 @@ false America/Belize
 false America/Blanc-Sablon
 false America/Boa_Vista
 false America/Bogota
-true America/Boise
+false America/Boise
 false America/Buenos_Aires
-true America/Cambridge_Bay
+false America/Cambridge_Bay
 false America/Campo_Grande
 false America/Cancun
 false America/Caracas
 false America/Catamarca
 false America/Cayenne
 false America/Cayman
-true America/Chicago
+false America/Chicago
 false America/Chihuahua
-true America/Ciudad_Juarez
+false America/Ciudad_Juarez
 false America/Coral_Harbour
 false America/Cordoba
 false America/Costa_Rica
@@ -146,123 +138,123 @@ false America/Curacao
 false America/Danmarkshavn
 false America/Dawson
 false America/Dawson_Creek
-true America/Denver
-true America/Detroit
+false America/Denver
+false America/Detroit
 false America/Dominica
-true America/Edmonton
+false America/Edmonton
 false America/Eirunepe
 false America/El_Salvador
-true America/Ensenada
+false America/Ensenada
 false America/Fort_Nelson
-true America/Fort_Wayne
+false America/Fort_Wayne
 false America/Fortaleza
-true America/Glace_Bay
-true America/Godthab
-true America/Goose_Bay
-true America/Grand_Turk
+false America/Glace_Bay
+false America/Godthab
+false America/Goose_Bay
+false America/Grand_Turk
 false America/Grenada
 false America/Guadeloupe
 false America/Guatemala
 false America/Guayaquil
 false America/Guyana
-true America/Halifax
-true America/Havana
+false America/Halifax
+false America/Havana
 false America/Hermosillo
-true America/Indiana/Indianapolis
-true America/Indiana/Knox
-true America/Indiana/Marengo
-true America/Indiana/Petersburg
-true America/Indiana/Tell_City
-true America/Indiana/Vevay
-true America/Indiana/Vincennes
-true America/Indiana/Winamac
-true America/Indianapolis
-true America/Inuvik
-true America/Iqaluit
+false America/Indiana/Indianapolis
+false America/Indiana/Knox
+false America/Indiana/Marengo
+false America/Indiana/Petersburg
+false America/Indiana/Tell_City
+false America/Indiana/Vevay
+false America/Indiana/Vincennes
+false America/Indiana/Winamac
+false America/Indianapolis
+false America/Inuvik
+false America/Iqaluit
 false America/Jamaica
 false America/Jujuy
-true America/Juneau
-true America/Kentucky/Louisville
-true America/Kentucky/Monticello
-true America/Knox_IN
+false America/Juneau
+false America/Kentucky/Louisville
+false America/Kentucky/Monticello
+false America/Knox_IN
 false America/Kralendijk
 false America/La_Paz
 false America/Lima
-true America/Los_Angeles
-true America/Louisville
+false America/Los_Angeles
+false America/Louisville
 false America/Lower_Princes
 false America/Maceio
 false America/Managua
 false America/Manaus
 false America/Marigot
 false America/Martinique
-true America/Matamoros
+false America/Matamoros
 false America/Mazatlan
 false America/Mendoza
-true America/Menominee
+false America/Menominee
 false America/Merida
-true America/Metlakatla
+false America/Metlakatla
 false America/Mexico_City
-true America/Miquelon
-true America/Moncton
+false America/Miquelon
+false America/Moncton
 false America/Monterrey
 false America/Montevideo
-true America/Montreal
+false America/Montreal
 false America/Montserrat
-true America/Nassau
-true America/New_York
-true America/Nipigon
-true America/Nome
+false America/Nassau
+false America/New_York
+false America/Nipigon
+false America/Nome
 false America/Noronha
-true America/North_Dakota/Beulah
-true America/North_Dakota/Center
-true America/North_Dakota/New_Salem
-true America/Nuuk
-true America/Ojinaga
+false America/North_Dakota/Beulah
+false America/North_Dakota/Center
+false America/North_Dakota/New_Salem
+false America/Nuuk
+false America/Ojinaga
 false America/Panama
-true America/Pangnirtung
+false America/Pangnirtung
 false America/Paramaribo
 false America/Phoenix
-true America/Port-au-Prince
+false America/Port-au-Prince
 false America/Port_of_Spain
 false America/Porto_Acre
 false America/Porto_Velho
 false America/Puerto_Rico
 false America/Punta_Arenas
-true America/Rainy_River
-true America/Rankin_Inlet
+false America/Rainy_River
+false America/Rankin_Inlet
 false America/Recife
 false America/Regina
-true America/Resolute
+false America/Resolute
 false America/Rio_Branco
 false America/Rosario
-true America/Santa_Isabel
+false America/Santa_Isabel
 false America/Santarem
 true America/Santiago
 false America/Santo_Domingo
 false America/Sao_Paulo
-true America/Scoresbysund
-true America/Shiprock
-true America/Sitka
+false America/Scoresbysund
+false America/Shiprock
+false America/Sitka
 false America/St_Barthelemy
-true America/St_Johns
+false America/St_Johns
 false America/St_Kitts
 false America/St_Lucia
 false America/St_Thomas
 false America/St_Vincent
 false America/Swift_Current
 false America/Tegucigalpa
-true America/Thule
-true America/Thunder_Bay
-true America/Tijuana
-true America/Toronto
+false America/Thule
+false America/Thunder_Bay
+false America/Tijuana
+false America/Toronto
 false America/Tortola
-true America/Vancouver
+false America/Vancouver
 false America/Virgin
 false America/Whitehorse
-true America/Winnipeg
-true America/Yakutat
-true America/Yellowknife
+false America/Winnipeg
+false America/Yakutat
+false America/Yellowknife
 false Antarctica/Casey
 false Antarctica/Davis
 false Antarctica/DumontDUrville
@@ -273,9 +265,9 @@ false Antarctica/Palmer
 false Antarctica/Rothera
 true Antarctica/South_Pole
 false Antarctica/Syowa
-true Antarctica/Troll
+false Antarctica/Troll
 false Antarctica/Vostok
-true Arctic/Longyearbyen
+false Arctic/Longyearbyen
 false Asia/Aden
 false Asia/Almaty
 false Asia/Amman
@@ -290,7 +282,7 @@ false Asia/Bahrain
 false Asia/Baku
 false Asia/Bangkok
 false Asia/Barnaul
-true Asia/Beirut
+false Asia/Beirut
 false Asia/Bishkek
 false Asia/Brunei
 false Asia/Calcutta
@@ -305,10 +297,10 @@ false Asia/Dhaka
 false Asia/Dili
 false Asia/Dubai
 false Asia/Dushanbe
-true Asia/Famagusta
-true Asia/Gaza
+false Asia/Famagusta
+false Asia/Gaza
 false Asia/Harbin
-true Asia/Hebron
+false Asia/Hebron
 false Asia/Ho_Chi_Minh
 false Asia/Hong_Kong
 false Asia/Hovd
@@ -316,7 +308,7 @@ false Asia/Irkutsk
 false Asia/Istanbul
 false Asia/Jakarta
 false Asia/Jayapura
-true Asia/Jerusalem
+false Asia/Jerusalem
 false Asia/Kabul
 false Asia/Kamchatka
 false Asia/Karachi
@@ -335,7 +327,7 @@ false Asia/Magadan
 false Asia/Makassar
 false Asia/Manila
 false Asia/Muscat
-true Asia/Nicosia
+false Asia/Nicosia
 false Asia/Novokuznetsk
 false Asia/Novosibirsk
 false Asia/Omsk
@@ -359,7 +351,7 @@ false Asia/Taipei
 false Asia/Tashkent
 false Asia/Tbilisi
 false Asia/Tehran
-true Asia/Tel_Aviv
+false Asia/Tel_Aviv
 false Asia/Thimbu
 false Asia/Thimphu
 false Asia/Tokyo
@@ -375,14 +367,14 @@ false Asia/Yakutsk
 false Asia/Yangon
 false Asia/Yekaterinburg
 false Asia/Yerevan
-true Atlantic/Azores
-true Atlantic/Bermuda
-true Atlantic/Canary
+false Atlantic/Azores
+false Atlantic/Bermuda
+false Atlantic/Canary
 false Atlantic/Cape_Verde
-true Atlantic/Faeroe
-true Atlantic/Faroe
-true Atlantic/Jan_Mayen
-true Atlantic/Madeira
+false Atlantic/Faeroe
+false Atlantic/Faroe
+false Atlantic/Jan_Mayen
+false Atlantic/Madeira
 false Atlantic/Reykjavik
 false Atlantic/South_Georgia
 false Atlantic/St_Helena
@@ -439,19 +431,19 @@ true CLST
 true CLT
 false COT
 false CST
-true CST6CDT
+false CST6CDT
 false CXT
-true Canada/Atlantic
-true Canada/Central
-true Canada/Eastern
-true Canada/Mountain
-true Canada/Newfoundland
-true Canada/Pacific
+false Canada/Atlantic
+false Canada/Central
+false Canada/Eastern
+false Canada/Mountain
+false Canada/Newfoundland
+false Canada/Pacific
 false Canada/Saskatchewan
 false Canada/Yukon
 true Chile/Continental
 true Chile/EasterIsland
-true Cuba
+false Cuba
 false DAVT
 false DDUT
 true EASST
@@ -464,9 +456,9 @@ true EETDST
 true EGST
 false EGT
 false EST
-true EST5EDT
-true Egypt
-false Eire
+false EST5EDT
+false Egypt
+true Eire
 false Etc/GMT
 false Etc/GMT+0
 false Etc/GMT+1
@@ -502,70 +494,70 @@ false Etc/UCT
 false Etc/UTC
 false Etc/Universal
 false Etc/Zulu
-true Europe/Amsterdam
-true Europe/Andorra
+false Europe/Amsterdam
+false Europe/Andorra
 false Europe/Astrakhan
-true Europe/Athens
-true Europe/Belfast
-true Europe/Belgrade
-true Europe/Berlin
-true Europe/Bratislava
-true Europe/Brussels
-true Europe/Bucharest
-true Europe/Budapest
-true Europe/Busingen
-true Europe/Chisinau
-true Europe/Copenhagen
-false Europe/Dublin
-true Europe/Gibraltar
-true Europe/Guernsey
-true Europe/Helsinki
-true Europe/Isle_of_Man
+false Europe/Athens
+false Europe/Belfast
+false Europe/Belgrade
+false Europe/Berlin
+false Europe/Bratislava
+false Europe/Brussels
+false Europe/Bucharest
+false Europe/Budapest
+false Europe/Busingen
+false Europe/Chisinau
+false Europe/Copenhagen
+true Europe/Dublin
+false Europe/Gibraltar
+false Europe/Guernsey
+false Europe/Helsinki
+false Europe/Isle_of_Man
 false Europe/Istanbul
-true Europe/Jersey
+false Europe/Jersey
 false Europe/Kaliningrad
-true Europe/Kiev
+false Europe/Kiev
 false Europe/Kirov
-true Europe/Kyiv
-true Europe/Lisbon
-true Europe/Ljubljana
-true Europe/London
-true Europe/Luxembourg
-true Europe/Madrid
-true Europe/Malta
-true Europe/Mariehamn
+false Europe/Kyiv
+false Europe/Lisbon
+false Europe/Ljubljana
+false Europe/London
+false Europe/Luxembourg
+false Europe/Madrid
+false Europe/Malta
+false Europe/Mariehamn
 false Europe/Minsk
-true Europe/Monaco
+false Europe/Monaco
 false Europe/Moscow
-true Europe/Nicosia
-true Europe/Oslo
-true Europe/Paris
-true Europe/Podgorica
-true Europe/Prague
-true Europe/Riga
-true Europe/Rome
+false Europe/Nicosia
+false Europe/Oslo
+false Europe/Paris
+false Europe/Podgorica
+false Europe/Prague
+false Europe/Riga
+false Europe/Rome
 false Europe/Samara
-true Europe/San_Marino
-true Europe/Sarajevo
+false Europe/San_Marino
+false Europe/Sarajevo
 false Europe/Saratov
 false Europe/Simferopol
-true Europe/Skopje
-true Europe/Sofia
-true Europe/Stockholm
-true Europe/Tallinn
-true Europe/Tirane
-true Europe/Tiraspol
+false Europe/Skopje
+false Europe/Sofia
+false Europe/Stockholm
+false Europe/Tallinn
+false Europe/Tirane
+false Europe/Tiraspol
 false Europe/Ulyanovsk
-true Europe/Uzhgorod
-true Europe/Vaduz
-true Europe/Vatican
-true Europe/Vienna
-true Europe/Vilnius
+false Europe/Uzhgorod
+false Europe/Vaduz
+false Europe/Vatican
+false Europe/Vienna
+false Europe/Vilnius
 false Europe/Volgograd
-true Europe/Warsaw
-true Europe/Zagreb
-true Europe/Zaporozhye
-true Europe/Zurich
+false Europe/Warsaw
+false Europe/Zagreb
+false Europe/Zaporozhye
+false Europe/Zurich
 false FET
 true FJST
 false FJT
@@ -576,8 +568,8 @@ false FNT
 false Factory
 false GALT
 false GAMT
-true GB
-true GB-Eire
+false GB
+false GB-Eire
 false GEST
 false GET
 false GFT
@@ -611,7 +603,7 @@ false Indian/Mauritius
 false Indian/Mayotte
 false Indian/Reunion
 false Iran
-true Israel
+false Israel
 false JAYT
 false JST
 false Jamaica
@@ -637,7 +629,7 @@ false MAWT
 true MDT
 true MEST
 true MESZ
-true MET
+false MET
 true METDST
 false MEZ
 false MHT
@@ -646,12 +638,12 @@ false MPT
 true MSD
 false MSK
 false MST
-true MST7MDT
+false MST7MDT
 true MUST
 false MUT
 false MVT
 false MYT
-true Mexico/BajaNorte
+false Mexico/BajaNorte
 false Mexico/BajaSur
 false Mexico/General
 true NDT
@@ -666,7 +658,7 @@ true NZ-CHAT
 true NZDT
 false NZST
 false NZT
-true Navajo
+false Navajo
 false OMSST
 false OMST
 true PDT
@@ -682,7 +674,7 @@ false PMST
 false PONT
 false PRC
 false PST
-true PST8PDT
+false PST8PDT
 false PWT
 true PYST
 true PYT
@@ -730,8 +722,8 @@ false Pacific/Truk
 false Pacific/Wake
 false Pacific/Wallis
 false Pacific/Yap
-true Poland
-true Portugal
+false Poland
+false Portugal
 false RET
 false ROC
 false ROK
@@ -752,17 +744,17 @@ false Turkey
 false UCT
 true ULAST
 false ULAT
-true US/Alaska
-true US/Aleutian
+false US/Alaska
+false US/Aleutian
 false US/Arizona
-true US/Central
-true US/East-Indiana
-true US/Eastern
+false US/Central
+false US/East-Indiana
+false US/Eastern
 false US/Hawaii
-true US/Indiana-Starke
-true US/Michigan
-true US/Mountain
-true US/Pacific
+false US/Indiana-Starke
+false US/Michigan
+false US/Mountain
+false US/Pacific
 false US/Samoa
 false UT
 false UTC
@@ -782,7 +774,7 @@ false WAKT
 false WAST
 false WAT
 true WDT
-true WET
+false WET
 true WETDST
 false WFT
 true WGST
@@ -808,7 +800,7 @@ false Zulu
 14697||10|C|G
 14697||-9223372036854775808|U|G
 14697||10|U|G</Grants>
-      <IntrospectionStateNumber>789</IntrospectionStateNumber>
+      <IntrospectionStateNumber>795</IntrospectionStateNumber>
       <ObjectId>16408</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -4236,8 +4228,8 @@ false Zulu
     <schema id="265" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>789</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2024-10-24.06:24:37</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>795</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2024-11-05.07:39:09</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>524</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -4384,7 +4376,7 @@ false Zulu
     </table>
     <table id="286" parent="265" name="utilisateur">
       <ObjectId>16635</ObjectId>
-      <StateNumber>778</StateNumber>
+      <StateNumber>791</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
@@ -4964,7 +4956,13 @@ false Zulu
       <StoredType>timestamp|0s</StoredType>
       <TypeId>1114</TypeId>
     </column>
-    <index id="368" parent="286" name="utilisateur_pkey">
+    <column id="368" parent="286" name="dernier_login">
+      <Position>13</Position>
+      <StateNumber>791</StateNumber>
+      <StoredType>timestamp|0s</StoredType>
+      <TypeId>1114</TypeId>
+    </column>
+    <index id="369" parent="286" name="utilisateur_pkey">
       <ColNames>utilisateur_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16642</ObjectId>
@@ -4973,7 +4971,7 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="369" parent="286" name="utilisateur_identifiant_key">
+    <index id="370" parent="286" name="utilisateur_identifiant_key">
       <ColNames>identifiant</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16644</ObjectId>
@@ -4984,34 +4982,34 @@ false Zulu
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="370" parent="286" name="utilisateur_pkey">
+    <key id="371" parent="286" name="utilisateur_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16643</ObjectId>
       <Primary>1</Primary>
       <StateNumber>765</StateNumber>
       <UnderlyingIndexId>16642</UnderlyingIndexId>
     </key>
-    <key id="371" parent="286" name="utilisateur_identifiant_key">
+    <key id="372" parent="286" name="utilisateur_identifiant_key">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16645</ObjectId>
       <StateNumber>765</StateNumber>
       <UnderlyingIndexId>16644</UnderlyingIndexId>
     </key>
-    <column id="372" parent="287" name="utilisateur_id">
+    <column id="373" parent="287" name="utilisateur_id">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>765</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="373" parent="287" name="permission_id">
+    <column id="374" parent="287" name="permission_id">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>765</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="374" parent="287" name="utilisateur_permission_utilisateur_id_fkey">
+    <foreign-key id="375" parent="287" name="utilisateur_permission_utilisateur_id_fkey">
       <ColNames>utilisateur_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16713</ObjectId>
@@ -5019,7 +5017,7 @@ false Zulu
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>16635</RefTableId>
     </foreign-key>
-    <foreign-key id="375" parent="287" name="utilisateur_permission_permission_id_fkey">
+    <foreign-key id="376" parent="287" name="utilisateur_permission_permission_id_fkey">
       <ColNames>permission_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16718</ObjectId>
@@ -5027,7 +5025,7 @@ false Zulu
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>16668</RefTableId>
     </foreign-key>
-    <index id="376" parent="287" name="utilisateur_permission_pkey">
+    <index id="377" parent="287" name="utilisateur_permission_pkey">
       <ColNames>utilisateur_id
 permission_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
@@ -5037,14 +5035,14 @@ permission_id</ColNames>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="377" parent="287" name="utilisateur_permission_pkey">
+    <key id="378" parent="287" name="utilisateur_permission_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16712</ObjectId>
       <Primary>1</Primary>
       <StateNumber>765</StateNumber>
       <UnderlyingIndexId>16711</UnderlyingIndexId>
     </key>
-    <column id="378" parent="288" name="num_vente">
+    <column id="379" parent="288" name="num_vente">
       <DefaultExpression>nextval(&apos;vente_num_vente_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -5053,31 +5051,31 @@ permission_id</ColNames>
       <SequenceId>16655</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="379" parent="288" name="date_vente">
+    <column id="380" parent="288" name="date_vente">
       <Position>2</Position>
       <StateNumber>765</StateNumber>
       <StoredType>date|0s</StoredType>
       <TypeId>1082</TypeId>
     </column>
-    <column id="380" parent="288" name="status">
+    <column id="381" parent="288" name="status">
       <Position>3</Position>
       <StateNumber>765</StateNumber>
       <StoredType>varchar(50)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="381" parent="288" name="montant">
+    <column id="382" parent="288" name="montant">
       <Position>4</Position>
       <StateNumber>765</StateNumber>
       <StoredType>numeric(10,2 digit)|0s</StoredType>
       <TypeId>1700</TypeId>
     </column>
-    <column id="382" parent="288" name="utilisateur_id">
+    <column id="383" parent="288" name="utilisateur_id">
       <Position>5</Position>
       <StateNumber>765</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="383" parent="288" name="vente_utilisateur_id_fkey">
+    <foreign-key id="384" parent="288" name="vente_utilisateur_id_fkey">
       <ColNames>utilisateur_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16662</ObjectId>
@@ -5085,7 +5083,7 @@ permission_id</ColNames>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>16635</RefTableId>
     </foreign-key>
-    <index id="384" parent="288" name="vente_pkey">
+    <index id="385" parent="288" name="vente_pkey">
       <ColNames>num_vente</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16660</ObjectId>
@@ -5094,7 +5092,7 @@ permission_id</ColNames>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="385" parent="288" name="vente_pkey">
+    <key id="386" parent="288" name="vente_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16661</ObjectId>
       <Primary>1</Primary>

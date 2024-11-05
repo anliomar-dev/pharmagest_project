@@ -10,9 +10,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FournisseurDAO {
+
+    public static void main (String[] args) throws SQLException {
+        FournisseurDAO fournisseurDAO = new FournisseurDAO();
+        List<Fournisseur> fournisseurs = fournisseurDAO.getAllFounisseur();
+
+        for (Fournisseur fournisseur : fournisseurs) {
+            System.out.println(fournisseur);
+        }
+
+    }
     private final Connection connection;
     // constructor for initializing database connection
-    public FournisseurDAO(DatabaseConnection dbConnection) throws SQLException {
+    public FournisseurDAO() throws SQLException {
         this.connection = DatabaseConnection.getConnection();
     }
 
@@ -29,10 +39,14 @@ public class FournisseurDAO {
                 String adresse = resultSet.getString("adresse");
                 String email = resultSet.getString("email");
                 String telephone = resultSet.getString("telephone");
+                Fournisseur fournisseur = new Fournisseur(id, nom, pays, adresse, email, telephone);
+                Fournisseurs.add(fournisseur);
             }
         }catch (SQLException e) {
-            e.printStackTrace();  // Gestion de l'exception
+            e.printStackTrace();
         }
-         return Fournisseurs;
+        return Fournisseurs;
     }
+
+
 }
