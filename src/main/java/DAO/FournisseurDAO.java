@@ -1,7 +1,6 @@
 package DAO;
 
 import dataBase.DatabaseConnection;
-import models.Client;
 import models.Fournisseur;
 
 import java.sql.SQLException;
@@ -13,11 +12,24 @@ public class FournisseurDAO {
 
     public static void main (String[] args) throws SQLException {
         FournisseurDAO fournisseurDAO = new FournisseurDAO();
+
+        Fournisseur fournisseur = new Fournisseur(
+                "fournisseur3",
+                "moroni",
+                "+269 3252388",
+                "fournisseur3@gmail.com",
+                "Comores");
+        fournisseurDAO.addFournisseur(fournisseur);
         List<Fournisseur> fournisseurs = fournisseurDAO.getAllFounisseur();
 
-        for (Fournisseur fournisseur : fournisseurs) {
-            System.out.println(fournisseur);
+        System.out.println("Fournisseur added " + fournisseur.getNom());
+
+        System.out.println("list des fournisseurs");
+
+        for (Fournisseur fournisseurA : fournisseurs) {
+            System.out.println(fournisseurA);
         }
+
 
     }
     private final Connection connection;
@@ -48,5 +60,17 @@ public class FournisseurDAO {
         return Fournisseurs;
     }
 
-
+    public void addFournisseur(Fournisseur fournisseur) throws SQLException {
+        String query = "INSERT INTO fournisseur (nom, adresse, telephone, email, pays) VALUES (?, ?, ?, ?, ?)";
+        try(PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setString(1, fournisseur.getNom());
+            stmt.setString(2, fournisseur.getAdresse());
+            stmt.setString(3, fournisseur.getTelephone());
+            stmt.setString(4, fournisseur.getEmail());
+            stmt.setString(5, fournisseur.getPays());
+            stmt.executeUpdate();
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
