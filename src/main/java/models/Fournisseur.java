@@ -1,6 +1,7 @@
 package models;
 
 public class Fournisseur {
+    private Integer id;
     private String nom;
     private String adresse;
     private String telephone;
@@ -48,7 +49,7 @@ public class Fournisseur {
         this.pays = pays;
     }
 
-    // Constructeur
+    // Constructeur for create fournisseur
     public Fournisseur(String nom, String adresse, String telephone, String email, String pays) {
         this.nom = nom;
         this.adresse = adresse;
@@ -57,16 +58,14 @@ public class Fournisseur {
         this.pays = pays;
     }
 
-    // Méthodes
-    public void createFournisseur() {
-        // Logique pour ajouter un fournisseur
+    // Constructeur for update, retrieve all founisseurs or delete fournisseur
+    public Fournisseur(Integer id, String nom, String adresse, String telephone, String email, String pays) {
+        this.id = id;
+        this.nom = nom;
+        this.adresse = adresse;
+        this.telephone = telephone;
+        this.email = email;
+        this.pays = pays;
     }
 
-    public void updateFournisseur(int id) {
-        // Logique pour mettre à jour un fournisseur
-    }
-
-    public void deleteFournisseur(int id) {
-        // Logique pour supprimer un fournisseur
-    }
 }
