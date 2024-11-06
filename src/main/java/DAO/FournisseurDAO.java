@@ -10,7 +10,7 @@ import java.util.List;
 
 public class FournisseurDAO {
 
-    public static void main (String[] args) throws SQLException {
+    /*public static void main (String[] args) throws SQLException {
         FournisseurDAO fournisseurDAO = new FournisseurDAO();
 
         Fournisseur fournisseur = new Fournisseur(
@@ -29,9 +29,7 @@ public class FournisseurDAO {
         for (Fournisseur fournisseurA : fournisseurs) {
             System.out.println(fournisseurA);
         }
-
-
-    }
+    }*/
     private final Connection connection;
     // constructor for initializing database connection
     public FournisseurDAO() throws SQLException {
