@@ -152,7 +152,7 @@
                   <TableColumn fx:id="calAction" prefWidth="125.5999755859375" text="Action" />
               </columns>
             </TableView>
-            <Button layoutX="1032.0" layoutY="53.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="142.0" style="-fx-background-color: #00a3a3;" text="Ajouter un founisseur" textFill="WHITE">
+            <Button fx:id="NewFournisseurButton" layoutX="1032.0" layoutY="53.0" mnemonicParsing="false" onAction="#NewFournisseurOnAction" prefHeight="36.0" prefWidth="142.0" style="-fx-background-color: #00a3a3;" text="Ajouter un founisseur" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>

@@ -55,15 +55,24 @@ public class Utils {
     public void loadScene(String fxmlFile, String title, Button button) throws IOException {
         // path where fxml file is located
         String pathToFxmlFile = "/com/phamagest/pharmagest/";
+
         try {
+            // Charger le fichier FXML
             FXMLLoader loader = new FXMLLoader(getClass().getResource(pathToFxmlFile + fxmlFile));
+
+            // Créer une nouvelle scène avec le fichier FXML chargé
             Scene newScene = new Scene(loader.load());
+
+            // Récupérer la fenêtre actuelle (Stage)
             Stage stage = (Stage) button.getScene().getWindow();
+
+            // Définir la nouvelle scène et le titre
             stage.setScene(newScene);
             stage.setTitle(title);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 
 }
