@@ -11,6 +11,7 @@ import java.sql.*;
 
 import javafx.scene.Parent;
 import javafx.stage.StageStyle;
+import utils.SessionManager;
 import utils.Utils;
 public class LoginController {
     @FXML public PasswordField passwordPasswordField;
@@ -106,6 +107,21 @@ public class LoginController {
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 userId = resultSet.getInt("utilisateur_id");
+                String prenom = resultSet.getString("prenom");
+                String nom = resultSet.getString("nom");
+                Date date_naissance = Date.valueOf(resultSet.getString("date_naissance"));
+                String email = resultSet.getString("email");
+                String telephone = resultSet.getString("telephone");
+                String adresse = resultSet.getString("adresse");
+                String identifiant = resultSet.getString("identifiant");
+                String status = resultSet.getString("status");
+                boolean est_superadmin = resultSet.getBoolean("est_superadmin");
+                SessionManager.setUserInfo(
+                        prenom, nom,
+                        date_naissance,
+                        telephone, email,
+                        adresse, identifiant,
+                        status, est_superadmin);
             }
             // Close the ResultSet to release the resources it holds.
             resultSet.close();

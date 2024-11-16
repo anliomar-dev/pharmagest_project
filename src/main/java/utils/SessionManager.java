@@ -1,5 +1,7 @@
 package utils;
 
+import java.util.Date;
+
 public class SessionManager {
     // Attributes to store user information
     private static String userId;
@@ -10,23 +12,21 @@ public class SessionManager {
     private static String email;
     private static String adresse;
     private static String identifiant;
-    private static String motDePasse;
     private static String status;
     private static boolean estSuperAdmin;
 
     // Method to set all user information at login
-    public static void setUserInfo(String prenom, String nom, String dateNaissance,
+    public static void setUserInfo(String prenom, String nom, Date dateNaissance,
                                    String telephone, String email, String adresse,
-                                   String identifiant, String motDePasse,
+                                   String identifiant,
                                    String status, boolean estSuperAdmin) {
         SessionManager.prenom = prenom;
         SessionManager.nom = nom;
-        SessionManager.dateNaissance = dateNaissance;
+        SessionManager.dateNaissance = String.valueOf(dateNaissance);
         SessionManager.telephone = telephone;
         SessionManager.email = email;
         SessionManager.adresse = adresse;
         SessionManager.identifiant = identifiant;
-        SessionManager.motDePasse = motDePasse;
         SessionManager.status = status;
         SessionManager.estSuperAdmin = estSuperAdmin;
     }
@@ -60,10 +60,6 @@ public class SessionManager {
         return identifiant;
     }
 
-    public static String getMotDePasse() {
-        return motDePasse;
-    }
-
     public static String getStatus() {
         return status;
     }
@@ -82,7 +78,6 @@ public class SessionManager {
         email = null;
         adresse = null;
         identifiant = null;
-        motDePasse = null;
         status = null;
         estSuperAdmin = false;
     }
