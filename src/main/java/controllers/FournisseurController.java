@@ -1,5 +1,6 @@
 package controllers;
 import javafx.scene.control.*;
+import javafx.event.ActionEvent;
 import utils.SessionManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
@@ -8,6 +9,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
 import utils.SessionManager;
+import utils.Utils;
+
+import java.io.IOException;
+import java.sql.SQLException;
 
 public class FournisseurController {
     @FXML
@@ -25,6 +30,7 @@ public class FournisseurController {
     @FXML
     private TableColumn<Fournisseur, String> colAdresse;
     @FXML private Label UsernameLabel;
+    @FXML private Button DashboardButton;
 
     @FXML
     public void initialize() {
@@ -44,9 +50,16 @@ public class FournisseurController {
         tableFournisseurs.getItems().add(new Fournisseur(2, "Pays B", "Fournisseur", "987654321", "emailB@test.com", "Adresse B"));
     }
 
-    // Méthode for add founisseur in the table
+    // Méthode for add founisseur in founisseurTable
     public void ajouterFournisseur(Fournisseur fournisseur) {
         tableFournisseurs.getItems().add(fournisseur);
+    }
+
+    public void DashboardButtonOnAction(ActionEvent actionEvent) throws IOException, SQLException {
+        //initialize new Utils instance
+        Utils sceneLoader = new Utils();
+        // swith to dashboard after the user clicked to dashboard button
+        sceneLoader.loadScene("Dashboard.fxml", "Dashboard", DashboardButton);
     }
 
 }
