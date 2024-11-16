@@ -48,13 +48,14 @@ public class FournisseurDAO {
             ResultSet resultSet = stmt.executeQuery(query)) {
 
             while(resultSet.next()) {
-                int id = resultSet.getInt("fournisseur_id");
+                int idFournisseur = resultSet.getInt("fournisseur_id");
                 String nom = resultSet.getString("nom");
                 String pays = resultSet.getString("pays");
-                String adresse = resultSet.getString("adresse");
-                String email = resultSet.getString("email");
                 String telephone = resultSet.getString("telephone");
-                Fournisseur fournisseur = new Fournisseur(id, nom, pays, adresse, email, telephone);
+                String email = resultSet.getString("email");
+                String adresse = resultSet.getString("adresse");
+
+                Fournisseur fournisseur = new Fournisseur(idFournisseur, pays, nom, telephone, email, adresse);
                 Fournisseurs.add(fournisseur);
             }
         }catch (SQLException e) {
@@ -80,10 +81,11 @@ public class FournisseurDAO {
                     int fournisseurId = resultSet.getInt("fournisseur_id");
                     String nom = resultSet.getString("nom");
                     String pays = resultSet.getString("pays");
-                    String adresse = resultSet.getString("adresse");
-                    String email = resultSet.getString("email");
                     String telephone = resultSet.getString("telephone");
-                    fournisseur = new Fournisseur(fournisseurId, nom, adresse, telephone, email, pays);
+                    String email = resultSet.getString("email");
+                    String adresse = resultSet.getString("adresse");
+
+                    fournisseur = new Fournisseur(fournisseurId, pays, nom, telephone, email, adresse);
                 }
             }catch (SQLException e) {
                 e.printStackTrace();
