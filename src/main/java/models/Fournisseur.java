@@ -57,6 +57,16 @@ public class Fournisseur {
         this.id = id;
     }
 
+
+    // Constructeur for create fournisseur
+    public Fournisseur(String pays, String nom, String telephone, String email, String adresse) {
+        this.nom = nom;
+        this.pays = pays;
+        this.telephone = telephone;
+        this.email = email;
+        this.adresse = adresse;
+    }
+
     // Constructeur for update, retrieve all founisseurs or delete fournisseur
     public Fournisseur(Integer id, String pays, String nom, String telephone, String email, String adresse) {
         this.id = id;

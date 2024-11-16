@@ -3,6 +3,7 @@ package models;
 import java.util.Date;
 
 public class Utilisateur {
+    public int id;
     private String prenom;
     private String nom;
     private Date dateNaissance;
@@ -105,9 +106,19 @@ public class Utilisateur {
         this.permission = permission;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     // Constructeur
-    public Utilisateur(String prenom, String nom, Date dateNaissance, String telephone, String email, String adresse,
-                       String identifiant, String motDePasse, String status, boolean estSuperAdmin, Permission permission) {
+    public Utilisateur(Integer id, String prenom, String nom, Date dateNaissance,
+                       String telephone, String email, String adresse, String identifiant,
+                       String motDePasse, String status, boolean estSuperAdmin, Permission permission) {
+        this.id = id;
         this.prenom = prenom;
         this.nom = nom;
         this.dateNaissance = dateNaissance;
