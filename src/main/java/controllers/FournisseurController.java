@@ -12,6 +12,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import utils.SessionManager;
 import utils.Utils;
 import DAO.FournisseurDAO;
+import models.Fournisseur;
 
 import java.io.IOException;
 import java.sql.Array;
@@ -142,7 +143,7 @@ public class FournisseurController {
         fields.forEach(field -> field.clear());
     }
 
-    public void handleSaveNewFournisseur(ActionEvent actionEvent) {
+    public void handleSaveNewFournisseur(ActionEvent actionEvent) throws SQLException {
         String pays = paysTextField.getText().trim();
         String nom = NomFournisseurTextField.getText().trim();
         String telephone = PhoneTextFIeld.getText().trim();
@@ -158,20 +159,25 @@ public class FournisseurController {
         boolean isPhoneValid = false;
 
         boolean hasEmptyFileds = Arrays.stream(data).anyMatch(String::isEmpty);
+        // check if there is an empty field
         if(hasEmptyFileds){
             saveNewFournisseurLabelMessage.setText("Tous les champs doivent être remplis !");
         }else{
+            // if there is no empty field
             saveNewFournisseurLabelMessage.setText("");
+            // verify if email is valid
             boolean validateEmail = Utils.validateField(email, emailRegex);
             if (!validateEmail){
                 emailLabelMessage.setText("Email invalide !");
             }else{
-                isEmailValid = true;
+                isEmailValid = true; // set isEmailValid to true if email is valid
             }
+            // check if the fournisseur's country is maurice or mauritius
             if(Objects.equals(pays.toLowerCase(), "maurice") ||
                     Objects.equals(pays.toLowerCase(), "mauritius") ){
                 boolean validateLocalPhoneNumber = Utils.validateField(telephone, phoneRegexLocal);
                 boolean validatePhoneNumber = Utils.validateField(telephone, phoneRegex);
+                // we can specify the country code or not if fournisseur's country is mauritius or maurice
                 if (!validateLocalPhoneNumber && !validatePhoneNumber){
                     phoneLabelMessage.setText("Numéro invalide! Exemple : 54297857 ou +230 54297857");
                 }else{
@@ -179,6 +185,7 @@ public class FournisseurController {
                     isPhoneValid = true;
                 }
             }else{
+                // if fournisseur's country is not mauritius or maurice, we have to specify the country code
                 phoneLabelMessage.setText("");
                 boolean validatePhoneNumber = Utils.validateField(telephone, phoneRegex);
                 if (!validatePhoneNumber){
@@ -188,8 +195,11 @@ public class FournisseurController {
                     isPhoneValid = true;
                 }
             }
+            // if email and phone number are valid
             if(isEmailValid && isPhoneValid){
-                saveNewFournisseurLabelMessage.setText("données valid");
+                Fournisseur newFournisseur = new Fournisseur(pays, nom, telephone, email, adresse);
+                FournisseurDAO fournisseurDAO = new FournisseurDAO();
+                fournisseurDAO.addFournisseur(newFournisseur);
             }else{
                 saveNewFournisseurLabelMessage.setText("certains champs sont invalides");
             }
