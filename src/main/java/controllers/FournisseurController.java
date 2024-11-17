@@ -14,8 +14,14 @@ import utils.Utils;
 import DAO.FournisseurDAO;
 
 import java.io.IOException;
+import java.sql.Array;
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -23,41 +29,39 @@ public class FournisseurController {
     // Initialization of the Utils instance to load a new scene
     Utils sceneLoader = new Utils();
 
-    @FXML
-    public TableView<Fournisseur> tableFournisseurs;
+    // list of fournisseur table columns
+    @FXML public TableView<Fournisseur> tableFournisseurs;
 
-    @FXML
-    public AnchorPane newFournisseurForm;
+    @FXML public AnchorPane newFournisseurForm;
 
-    @FXML
-    private TableColumn<Fournisseur, Integer> colId;
+    @FXML private TableColumn<Fournisseur, Integer> colId;
 
-    @FXML
-    private TableColumn<Fournisseur, String> colPays;
+    @FXML private TableColumn<Fournisseur, String> colPays;
 
-    @FXML
-    private TableColumn<Fournisseur, String> colNom;
+    @FXML private TableColumn<Fournisseur, String> colNom;
 
-    @FXML
-    private TableColumn<Fournisseur, String> colTelephone;
+    @FXML private TableColumn<Fournisseur, String> colTelephone;
 
-    @FXML
-    private TableColumn<Fournisseur, String> colEmail;
+    @FXML private TableColumn<Fournisseur, String> colEmail;
 
-    @FXML
-    private TableColumn<Fournisseur, String> colAdresse;
+    @FXML private TableColumn<Fournisseur, String> colAdresse;
 
-    @FXML
-    private Label UsernameLabel;
+    @FXML private Label UsernameLabel; // label to display authenticated user's username
+    @FXML private Button DashboardButton; // button to switch to dashboard
+    @FXML private Button NewFournisseurButton; // button to go to add new fournisseur form
+    @FXML private Button AllFournisseurButton; // button to return to list of all fournisseur
 
-    @FXML
-    private Button DashboardButton;
-
-    @FXML
-    private Button NewFournisseurButton;
-
-    @FXML
-    private Button AllFournisseurButton;
+    // filed to add new fournisseur
+    @FXML private TextField paysTextField;
+    @FXML private TextField NomFournisseurTextField;
+    @FXML private TextField PhoneTextFIeld;
+    @FXML private TextField emailTextField;
+    @FXML private TextField adresseTextField;
+    @FXML private Button resetNewFournisseurFormButton;
+    @FXML private Button saveNewFournisseurButton;
+    @FXML private Label saveNewFournisseurLabelMessage;
+    @FXML private Label phoneLabelMessage;
+    @FXML private Label emailLabelMessage;
 
     // Declaration of ObservableList for Fournisseurs
     private final ObservableList<Fournisseur> fournisseurObservableList = FXCollections.observableArrayList();
@@ -123,5 +127,73 @@ public class FournisseurController {
     // Return to the fournisseur table view
     public void AllFournisseurButtonOnAction(ActionEvent actionEvent) throws IOException {
         sceneLoader.loadScene("Fournisseurs.fxml", "All fournisseurs", AllFournisseurButton);
+    }
+
+    public void handleResetNewFournisseurForm(ActionEvent actionEvent) {
+        // List of fields to cleat
+        List<TextField> fields = Arrays.asList(
+                paysTextField,
+                NomFournisseurTextField,
+                adresseTextField,
+                emailTextField,
+                PhoneTextFIeld);
+
+        // cleear each field
+        fields.forEach(field -> field.clear());
+    }
+
+    public void handleSaveNewFournisseur(ActionEvent actionEvent) {
+        String pays = paysTextField.getText().trim();
+        String nom = NomFournisseurTextField.getText().trim();
+        String telephone = PhoneTextFIeld.getText().trim();
+        String email = emailTextField.getText().trim();
+        String adresse = adresseTextField.getText().trim();
+        String[] data = {pays, nom, email, adresse};
+        // Expression régulière pour numéro international
+        String phoneRegex = "^\\+\\d{1,4}\\s?\\d{7,10}$";
+        String phoneRegexLocal = "^\\d{7,10}$";
+        String emailRegex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+
+        boolean isEmailValid = false;
+        boolean isPhoneValid = false;
+
+        boolean hasEmptyFileds = Arrays.stream(data).anyMatch(String::isEmpty);
+        if(hasEmptyFileds){
+            saveNewFournisseurLabelMessage.setText("Tous les champs doivent être remplis !");
+        }else{
+            saveNewFournisseurLabelMessage.setText("");
+            boolean validateEmail = Utils.validateField(email, emailRegex);
+            if (!validateEmail){
+                emailLabelMessage.setText("Email invalide !");
+            }else{
+                isEmailValid = true;
+            }
+            if(Objects.equals(pays.toLowerCase(), "maurice") ||
+                    Objects.equals(pays.toLowerCase(), "mauritius") ){
+                boolean validateLocalPhoneNumber = Utils.validateField(telephone, phoneRegexLocal);
+                boolean validatePhoneNumber = Utils.validateField(telephone, phoneRegex);
+                if (!validateLocalPhoneNumber && !validatePhoneNumber){
+                    phoneLabelMessage.setText("Numéro invalide! Exemple : 54297857 ou +230 54297857");
+                }else{
+                    phoneLabelMessage.setText("");
+                    isPhoneValid = true;
+                }
+            }else{
+                phoneLabelMessage.setText("");
+                boolean validatePhoneNumber = Utils.validateField(telephone, phoneRegex);
+                if (!validatePhoneNumber){
+                    phoneLabelMessage.setText("pour les numero non locaux, ils doivent debuter par le code du pays. exp: +230 54297857");
+                }else{
+                    phoneLabelMessage.setText("");
+                    isPhoneValid = true;
+                }
+            }
+            if(isEmailValid && isPhoneValid){
+                saveNewFournisseurLabelMessage.setText("données valid");
+            }else{
+                saveNewFournisseurLabelMessage.setText("certains champs sont invalides");
+            }
+        }
+
     }
 }

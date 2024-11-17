@@ -11,6 +11,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Utils {
     /*
@@ -73,6 +75,25 @@ public class Utils {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Validates a string based on a provided regular expression.
+     *
+     * @param str the string we want to verify
+     * @param regEx the regex we want to verify the string against
+     * @return true if the string matches the regex, otherwise false
+     */
+    public static boolean validateField(String str, String regEx) {
+        // Compile the provided regular expression
+        Pattern pattern = Pattern.compile(regEx);
+
+        // Create a matcher object to match the string against the regex
+        Matcher matcher = pattern.matcher(str);
+
+        // Return true if the string matches the pattern, false otherwise
+        return matcher.matches();
+    }
+
 
 
 }
