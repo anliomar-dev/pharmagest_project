@@ -135,6 +135,14 @@
     </left>
 
     <center>
-        <AnchorPane prefHeight="674.0" prefWidth="1500.0" BorderPane.alignment="CENTER" />
+        <AnchorPane prefHeight="674.0" prefWidth="1500.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane fx:id="newFournisseurForm" layoutX="275.0" layoutY="113.0" prefHeight="438.0" prefWidth="672.0" style="-fx-background-color: #efefef;" />
+            <Button fx:id="AllFournisseurButton" layoutX="275.0" layoutY="574.0" mnemonicParsing="false" onAction="#AllFournisseurButtonOnAction" prefHeight="31.0" prefWidth="209.0" text="&lt;-- Tous les fournisseurs">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children></AnchorPane>
     </center>
 </BorderPane>
