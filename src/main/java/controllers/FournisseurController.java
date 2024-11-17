@@ -130,6 +130,7 @@ public class FournisseurController {
         sceneLoader.loadScene("Fournisseurs.fxml", "All fournisseurs", AllFournisseurButton);
     }
 
+
     public void handleResetNewFournisseurForm(ActionEvent actionEvent) {
         // List of fields to cleat
         List<TextField> fields = Arrays.asList(
@@ -200,6 +201,16 @@ public class FournisseurController {
                 Fournisseur newFournisseur = new Fournisseur(pays, nom, telephone, email, adresse);
                 FournisseurDAO fournisseurDAO = new FournisseurDAO();
                 fournisseurDAO.addFournisseur(newFournisseur);
+                // List of fields to cleat
+                List<TextField> fields = Arrays.asList(
+                        paysTextField,
+                        NomFournisseurTextField,
+                        adresseTextField,
+                        emailTextField,
+                        PhoneTextFIeld);
+
+                // cleear each field
+                fields.forEach(field -> field.clear());
             }else{
                 saveNewFournisseurLabelMessage.setText("certains champs sont invalides");
             }

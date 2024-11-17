@@ -77,23 +77,16 @@ public class Utils {
     }
 
     /**
-     * Validates a string based on a provided regular expression.
      *
      * @param str the string we want to verify
-     * @param regEx the regex we want to verify the string against
-     * @return true if the string matches the regex, otherwise false
+     * @param regEx the regex we want to verify
+     * @return true if string  match regex else false
      */
     public static boolean validateField(String str, String regEx) {
-        // Compile the provided regular expression
         Pattern pattern = Pattern.compile(regEx);
-
-        // Create a matcher object to match the string against the regex
         Matcher matcher = pattern.matcher(str);
-
-        // Return true if the string matches the pattern, false otherwise
         return matcher.matches();
     }
-
 
 
 }
