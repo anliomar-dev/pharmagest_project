@@ -11,15 +11,21 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
 import utils.SessionManager;
 import utils.Utils;
+import DAO.FournisseurDAO;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class FournisseurController {
-    // Initialisation de l'instance de Utils pour charger une nouvelle scène
+    // Initialization of the Utils instance to load a new scene
     Utils sceneLoader = new Utils();
+
     @FXML
     public TableView<Fournisseur> tableFournisseurs;
+
     @FXML
     public AnchorPane newFournisseurForm;
 
@@ -50,14 +56,17 @@ public class FournisseurController {
     @FXML
     private Button NewFournisseurButton;
 
-
     @FXML
     private Button AllFournisseurButton;
 
+    // Declaration of ObservableList for Fournisseurs
+    private final ObservableList<Fournisseur> fournisseurObservableList = FXCollections.observableArrayList();
+
     @FXML
-    public void initialize() {
-        // display autenticated user username in sidebar
+    public void initialize() throws SQLException {
+        // Display authenticated user's username in the sidebar
         UsernameLabel.setText(SessionManager.getIdentifiant());
+
         if (tableFournisseurs != null) {
             initializeTable();
         }
@@ -67,9 +76,9 @@ public class FournisseurController {
         }
     }
 
-    // Initialisation du tableau des fournisseurs
-    private void initializeTable() {
-        // Initialisation columns
+    // Initialize the fournisseurs table
+    private void initializeTable() throws SQLException {
+        // Initializing columns
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colNom.setCellValueFactory(new PropertyValueFactory<>("nom"));
         colPays.setCellValueFactory(new PropertyValueFactory<>("pays"));
@@ -77,36 +86,42 @@ public class FournisseurController {
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         colAdresse.setCellValueFactory(new PropertyValueFactory<>("adresse"));
 
-        tableFournisseurs.getItems().add(new Fournisseur(1, "Pays A", "Fournisseur A", "123456789", "emailA@test.com", "Adresse A"));
-        tableFournisseurs.getItems().add(new Fournisseur(2, "Pays B", "Fournisseur B", "987654321", "emailB@test.com", "Adresse B"));
+        // Bind the TableView to the ObservableList
+        tableFournisseurs.setItems(fournisseurObservableList);
+
+        // Load the fournisseurs from the database
+        FournisseurDAO fournisseurDAO = new FournisseurDAO();
+        List<Fournisseur> fournisseurs = fournisseurDAO.getAllFounisseur();
+
+        // Add each fournisseur to the ObservableList
+        fournisseurObservableList.addAll(fournisseurs);
     }
+
     /**
-     * method to add new fournisseur in table view
+     * Method to add a new fournisseur to the TableView
      * @param fournisseur
      */
-    public void ajouterFournisseur(Fournisseur fournisseur) {
-        tableFournisseurs.getItems().add(fournisseur);
+    public void addFournisseurToTableView(Fournisseur fournisseur) {
+        fournisseurObservableList.add(fournisseur); // Add to ObservableList, TableView will automatically update
     }
 
-
-    // Initialisation of new fournisseur form
+    // Initialize the form for adding a new fournisseur
     private void initializeForm() {
-        // Initialisation des champs du formulaire
-        System.out.println("Formulaire d'ajout de fournisseur initialisé");
+        System.out.println("New fournisseur form initialized");
     }
 
-    // switch to dashboard scene
+    // Switch to the dashboard scene
     public void DashboardButtonOnAction(ActionEvent actionEvent) throws IOException, SQLException {
         sceneLoader.loadScene("Dashboard.fxml", "Dashboard", DashboardButton);
     }
 
-    // switch add new fournisseur form
+    // Switch to the add new fournisseur form
     public void NewFournisseurOnAction(ActionEvent actionEvent) throws IOException {
-        sceneLoader.loadScene("NewFournisseur.fxml", "Nounveau fournisseur", NewFournisseurButton);
+        sceneLoader.loadScene("NewFournisseur.fxml", "New fournisseur", NewFournisseurButton);
     }
 
-    // return to fournisseur table view
+    // Return to the fournisseur table view
     public void AllFournisseurButtonOnAction(ActionEvent actionEvent) throws IOException {
-        sceneLoader.loadScene("Fournisseurs.fxml", "Tous les fournisseurs", AllFournisseurButton);
+        sceneLoader.loadScene("Fournisseurs.fxml", "All fournisseurs", AllFournisseurButton);
     }
 }
