@@ -11,9 +11,9 @@ import java.io.IOException;
 public class Utils {
     /*
     public static void main(String[] args){
-        System.out.println(hashWithSHA256("@Anliomar285."));
-    }*/
-
+        System.out.println(hashWithSHA256("@Haidar1!"));
+    }
+    */
 
     /**
      * Hashes a given text using the SHA-256 algorithm.

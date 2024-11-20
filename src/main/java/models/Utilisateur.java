@@ -17,6 +17,12 @@ public class Utilisateur {
     // Associations
     private Permission permission;
 
+    public Utilisateur(int id, String prenom, String nom, Date dateNaissance, String email, String telephone, String adresse) {
+    }
+
+    public Utilisateur(int id, String prenom, String nom, String dateNaissance, String email, String telephone, String adresse, String identifant, Boolean superadmin) {
+    }
+
     public String getPrenom() {
         return prenom;
     }
