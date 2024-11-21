@@ -32,7 +32,7 @@
                   <TableColumn fx:id="adresse_column" prefWidth="95.0" text="Adresse" />
                   <TableColumn fx:id="email_column" prefWidth="130.39996337890625" text="E-mail" />
                   <TableColumn fx:id="numtel_column" text="NumTel" />
-                  <TableColumn fx:id="adresse_column" prefWidth="95.0" text="Identifiant" />
+                  <TableColumn fx:id="identifiant_column" prefWidth="95.0" text="Identifiant" />
                   <TableColumn fx:id="superadmin_column" prefWidth="75.0" text="Superadmin" />
                </columns>
             </TableView>

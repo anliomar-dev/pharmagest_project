@@ -64,7 +64,7 @@ public class LoginController {
             boolean isAutenticated = userID != -1;
             if(isAutenticated){
                 // update last login timestamp
-                updateLastLogin(userID);
+                //updateLastLogin(userID);
 
                 //initialize new Utils instance
                 Utils sceneLoader = new Utils();
