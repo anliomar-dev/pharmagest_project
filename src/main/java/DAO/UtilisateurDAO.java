@@ -21,7 +21,6 @@ public class UtilisateurDAO {
         this.connection = DatabaseConnection.getConnection();
     }
 
-
     public List<Utilisateur> getallUtilisateurs() {
         List<Utilisateur> utilisateurs = new ArrayList<>();
         String query = "SELECT * FROM utilisateur";
