@@ -41,5 +41,7 @@ build/
 DatabaseConnection.java
 TestConnection.java
 
+LoginController.java
+
 ## fxml ##
 login.fxml
