@@ -23,6 +23,9 @@ public class Utilisateur {
     public Utilisateur(int id, String prenom, String nom, String dateNaissance, String email, String telephone, String adresse, String identifant, Boolean superadmin) {
     }
 
+    public Utilisateur(String prenom, String nom, String dateNaissance, String telephone, String email) {
+    }
+
     public String getPrenom() {
         return prenom;
     }

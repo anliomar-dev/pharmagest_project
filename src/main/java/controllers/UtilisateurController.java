@@ -33,7 +33,18 @@ public class UtilisateurController {
     @FXML
     private TableColumn<Utilisateur, Boolean> superadmin_column;
 
+    public void initialize() {
+        // Set up cell value factories
+        prenom_column.setCellValueFactory(new PropertyValueFactory<>("prenom"));
+        nom_column.setCellValueFactory(new PropertyValueFactory<>("nom"));
+//            dateNaissanceColumn.setCellValueFactory(new PropertyValueFactory<>("dateNaissance"));
+        telephone_column.setCellValueFactory(new PropertyValueFactory<>("telephone"));
+        email_column.setCellValueFactory(new PropertyValueFactory<>("email"));
 
+        // Fetch data and bind to TableView
+        ObservableList<Utilisateur> utilisateurs = FXCollections.observableArrayList(UtilisateurDAO.getallUtilisateurs());
+        utilisateurTable.setItems(utilisateurs);
+    }
 
     public void returnmaintenanceButtonOnAction(ActionEvent event) {
 
