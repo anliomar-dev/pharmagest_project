@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.53">
     <root id="1">
       <DateStyle>dmy</DateStyle>
-      <IntrospectionStateNumber>866</IntrospectionStateNumber>
+      <IntrospectionStateNumber>881</IntrospectionStateNumber>
       <ServerVersion>16.2</ServerVersion>
       <StartupTime>1731486335</StartupTime>
       <TimeZones>true ACDT
@@ -800,7 +800,7 @@ false Zulu
 14697||10|C|G
 14697||-9223372036854775808|U|G
 14697||10|U|G</Grants>
-      <IntrospectionStateNumber>866</IntrospectionStateNumber>
+      <IntrospectionStateNumber>881</IntrospectionStateNumber>
       <ObjectId>16408</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -4228,13 +4228,23 @@ false Zulu
     <schema id="265" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>866</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2024-11-17.12:41:08</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>881</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2024-11-18.10:18:55</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>524</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
     </schema>
-    <routine id="266" parent="265" name="update_last_login_by_id">
+    <routine id="266" parent="265" name="register_audit">
+      <ObjectId>16734</ObjectId>
+      <PgRoutineKind>pg-trigger</PgRoutineKind>
+      <ResultsDefinition>trigger</ResultsDefinition>
+      <Rows>0.0</Rows>
+      <SourceTextLength>148</SourceTextLength>
+      <StateNumber>877</StateNumber>
+      <LanguageName>plpgsql</LanguageName>
+      <OwnerName>postgres</OwnerName>
+    </routine>
+    <routine id="267" parent="265" name="update_last_login_by_id">
       <ArgumentsDefinition>IN user_id integer</ArgumentsDefinition>
       <ObjectId>16729</ObjectId>
       <PgRoutineKind>pg-procedure</PgRoutineKind>
@@ -4244,7 +4254,7 @@ false Zulu
       <LanguageName>plpgsql</LanguageName>
       <OwnerName>postgres</OwnerName>
     </routine>
-    <sequence id="267" parent="265" name="client_client_id_seq">
+    <sequence id="268" parent="265" name="client_client_id_seq">
       <ObjectId>16613</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
@@ -4252,7 +4262,7 @@ false Zulu
       <StoredType>integer|0s</StoredType>
       <OwnerName>postgres</OwnerName>
     </sequence>
-    <sequence id="268" parent="265" name="commande_livraison_num_commande_seq">
+    <sequence id="269" parent="265" name="commande_livraison_num_commande_seq">
       <ObjectId>16606</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
@@ -4260,7 +4270,7 @@ false Zulu
       <StoredType>integer|0s</StoredType>
       <OwnerName>postgres</OwnerName>
     </sequence>
-    <sequence id="269" parent="265" name="famille_num_famille_seq">
+    <sequence id="270" parent="265" name="famille_num_famille_seq">
       <ObjectId>16582</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
@@ -4268,7 +4278,7 @@ false Zulu
       <StoredType>integer|0s</StoredType>
       <OwnerName>postgres</OwnerName>
     </sequence>
-    <sequence id="270" parent="265" name="fournisseur_fournisseur_id_seq">
+    <sequence id="271" parent="265" name="fournisseur_fournisseur_id_seq">
       <ObjectId>16646</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
@@ -4276,7 +4286,7 @@ false Zulu
       <StoredType>integer|0s</StoredType>
       <OwnerName>postgres</OwnerName>
     </sequence>
-    <sequence id="271" parent="265" name="ligne_cmd_livraison_ligne_cmd_id_seq">
+    <sequence id="272" parent="265" name="ligne_cmd_livraison_ligne_cmd_id_seq">
       <ObjectId>16691</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
@@ -4284,7 +4294,7 @@ false Zulu
       <StoredType>integer|0s</StoredType>
       <OwnerName>postgres</OwnerName>
     </sequence>
-    <sequence id="272" parent="265" name="ligne_vendu_ligne_vendu_id_seq">
+    <sequence id="273" parent="265" name="ligne_vendu_ligne_vendu_id_seq">
       <ObjectId>16674</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
@@ -4292,7 +4302,7 @@ false Zulu
       <StoredType>integer|0s</StoredType>
       <OwnerName>postgres</OwnerName>
     </sequence>
-    <sequence id="273" parent="265" name="ordonnance_num_ord_seq">
+    <sequence id="274" parent="265" name="ordonnance_num_ord_seq">
       <ObjectId>16622</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
@@ -4300,7 +4310,7 @@ false Zulu
       <StoredType>integer|0s</StoredType>
       <OwnerName>postgres</OwnerName>
     </sequence>
-    <sequence id="274" parent="265" name="permission_permission_id_seq">
+    <sequence id="275" parent="265" name="permission_permission_id_seq">
       <ObjectId>16667</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
@@ -4308,7 +4318,7 @@ false Zulu
       <StoredType>integer|0s</StoredType>
       <OwnerName>postgres</OwnerName>
     </sequence>
-    <sequence id="275" parent="265" name="utilisateur_utilisateur_id_seq">
+    <sequence id="276" parent="265" name="utilisateur_utilisateur_id_seq">
       <ObjectId>16634</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
@@ -4316,7 +4326,7 @@ false Zulu
       <StoredType>integer|0s</StoredType>
       <OwnerName>postgres</OwnerName>
     </sequence>
-    <sequence id="276" parent="265" name="vente_num_vente_seq">
+    <sequence id="277" parent="265" name="vente_num_vente_seq">
       <ObjectId>16655</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
@@ -4324,89 +4334,112 @@ false Zulu
       <StoredType>integer|0s</StoredType>
       <OwnerName>postgres</OwnerName>
     </sequence>
-    <table id="277" parent="265" name="client">
+    <table id="278" parent="265" name="audit">
+      <ObjectId>16730</ObjectId>
+      <StateNumber>876</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>postgres</OwnerName>
+    </table>
+    <table id="279" parent="265" name="client">
       <ObjectId>16614</ObjectId>
       <StateNumber>765</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="278" parent="265" name="commande_livraison">
+    <table id="280" parent="265" name="commande_livraison">
       <ObjectId>16607</ObjectId>
       <StateNumber>765</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="279" parent="265" name="famille">
+    <table id="281" parent="265" name="famille">
       <ObjectId>16583</ObjectId>
       <StateNumber>765</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="280" parent="265" name="forme">
+    <table id="282" parent="265" name="forme">
       <ObjectId>16577</ObjectId>
       <StateNumber>765</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="281" parent="265" name="fournisseur">
+    <table id="283" parent="265" name="fournisseur">
       <ObjectId>16647</ObjectId>
-      <StateNumber>765</StateNumber>
+      <StateNumber>878</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="282" parent="265" name="ligne_cmd_livraison">
+    <table id="284" parent="265" name="ligne_cmd_livraison">
       <ObjectId>16692</ObjectId>
       <StateNumber>765</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="283" parent="265" name="ligne_vendu">
+    <table id="285" parent="265" name="ligne_vendu">
       <ObjectId>16675</ObjectId>
       <StateNumber>765</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="284" parent="265" name="medicament">
+    <table id="286" parent="265" name="medicament">
       <ObjectId>16589</ObjectId>
       <StateNumber>765</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="285" parent="265" name="ordonnance">
+    <table id="287" parent="265" name="ordonnance">
       <ObjectId>16623</ObjectId>
       <StateNumber>765</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="286" parent="265" name="permission">
+    <table id="288" parent="265" name="permission">
       <ObjectId>16668</ObjectId>
       <StateNumber>765</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="287" parent="265" name="utilisateur">
+    <table id="289" parent="265" name="utilisateur">
       <ObjectId>16635</ObjectId>
       <StateNumber>791</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="288" parent="265" name="utilisateur_permission">
+    <table id="290" parent="265" name="utilisateur_permission">
       <ObjectId>16708</ObjectId>
       <StateNumber>765</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="289" parent="265" name="vente">
+    <table id="291" parent="265" name="vente">
       <ObjectId>16656</ObjectId>
       <StateNumber>765</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <argument id="290" parent="266" name="user_id">
+    <argument id="292" parent="266">
+      <ArgumentDirection>R</ArgumentDirection>
+      <StoredType>trigger|0s</StoredType>
+    </argument>
+    <argument id="293" parent="267" name="user_id">
       <Position>1</Position>
       <StoredType>integer|0s</StoredType>
     </argument>
-    <column id="291" parent="277" name="client_id">
+    <column id="294" parent="278" name="nom_fournisseur">
+      <Position>1</Position>
+      <StateNumber>876</StateNumber>
+      <StoredType>varchar(255)|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="295" parent="278" name="date_heure_enregistrement">
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <Position>2</Position>
+      <StateNumber>876</StateNumber>
+      <StoredType>timestamp|0s</StoredType>
+      <TypeId>1114</TypeId>
+    </column>
+    <column id="296" parent="279" name="client_id">
       <DefaultExpression>nextval(&apos;client_client_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -4415,31 +4448,31 @@ false Zulu
       <SequenceId>16613</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="292" parent="277" name="nom">
+    <column id="297" parent="279" name="nom">
       <Position>2</Position>
       <StateNumber>765</StateNumber>
       <StoredType>varchar(255)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="293" parent="277" name="prenom">
+    <column id="298" parent="279" name="prenom">
       <Position>3</Position>
       <StateNumber>765</StateNumber>
       <StoredType>varchar(255)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="294" parent="277" name="civilite">
+    <column id="299" parent="279" name="civilite">
       <Position>4</Position>
       <StateNumber>765</StateNumber>
       <StoredType>varchar(50)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="295" parent="277" name="ddn">
+    <column id="300" parent="279" name="ddn">
       <Position>5</Position>
       <StateNumber>765</StateNumber>
       <StoredType>date|0s</StoredType>
       <TypeId>1082</TypeId>
     </column>
-    <index id="296" parent="277" name="client_pkey">
+    <index id="301" parent="279" name="client_pkey">
       <ColNames>client_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16620</ObjectId>
@@ -4448,14 +4481,14 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="297" parent="277" name="client_pkey">
+    <key id="302" parent="279" name="client_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16621</ObjectId>
       <Primary>1</Primary>
       <StateNumber>765</StateNumber>
       <UnderlyingIndexId>16620</UnderlyingIndexId>
     </key>
-    <column id="298" parent="278" name="num_commande">
+    <column id="303" parent="280" name="num_commande">
       <DefaultExpression>nextval(&apos;commande_livraison_num_commande_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -4464,25 +4497,25 @@ false Zulu
       <SequenceId>16606</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="299" parent="278" name="date_commande">
+    <column id="304" parent="280" name="date_commande">
       <Position>2</Position>
       <StateNumber>765</StateNumber>
       <StoredType>date|0s</StoredType>
       <TypeId>1082</TypeId>
     </column>
-    <column id="300" parent="278" name="date_livraison">
+    <column id="305" parent="280" name="date_livraison">
       <Position>3</Position>
       <StateNumber>765</StateNumber>
       <StoredType>date|0s</StoredType>
       <TypeId>1082</TypeId>
     </column>
-    <column id="301" parent="278" name="nobondelivraisonfrn">
+    <column id="306" parent="280" name="nobondelivraisonfrn">
       <Position>4</Position>
       <StateNumber>765</StateNumber>
       <StoredType>varchar(255)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <index id="302" parent="278" name="commande_livraison_pkey">
+    <index id="307" parent="280" name="commande_livraison_pkey">
       <ColNames>num_commande</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16611</ObjectId>
@@ -4491,14 +4524,14 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="303" parent="278" name="commande_livraison_pkey">
+    <key id="308" parent="280" name="commande_livraison_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16612</ObjectId>
       <Primary>1</Primary>
       <StateNumber>765</StateNumber>
       <UnderlyingIndexId>16611</UnderlyingIndexId>
     </key>
-    <column id="304" parent="279" name="num_famille">
+    <column id="309" parent="281" name="num_famille">
       <DefaultExpression>nextval(&apos;famille_num_famille_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -4507,13 +4540,13 @@ false Zulu
       <SequenceId>16582</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="305" parent="279" name="nom_famille">
+    <column id="310" parent="281" name="nom_famille">
       <Position>2</Position>
       <StateNumber>765</StateNumber>
       <StoredType>varchar(255)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <index id="306" parent="279" name="famille_pkey">
+    <index id="311" parent="281" name="famille_pkey">
       <ColNames>num_famille</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16587</ObjectId>
@@ -4522,21 +4555,21 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="307" parent="279" name="famille_pkey">
+    <key id="312" parent="281" name="famille_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16588</ObjectId>
       <Primary>1</Primary>
       <StateNumber>765</StateNumber>
       <UnderlyingIndexId>16587</UnderlyingIndexId>
     </key>
-    <column id="308" parent="280" name="nom_forme">
+    <column id="313" parent="282" name="nom_forme">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>765</StateNumber>
       <StoredType>varchar(255)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <index id="309" parent="280" name="forme_pkey">
+    <index id="314" parent="282" name="forme_pkey">
       <ColNames>nom_forme</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16580</ObjectId>
@@ -4548,14 +4581,14 @@ false Zulu
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="310" parent="280" name="forme_pkey">
+    <key id="315" parent="282" name="forme_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16581</ObjectId>
       <Primary>1</Primary>
       <StateNumber>765</StateNumber>
       <UnderlyingIndexId>16580</UnderlyingIndexId>
     </key>
-    <column id="311" parent="281" name="fournisseur_id">
+    <column id="316" parent="283" name="fournisseur_id">
       <DefaultExpression>nextval(&apos;fournisseur_fournisseur_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -4564,37 +4597,37 @@ false Zulu
       <SequenceId>16646</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="312" parent="281" name="nom">
+    <column id="317" parent="283" name="nom">
       <Position>2</Position>
       <StateNumber>765</StateNumber>
       <StoredType>varchar(255)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="313" parent="281" name="adresse">
+    <column id="318" parent="283" name="adresse">
       <Position>3</Position>
       <StateNumber>765</StateNumber>
       <StoredType>varchar(255)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="314" parent="281" name="telephone">
+    <column id="319" parent="283" name="telephone">
       <Position>4</Position>
       <StateNumber>765</StateNumber>
       <StoredType>varchar(20)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="315" parent="281" name="email">
+    <column id="320" parent="283" name="email">
       <Position>5</Position>
       <StateNumber>765</StateNumber>
       <StoredType>varchar(255)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="316" parent="281" name="pays">
+    <column id="321" parent="283" name="pays">
       <Position>6</Position>
       <StateNumber>765</StateNumber>
       <StoredType>varchar(100)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <index id="317" parent="281" name="fournisseur_pkey">
+    <index id="322" parent="283" name="fournisseur_pkey">
       <ColNames>fournisseur_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16653</ObjectId>
@@ -4603,14 +4636,20 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="318" parent="281" name="fournisseur_pkey">
+    <key id="323" parent="283" name="fournisseur_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16654</ObjectId>
       <Primary>1</Primary>
       <StateNumber>765</StateNumber>
       <UnderlyingIndexId>16653</UnderlyingIndexId>
     </key>
-    <column id="319" parent="282" name="ligne_cmd_id">
+    <trigger id="324" parent="283" name="register_timestamp_fournisseur_joined">
+      <Events>I</Events>
+      <ObjectId>16735</ObjectId>
+      <StateNumber>878</StateNumber>
+      <CallRoutineId>16734</CallRoutineId>
+    </trigger>
+    <column id="325" parent="284" name="ligne_cmd_id">
       <DefaultExpression>nextval(&apos;ligne_cmd_livraison_ligne_cmd_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -4619,31 +4658,31 @@ false Zulu
       <SequenceId>16691</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="320" parent="282" name="qte_cmd">
+    <column id="326" parent="284" name="qte_cmd">
       <Position>2</Position>
       <StateNumber>765</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="321" parent="282" name="qte_livree">
+    <column id="327" parent="284" name="qte_livree">
       <Position>3</Position>
       <StateNumber>765</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="322" parent="282" name="num_commande">
+    <column id="328" parent="284" name="num_commande">
       <Position>4</Position>
       <StateNumber>765</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="323" parent="282" name="medicament_dci">
+    <column id="329" parent="284" name="medicament_dci">
       <Position>5</Position>
       <StateNumber>765</StateNumber>
       <StoredType>varchar(255)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <foreign-key id="324" parent="282" name="ligne_cmd_livraison_num_commande_fkey">
+    <foreign-key id="330" parent="284" name="ligne_cmd_livraison_num_commande_fkey">
       <ColNames>num_commande</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16698</ObjectId>
@@ -4651,7 +4690,7 @@ false Zulu
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>16607</RefTableId>
     </foreign-key>
-    <foreign-key id="325" parent="282" name="ligne_cmd_livraison_medicament_dci_fkey">
+    <foreign-key id="331" parent="284" name="ligne_cmd_livraison_medicament_dci_fkey">
       <ColNames>medicament_dci</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16703</ObjectId>
@@ -4659,7 +4698,7 @@ false Zulu
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>16589</RefTableId>
     </foreign-key>
-    <index id="326" parent="282" name="ligne_cmd_livraison_pkey">
+    <index id="332" parent="284" name="ligne_cmd_livraison_pkey">
       <ColNames>ligne_cmd_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16696</ObjectId>
@@ -4668,14 +4707,14 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="327" parent="282" name="ligne_cmd_livraison_pkey">
+    <key id="333" parent="284" name="ligne_cmd_livraison_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16697</ObjectId>
       <Primary>1</Primary>
       <StateNumber>765</StateNumber>
       <UnderlyingIndexId>16696</UnderlyingIndexId>
     </key>
-    <column id="328" parent="283" name="ligne_vendu_id">
+    <column id="334" parent="285" name="ligne_vendu_id">
       <DefaultExpression>nextval(&apos;ligne_vendu_ligne_vendu_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -4684,25 +4723,25 @@ false Zulu
       <SequenceId>16674</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="329" parent="283" name="qte_vendue">
+    <column id="335" parent="285" name="qte_vendue">
       <Position>2</Position>
       <StateNumber>765</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="330" parent="283" name="num_vente">
+    <column id="336" parent="285" name="num_vente">
       <Position>3</Position>
       <StateNumber>765</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="331" parent="283" name="medicament_dci">
+    <column id="337" parent="285" name="medicament_dci">
       <Position>4</Position>
       <StateNumber>765</StateNumber>
       <StoredType>varchar(255)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <foreign-key id="332" parent="283" name="ligne_vendu_num_vente_fkey">
+    <foreign-key id="338" parent="285" name="ligne_vendu_num_vente_fkey">
       <ColNames>num_vente</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16681</ObjectId>
@@ -4710,7 +4749,7 @@ false Zulu
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>16656</RefTableId>
     </foreign-key>
-    <foreign-key id="333" parent="283" name="ligne_vendu_medicament_dci_fkey">
+    <foreign-key id="339" parent="285" name="ligne_vendu_medicament_dci_fkey">
       <ColNames>medicament_dci</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16686</ObjectId>
@@ -4718,7 +4757,7 @@ false Zulu
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>16589</RefTableId>
     </foreign-key>
-    <index id="334" parent="283" name="ligne_vendu_pkey">
+    <index id="340" parent="285" name="ligne_vendu_pkey">
       <ColNames>ligne_vendu_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16679</ObjectId>
@@ -4727,57 +4766,57 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="335" parent="283" name="ligne_vendu_pkey">
+    <key id="341" parent="285" name="ligne_vendu_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16680</ObjectId>
       <Primary>1</Primary>
       <StateNumber>765</StateNumber>
       <UnderlyingIndexId>16679</UnderlyingIndexId>
     </key>
-    <column id="336" parent="284" name="dci">
+    <column id="342" parent="286" name="dci">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>765</StateNumber>
       <StoredType>varchar(255)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="337" parent="284" name="dosage">
+    <column id="343" parent="286" name="dosage">
       <Position>2</Position>
       <StateNumber>765</StateNumber>
       <StoredType>varchar(255)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="338" parent="284" name="prixunit_vente">
+    <column id="344" parent="286" name="prixunit_vente">
       <Position>3</Position>
       <StateNumber>765</StateNumber>
       <StoredType>numeric(10,2 digit)|0s</StoredType>
       <TypeId>1700</TypeId>
     </column>
-    <column id="339" parent="284" name="prixunit_achat">
+    <column id="345" parent="286" name="prixunit_achat">
       <Position>4</Position>
       <StateNumber>765</StateNumber>
       <StoredType>numeric(10,2 digit)|0s</StoredType>
       <TypeId>1700</TypeId>
     </column>
-    <column id="340" parent="284" name="qte_stock">
+    <column id="346" parent="286" name="qte_stock">
       <Position>5</Position>
       <StateNumber>765</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="341" parent="284" name="forme_nom_forme">
+    <column id="347" parent="286" name="forme_nom_forme">
       <Position>6</Position>
       <StateNumber>765</StateNumber>
       <StoredType>varchar(255)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="342" parent="284" name="famille_num_famille">
+    <column id="348" parent="286" name="famille_num_famille">
       <Position>7</Position>
       <StateNumber>765</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="343" parent="284" name="medicament_forme_nom_forme_fkey">
+    <foreign-key id="349" parent="286" name="medicament_forme_nom_forme_fkey">
       <ColNames>forme_nom_forme</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16596</ObjectId>
@@ -4785,7 +4824,7 @@ false Zulu
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>16577</RefTableId>
     </foreign-key>
-    <foreign-key id="344" parent="284" name="medicament_famille_num_famille_fkey">
+    <foreign-key id="350" parent="286" name="medicament_famille_num_famille_fkey">
       <ColNames>famille_num_famille</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16601</ObjectId>
@@ -4793,7 +4832,7 @@ false Zulu
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>16583</RefTableId>
     </foreign-key>
-    <index id="345" parent="284" name="medicament_pkey">
+    <index id="351" parent="286" name="medicament_pkey">
       <ColNames>dci</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16594</ObjectId>
@@ -4805,14 +4844,14 @@ false Zulu
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="346" parent="284" name="medicament_pkey">
+    <key id="352" parent="286" name="medicament_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16595</ObjectId>
       <Primary>1</Primary>
       <StateNumber>765</StateNumber>
       <UnderlyingIndexId>16594</UnderlyingIndexId>
     </key>
-    <column id="347" parent="285" name="num_ord">
+    <column id="353" parent="287" name="num_ord">
       <DefaultExpression>nextval(&apos;ordonnance_num_ord_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -4821,25 +4860,25 @@ false Zulu
       <SequenceId>16622</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="348" parent="285" name="date_ord">
+    <column id="354" parent="287" name="date_ord">
       <Position>2</Position>
       <StateNumber>765</StateNumber>
       <StoredType>date|0s</StoredType>
       <TypeId>1082</TypeId>
     </column>
-    <column id="349" parent="285" name="nom_medecin">
+    <column id="355" parent="287" name="nom_medecin">
       <Position>3</Position>
       <StateNumber>765</StateNumber>
       <StoredType>varchar(255)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="350" parent="285" name="client_id">
+    <column id="356" parent="287" name="client_id">
       <Position>4</Position>
       <StateNumber>765</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="351" parent="285" name="ordonnance_client_id_fkey">
+    <foreign-key id="357" parent="287" name="ordonnance_client_id_fkey">
       <ColNames>client_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16629</ObjectId>
@@ -4847,7 +4886,7 @@ false Zulu
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>16614</RefTableId>
     </foreign-key>
-    <index id="352" parent="285" name="ordonnance_pkey">
+    <index id="358" parent="287" name="ordonnance_pkey">
       <ColNames>num_ord</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16627</ObjectId>
@@ -4856,14 +4895,14 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="353" parent="285" name="ordonnance_pkey">
+    <key id="359" parent="287" name="ordonnance_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16628</ObjectId>
       <Primary>1</Primary>
       <StateNumber>765</StateNumber>
       <UnderlyingIndexId>16627</UnderlyingIndexId>
     </key>
-    <column id="354" parent="286" name="permission_id">
+    <column id="360" parent="288" name="permission_id">
       <DefaultExpression>nextval(&apos;permission_permission_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -4872,13 +4911,13 @@ false Zulu
       <SequenceId>16667</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="355" parent="286" name="nom_permission">
+    <column id="361" parent="288" name="nom_permission">
       <Position>2</Position>
       <StateNumber>765</StateNumber>
       <StoredType>varchar(255)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <index id="356" parent="286" name="permission_pkey">
+    <index id="362" parent="288" name="permission_pkey">
       <ColNames>permission_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16672</ObjectId>
@@ -4887,14 +4926,14 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="357" parent="286" name="permission_pkey">
+    <key id="363" parent="288" name="permission_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16673</ObjectId>
       <Primary>1</Primary>
       <StateNumber>765</StateNumber>
       <UnderlyingIndexId>16672</UnderlyingIndexId>
     </key>
-    <column id="358" parent="287" name="utilisateur_id">
+    <column id="364" parent="289" name="utilisateur_id">
       <DefaultExpression>nextval(&apos;utilisateur_utilisateur_id_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -4903,74 +4942,74 @@ false Zulu
       <SequenceId>16634</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="359" parent="287" name="prenom">
+    <column id="365" parent="289" name="prenom">
       <Position>2</Position>
       <StateNumber>776</StateNumber>
       <StoredType>varchar(255)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="360" parent="287" name="nom">
+    <column id="366" parent="289" name="nom">
       <Position>3</Position>
       <StateNumber>777</StateNumber>
       <StoredType>varchar(255)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="361" parent="287" name="date_naissance">
+    <column id="367" parent="289" name="date_naissance">
       <Position>4</Position>
       <StateNumber>765</StateNumber>
       <StoredType>date|0s</StoredType>
       <TypeId>1082</TypeId>
     </column>
-    <column id="362" parent="287" name="telephone">
+    <column id="368" parent="289" name="telephone">
       <Position>5</Position>
       <StateNumber>765</StateNumber>
       <StoredType>varchar(20)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="363" parent="287" name="email">
+    <column id="369" parent="289" name="email">
       <Position>6</Position>
       <StateNumber>765</StateNumber>
       <StoredType>varchar(255)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="364" parent="287" name="adresse">
+    <column id="370" parent="289" name="adresse">
       <Position>7</Position>
       <StateNumber>765</StateNumber>
       <StoredType>varchar(255)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="365" parent="287" name="identifiant">
+    <column id="371" parent="289" name="identifiant">
       <Position>8</Position>
       <StateNumber>765</StateNumber>
       <StoredType>varchar(255)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="366" parent="287" name="mot_de_passe">
+    <column id="372" parent="289" name="mot_de_passe">
       <Position>9</Position>
       <StateNumber>765</StateNumber>
       <StoredType>varchar(255)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="367" parent="287" name="status">
+    <column id="373" parent="289" name="status">
       <Position>10</Position>
       <StateNumber>765</StateNumber>
       <StoredType>varchar(50)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="368" parent="287" name="est_superadmin">
+    <column id="374" parent="289" name="est_superadmin">
       <DefaultExpression>false</DefaultExpression>
       <Position>11</Position>
       <StateNumber>765</StateNumber>
       <StoredType>boolean|0s</StoredType>
       <TypeId>16</TypeId>
     </column>
-    <column id="369" parent="287" name="dernier_login">
+    <column id="375" parent="289" name="dernier_login">
       <Position>13</Position>
       <StateNumber>791</StateNumber>
       <StoredType>timestamp|0s</StoredType>
       <TypeId>1114</TypeId>
     </column>
-    <index id="370" parent="287" name="utilisateur_pkey">
+    <index id="376" parent="289" name="utilisateur_pkey">
       <ColNames>utilisateur_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16642</ObjectId>
@@ -4979,7 +5018,7 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="371" parent="287" name="utilisateur_identifiant_key">
+    <index id="377" parent="289" name="utilisateur_identifiant_key">
       <ColNames>identifiant</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16644</ObjectId>
@@ -4990,34 +5029,34 @@ false Zulu
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="372" parent="287" name="utilisateur_pkey">
+    <key id="378" parent="289" name="utilisateur_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16643</ObjectId>
       <Primary>1</Primary>
       <StateNumber>765</StateNumber>
       <UnderlyingIndexId>16642</UnderlyingIndexId>
     </key>
-    <key id="373" parent="287" name="utilisateur_identifiant_key">
+    <key id="379" parent="289" name="utilisateur_identifiant_key">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16645</ObjectId>
       <StateNumber>765</StateNumber>
       <UnderlyingIndexId>16644</UnderlyingIndexId>
     </key>
-    <column id="374" parent="288" name="utilisateur_id">
+    <column id="380" parent="290" name="utilisateur_id">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>765</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <column id="375" parent="288" name="permission_id">
+    <column id="381" parent="290" name="permission_id">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>765</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="376" parent="288" name="utilisateur_permission_utilisateur_id_fkey">
+    <foreign-key id="382" parent="290" name="utilisateur_permission_utilisateur_id_fkey">
       <ColNames>utilisateur_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16713</ObjectId>
@@ -5025,7 +5064,7 @@ false Zulu
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>16635</RefTableId>
     </foreign-key>
-    <foreign-key id="377" parent="288" name="utilisateur_permission_permission_id_fkey">
+    <foreign-key id="383" parent="290" name="utilisateur_permission_permission_id_fkey">
       <ColNames>permission_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16718</ObjectId>
@@ -5033,7 +5072,7 @@ false Zulu
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>16668</RefTableId>
     </foreign-key>
-    <index id="378" parent="288" name="utilisateur_permission_pkey">
+    <index id="384" parent="290" name="utilisateur_permission_pkey">
       <ColNames>utilisateur_id
 permission_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
@@ -5043,14 +5082,14 @@ permission_id</ColNames>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="379" parent="288" name="utilisateur_permission_pkey">
+    <key id="385" parent="290" name="utilisateur_permission_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16712</ObjectId>
       <Primary>1</Primary>
       <StateNumber>765</StateNumber>
       <UnderlyingIndexId>16711</UnderlyingIndexId>
     </key>
-    <column id="380" parent="289" name="num_vente">
+    <column id="386" parent="291" name="num_vente">
       <DefaultExpression>nextval(&apos;vente_num_vente_seq&apos;::regclass)</DefaultExpression>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -5059,31 +5098,31 @@ permission_id</ColNames>
       <SequenceId>16655</SequenceId>
       <TypeId>23</TypeId>
     </column>
-    <column id="381" parent="289" name="date_vente">
+    <column id="387" parent="291" name="date_vente">
       <Position>2</Position>
       <StateNumber>765</StateNumber>
       <StoredType>date|0s</StoredType>
       <TypeId>1082</TypeId>
     </column>
-    <column id="382" parent="289" name="status">
+    <column id="388" parent="291" name="status">
       <Position>3</Position>
       <StateNumber>765</StateNumber>
       <StoredType>varchar(50)|0s</StoredType>
       <TypeId>1043</TypeId>
     </column>
-    <column id="383" parent="289" name="montant">
+    <column id="389" parent="291" name="montant">
       <Position>4</Position>
       <StateNumber>765</StateNumber>
       <StoredType>numeric(10,2 digit)|0s</StoredType>
       <TypeId>1700</TypeId>
     </column>
-    <column id="384" parent="289" name="utilisateur_id">
+    <column id="390" parent="291" name="utilisateur_id">
       <Position>5</Position>
       <StateNumber>765</StateNumber>
       <StoredType>integer|0s</StoredType>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="385" parent="289" name="vente_utilisateur_id_fkey">
+    <foreign-key id="391" parent="291" name="vente_utilisateur_id_fkey">
       <ColNames>utilisateur_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16662</ObjectId>
@@ -5091,7 +5130,7 @@ permission_id</ColNames>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>16635</RefTableId>
     </foreign-key>
-    <index id="386" parent="289" name="vente_pkey">
+    <index id="392" parent="291" name="vente_pkey">
       <ColNames>num_vente</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16660</ObjectId>
@@ -5100,7 +5139,7 @@ permission_id</ColNames>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="387" parent="289" name="vente_pkey">
+    <key id="393" parent="291" name="vente_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16661</ObjectId>
       <Primary>1</Primary>
