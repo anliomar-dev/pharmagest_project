@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1500.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FournisseurController">
+    <style>-fx-background-color: white;</style>
+
+    <left>
+        <VBox prefHeight="670.0" prefWidth="261.0" spacing="0" style="-fx-background-color: #efefef; -fx-background-radius: 15; -fx-border-radius: 15; -fx-padding: 10 10 10 10;">
+            <BorderPane.margin>
+                <Insets bottom="15.0" left="15.0" top="15.0" />
+            </BorderPane.margin>
+            <children>
+                <AnchorPane prefHeight="102.0" prefWidth="210.0">
+                    <VBox.margin>
+                        <Insets top="15.0" />
+                    </VBox.margin>
+                    <children>
+                        <AnchorPane layoutX="94.0" layoutY="14.0" prefHeight="35.0" prefWidth="36.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+                            <children>
+                                <ImageView fitHeight="37.0" fitWidth="39.0" layoutX="2.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../images/icons/user%20(2).png" />
+                                    </image>
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </ImageView>
+                            </children>
+                        </AnchorPane>
+                        <Line endX="54.20001220703125" layoutX="143.0" layoutY="88.0" startX="-113.4000015258789" stroke="#a4a1a1" />
+                        <Label fx:id="UsernameLabel" layoutX="48.0" layoutY="61.0" prefHeight="26.0" prefWidth="132.0" textAlignment="CENTER">
+                            <font>
+                                <Font name="System Bold Italic" size="17.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+                <AnchorPane prefHeight="53.0" prefWidth="242.0" style="-fx-background-color: #00a3a3;">
+                    <VBox.margin>
+                        <Insets top="15.0" />
+                    </VBox.margin>
+                    <children>
+                        <AnchorPane layoutX="19.0" layoutY="11.0" prefHeight="32.0" prefWidth="37.0" style="-fx-background-color: white; -fx-background-radius: 15;">
+                            <effect>
+                                <DropShadow />
+                            </effect>
+                            <cursor>
+                                <Cursor fx:constant="DEFAULT" />
+                            </cursor>
+                            <children>
+                                <ImageView fitHeight="31.0" fitWidth="31.0" layoutX="3.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../images/icons/home.png" />
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </AnchorPane>
+                        <Button fx:id="DashboardButton" layoutX="63.0" layoutY="11.0" mnemonicParsing="false" onAction="#DashboardButtonOnAction" prefHeight="30.0" prefWidth="137.0" style="-fx-background-color: #00a3a3;" text="Dashboard" textAlignment="CENTER" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold Italic" size="16.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+                    </children>
+                </AnchorPane>
+                <AnchorPane layoutX="20.0" layoutY="224.0" prefHeight="36.0" prefWidth="210.0" style="-fx-border-width: #efefef; -fx-border-color: #efefef; -fx-background-color: #efefef;">
+                    <children>
+                        <AnchorPane layoutY="5.0" prefHeight="34.0" prefWidth="37.0">
+                            <effect>
+                                <DropShadow />
+                            </effect>
+                            <cursor>
+                                <Cursor fx:constant="DEFAULT" />
+                            </cursor>
+                        </AnchorPane>
+                        <Button layoutX="3.0" layoutY="6.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="237.0" style="-fx-background-color: #f5f8f8;" text="Utilisateurs" textFill="#030e0e">
+                            <font>
+                                <Font size="13.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+                        <ImageView fitHeight="27.0" fitWidth="30.0" layoutX="23.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../images/icons/users.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                    <VBox.margin>
+                        <Insets top="10.0" />
+                    </VBox.margin>
+                </AnchorPane>
+                <AnchorPane layoutX="20.0" layoutY="217.0" prefHeight="36.0" prefWidth="210.0" style="-fx-border-width: #efefef; -fx-border-color: #efefef; -fx-background-color: #efefef;">
+                    <children>
+                        <AnchorPane layoutY="5.0" prefHeight="34.0" prefWidth="37.0">
+                            <effect>
+                                <DropShadow />
+                            </effect>
+                            <cursor>
+                                <Cursor fx:constant="DEFAULT" />
+                            </cursor>
+                        </AnchorPane>
+                        <Button layoutX="3.0" layoutY="6.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="237.0" style="-fx-background-color: #f5f8f8;" text="Founisseurs" textFill="#030e0e">
+                            <font>
+                                <Font size="13.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+                        <ImageView fitHeight="27.0" fitWidth="30.0" layoutX="23.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../../../images/icons/users.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </AnchorPane>
+            </children>
+        </VBox>
+    </left>
+
+    <center>
+        <AnchorPane prefHeight="674.0" prefWidth="1500.0" BorderPane.alignment="CENTER">
+            <AnchorPane fx:id="newFournisseurForm" layoutX="279.0" layoutY="88.0" prefHeight="514.0" prefWidth="663.0" style="-fx-background-color: #efefef;">
+                <TextField fx:id="paysTextField" layoutX="66.0" layoutY="149.0" prefHeight="34.0" prefWidth="236.0" style="-fx-background-color: #ffffff;" />
+                <TextField fx:id="NomFournisseurTextField" layoutX="349.0" layoutY="149.0" prefHeight="34.0" prefWidth="244.0" style="-fx-background-color: #ffffff;" />
+                <TextField fx:id="PhoneTextFIeld" layoutX="65.0" layoutY="244.0" prefHeight="34.0" prefWidth="238.0" style="-fx-background-color: #ffffff;" />
+                <TextField fx:id="emailTextField" layoutX="348.0" layoutY="244.0" prefHeight="34.0" prefWidth="247.0" style="-fx-background-color: #ffffff;" />
+                <TextField fx:id="adresseTextField" layoutX="64.0" layoutY="359.0" prefHeight="34.0" prefWidth="530.0" style="-fx-background-color: #ffffff;" />
+                <Label layoutX="64.0" layoutY="122.0" prefHeight="26.0" prefWidth="31.0" text="Pays">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </Label>
+                <Label layoutX="64.0" layoutY="214.0" prefHeight="26.0" prefWidth="63.0" text="Téléphone">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </Label>
+                <Label layoutX="348.0" layoutY="122.0" prefHeight="26.0" prefWidth="31.0" text="Nom">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </Label>
+                <Label layoutX="349.0" layoutY="214.0" prefHeight="26.0" prefWidth="35.0" text="Email">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </Label>
+                <Label layoutX="64.0" layoutY="330.0" prefHeight="26.0" prefWidth="48.0" text="Adresse">
+                    <font>
+                        <Font size="13.0" />
+                    </font>
+                </Label>
+                <Label layoutX="231.0" layoutY="62.0" prefHeight="40.0" prefWidth="218.0" text="Nouveau fournisseur" textFill="#00a3a3">
+                    <font>
+                        <Font size="23.0" />
+                    </font>
+                </Label>
+                <Button fx:id="resetNewFournisseurFormButton" layoutX="171.0" layoutY="428.0" mnemonicParsing="false" onAction="#handleResetNewFournisseurForm" prefHeight="30.0" prefWidth="141.0" style="-fx-background-color: #ffffff;" text="Réinitialiser" textFill="#797676" />
+                <Button fx:id="saveNewFournisseurButton" layoutX="340.0" layoutY="428.0" mnemonicParsing="false" onAction="#handleSaveNewFournisseur" prefHeight="30.0" prefWidth="169.0" style="-fx-background-color: #00a3a3;" text="Sauvegarder" textFill="WHITE" />
+                <Label fx:id="saveNewFournisseurLabelMessage" layoutX="214.0" layoutY="35.0" prefHeight="20.0" prefWidth="235.0" textFill="RED">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+            <Label fx:id="emailLabelMessage" layoutX="349.0" layoutY="278.0" prefHeight="25.0" prefWidth="220.0" textFill="RED" wrapText="true">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <Label fx:id="phoneLabelMessage" layoutX="64.0" layoutY="276.0" prefHeight="54.0" prefWidth="240.0" textFill="RED" wrapText="true">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            </AnchorPane>
+            <!--button to return to the table of all fournisseurs-->
+            <Button fx:id="AllFournisseurButton" layoutX="279.0" layoutY="617.0" mnemonicParsing="false" onAction="#AllFournisseurButtonOnAction" prefHeight="31.0" prefWidth="209.0" text="&lt;-- Tous les fournisseurs">
+                <font>
+                    <Font size="15.0" />
+                </font>
+            </Button>
+        </AnchorPane>
+    </center>
+</BorderPane>

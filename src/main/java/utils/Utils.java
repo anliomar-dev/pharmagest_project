@@ -2,12 +2,18 @@ package utils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Utils {
     /*
     public static void main(String[] args){
@@ -51,15 +57,36 @@ public class Utils {
     public void loadScene(String fxmlFile, String title, Button button) throws IOException {
         // path where fxml file is located
         String pathToFxmlFile = "/com/phamagest/pharmagest/";
+
         try {
+            // Charger le fichier FXML
             FXMLLoader loader = new FXMLLoader(getClass().getResource(pathToFxmlFile + fxmlFile));
+
+            // Créer une nouvelle scène avec le fichier FXML chargé
             Scene newScene = new Scene(loader.load());
+
+            // Récupérer la fenêtre actuelle (Stage)
             Stage stage = (Stage) button.getScene().getWindow();
+
+            // Définir la nouvelle scène et le titre
             stage.setScene(newScene);
             stage.setTitle(title);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+    /**
+     *
+     * @param str the string we want to verify
+     * @param regEx the regex we want to verify
+     * @return true if string  match regex else false
+     */
+    public static boolean validateField(String str, String regEx) {
+        Pattern pattern = Pattern.compile(regEx);
+        Matcher matcher = pattern.matcher(str);
+        return matcher.matches();
+    }
+
 
 }

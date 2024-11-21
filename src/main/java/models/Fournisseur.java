@@ -49,23 +49,33 @@ public class Fournisseur {
         this.pays = pays;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+
     // Constructeur for create fournisseur
-    public Fournisseur(String nom, String adresse, String telephone, String email, String pays) {
+    public Fournisseur(String pays, String nom, String telephone, String email, String adresse) {
         this.nom = nom;
-        this.adresse = adresse;
+        this.pays = pays;
         this.telephone = telephone;
         this.email = email;
-        this.pays = pays;
+        this.adresse = adresse;
     }
 
     // Constructeur for update, retrieve all founisseurs or delete fournisseur
-    public Fournisseur(Integer id, String nom, String adresse, String telephone, String email, String pays) {
+    public Fournisseur(Integer id, String pays, String nom, String telephone, String email, String adresse) {
         this.id = id;
+        this.pays = pays;
         this.nom = nom;
-        this.adresse = adresse;
         this.telephone = telephone;
         this.email = email;
-        this.pays = pays;
+        this.adresse = adresse;
+
     }
 
 
@@ -74,11 +84,11 @@ public class Fournisseur {
     public String toString() {
         return "Fournisseur{" +
                 "id=" + id +
-                ", nom='" + nom + '\'' +
                 ", pays='" + pays + '\'' +
-                ", adresse='" + adresse + '\'' +
-                ", email='" + email + '\'' +
+                ", nom='" + nom + '\'' +
                 ", telephone='" + telephone + '\'' +
+                ", email='" + email + '\'' +
+                ", adresse='" + adresse + '\'' +
                 '}';
     }
 

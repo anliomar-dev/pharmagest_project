@@ -15,4 +15,6 @@ module com.phamagest.pharmagest {
     exports com.phamagest.pharmagest;
     exports controllers;
     opens controllers to javafx.fxml;
+    opens models to javafx.base;
+
 }
