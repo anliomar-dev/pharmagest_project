@@ -61,22 +61,27 @@
       <AnchorPane prefHeight="500.0" prefWidth="220.0" BorderPane.alignment="CENTER">
          <children>
             <Label layoutX="15.0" layoutY="60.0" text="Nom :" />
-            <TextField layoutX="15.0" layoutY="78.0" />
+            <TextField fx:id="nomadd" layoutX="15.0" layoutY="78.0" />
             <Label layoutX="15.0" layoutY="104.0" text="Prénom :" />
             <Label layoutX="15.0" layoutY="148.0" text="E-mail :" />
             <Label layoutX="15.0" layoutY="192.0" text="NumTel :" />
             <Label layoutX="15.0" layoutY="236.0" text="Adresse :" />
             <Label layoutX="15.0" layoutY="280.0" text="Identifiant :" />
             <Label layoutX="15.0" layoutY="325.0" text="Mot de passe :" />
-            <TextField layoutX="15.0" layoutY="122.0" />
-            <TextField layoutX="15.0" layoutY="166.0" />
-            <TextField layoutX="15.0" layoutY="210.0" />
-            <TextField layoutX="15.0" layoutY="299.0" />
-            <TextField layoutX="15.0" layoutY="341.0" />
-            <TextField layoutX="15.0" layoutY="254.0" />
+            <TextField fx:id="prenomadd" layoutX="15.0" layoutY="122.0" />
+            <TextField fx:id="emailadd" layoutX="15.0" layoutY="166.0" />
+            <TextField fx:id="teladd" layoutX="15.0" layoutY="210.0" />
+            <TextField fx:id="identifiantadd" layoutX="15.0" layoutY="299.0" />
+            <TextField fx:id="mdpadd" layoutX="15.0" layoutY="341.0" />
+            <TextField fx:id="adresseadd" layoutX="15.0" layoutY="254.0" />
             <Label layoutX="15.0" layoutY="367.0" text="Confirmer :" />
-            <TextField layoutX="15.0" layoutY="385.0" />
-            <Button fx:id="utilisateuraddButton" layoutX="32.0" layoutY="428.0" mnemonicParsing="false" text="Ajouter un employé" />
+            <TextField fx:id="confirmmdpadd" layoutX="15.0" layoutY="385.0" />
+            <Button fx:id="utilisateuraddButton" layoutX="32.0" layoutY="428.0" mnemonicParsing="false" onAction="#handleutilisateuraddButton" text="Ajouter un employé" />
+            <Label fx:id="errortextnewutilisateur" layoutX="21.0" layoutY="35.0" />
+            <Label fx:id="emailerror" layoutX="40.0" layoutY="483.0" />
+            <Label fx:id="telvalid" layoutX="25.0" layoutY="508.0" />
+            <Label fx:id="mdperror" layoutX="25.0" layoutY="561.0" />
+            <Label fx:id="confirmmdperror" layoutX="18.0" layoutY="602.0" />
          </children>
       </AnchorPane>
    </left>

@@ -18,14 +18,7 @@ public class Utilisateur {
     // Associations
     private Permission permission;
 
-    public Utilisateur(int id, String prenom, String nom, Date dateNaissance, String email, String telephone, String adresse) {
-    }
 
-    public Utilisateur(int id, String prenom, String nom, String dateNaissance, String email, String telephone, String adresse, String identifant, Boolean superadmin) {
-    }
-
-    public Utilisateur(String prenom, String nom, String dateNaissance, String telephone, String email) {
-    }
 
     public String getPrenom() {
         return prenom;
@@ -124,22 +117,47 @@ public class Utilisateur {
     }
 
     // Constructeur
-    public Utilisateur(Integer id, String prenom, String nom, Date dateNaissance,
-                       String telephone, String email, String adresse, String identifiant,
-                       String motDePasse, String status, boolean estSuperAdmin, Permission permission) {
-        this.id = id;
-        this.prenom = prenom;
+//    public Utilisateur(Integer id, String prenom, String nom, Date dateNaissance,
+//                       String telephone, String email, String adresse, String identifiant,
+//                       String motDePasse, String status, boolean  estSuperAdmin, Permission permission) {
+//        this.id = id;
+//        this.prenom = prenom;
+//        this.nom = nom;
+//        this.dateNaissance = dateNaissance;
+//        this.telephone = telephone;
+//        this.email = email;
+//        this.adresse = adresse;
+//        this.identifiant = identifiant;
+//        this.motDePasse = motDePasse;
+//        this.status = status;
+//        this.estSuperAdmin = estSuperAdmin;
+//        this.permission = permission;
+//    }
+
+    public Utilisateur(String nom, String prenom, String email, String tel, String adresse, String identifiant, String motDePasse) {
         this.nom = nom;
-        this.dateNaissance = dateNaissance;
-        this.telephone = telephone;
+        this.prenom = prenom;
         this.email = email;
+        this.telephone = tel;
         this.adresse = adresse;
         this.identifiant = identifiant;
         this.motDePasse = motDePasse;
-        this.status = status;
-        this.estSuperAdmin = estSuperAdmin;
-        this.permission = permission;
     }
+
+
+    @Override
+    public String toString() {
+        return "Utilisateur{" +
+                "prenom='" + prenom + '\'' +
+                ", nom='" + nom + '\'' +
+                ", telephone='" + telephone + '\'' +
+                ", email='" + email + '\'' +
+                ", adresse='" + adresse + '\'' +
+                ", identifiant='" + identifiant + '\'' +
+                ", motDePasse='" + motDePasse + '\'' +
+                '}';
+    }
+
 
 
     // Méthodes
