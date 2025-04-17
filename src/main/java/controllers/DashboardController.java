@@ -11,6 +11,7 @@ import models.Utilisateur;
 import java.io.IOException;
 
 public class DashboardController {
+    public Button leaveButton;
     Utils sceneLoader = new Utils();
 
 
@@ -23,6 +24,16 @@ public class DashboardController {
     @FXML private Button maintenanceButton;
     public void maintenanceButtonOnAction(ActionEvent event) throws IOException {
         sceneLoader.loadScene("Maintenance.fxml", "Maintenance", maintenanceButton);
+    }
+
+    @FXML private Button commandeButton;
+    public void commandeButtonOnAction(ActionEvent event) throws IOException {
+        sceneLoader.loadScene("commande.fxml", "Commande", commandeButton);
+    }
+
+    @FXML private Button receptionCmdButton;
+    public void setReceptionCmdButtonOnAction(ActionEvent event) throws IOException {
+        sceneLoader.loadScene("receptionCommande.fxml", "Reception des commandes", receptionCmdButton);
     }
 
     @FXML private Button changeButton;
