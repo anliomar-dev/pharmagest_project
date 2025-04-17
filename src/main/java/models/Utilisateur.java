@@ -11,7 +11,6 @@ public class Utilisateur {
     private String nom;
     private String telephone;
     private String email;
-    private String adresse;
     private String identifiant;
     private String motDePasse;
     private String status;
@@ -20,15 +19,31 @@ public class Utilisateur {
     // Associations
     private Permission permission;
 
-    public Utilisateur(int id, String nom, String prenom, String email, String tel, String adresse, String identifiant, Boolean estSuperAdmin) {
+    //Constructeur pour ajouter un utilisateur
+    public Utilisateur(String nom, String prenom, String email, String tel, String identifiant, String motDePasse, String status, Boolean estSuperAdmin) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.telephone = tel;
+        this.identifiant = identifiant;
+        this.motDePasse = motDePasse;
+        this.status = status;
+        this.estSuperAdmin = estSuperAdmin;
+    }
+
+    //Contructeur pour modifier (unfinished)
+    public Utilisateur(int id, String nom, String prenom, String email, String tel, String identifiant, Boolean estSuperAdmin) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
         this.telephone = tel;
-        this.adresse = adresse;
         this.identifiant = identifiant;
         this.estSuperAdmin = estSuperAdmin;
+    }
+
+    public Utilisateur() {
+
     }
 
     public int getId() {
@@ -55,12 +70,6 @@ public class Utilisateur {
     }
     public void setEmail(String email) {
         this.email = email;
-    }
-    public String getAdresse() {
-        return adresse;
-    }
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
     }
     public String getIdentifiant() {
         return identifiant;
@@ -93,15 +102,6 @@ public class Utilisateur {
     public void setMotDePasse(String motDePasse) { this.motDePasse = motDePasse; }
 
 
-    public Utilisateur(String nom, String prenom, String email, String tel, String adresse, String username, String motDePasse, String selectedRole, boolean isSuperAdmin) {
-    }
-
-
-
-
-
-
-
 
     @Override
     public String toString() {
@@ -110,7 +110,6 @@ public class Utilisateur {
                 ", nom='" + nom + '\'' +
                 ", telephone='" + telephone + '\'' +
                 ", email='" + email + '\'' +
-                ", adresse='" + adresse + '\'' +
                 ", identifiant='" + identifiant + '\'' +
 //                ", motDePasse='" + motDePasse + '\'' +
                 '}';

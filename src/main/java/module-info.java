@@ -10,6 +10,7 @@ module com.phamagest.pharmagest {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires java.sql;
+    requires java.desktop;
 
     opens com.phamagest.pharmagest to javafx.fxml;
     exports com.phamagest.pharmagest;

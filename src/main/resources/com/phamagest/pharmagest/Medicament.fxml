@@ -11,21 +11,23 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="504.0" prefWidth="902.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UtilisateurController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="504.0" prefWidth="902.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MedicamentController">
    <center>
       <AnchorPane prefHeight="548.0" prefWidth="703.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView fx:id="utilisateurTable" layoutX="14.0" layoutY="111.0" prefHeight="342.0" prefWidth="875.0">
+            <TableView fx:id="medicamentTable" layoutX="14.0" layoutY="111.0" prefHeight="342.0" prefWidth="875.0">
                <columns>
-                  <TableColumn fx:id="nomColumn" prefWidth="100.0" text="Nom" />
-                  <TableColumn fx:id="prenomColumn" prefWidth="100.0" text="Prénom" />
-                  <TableColumn fx:id="emailColumn" prefWidth="192.0" text="Email" />
-                  <TableColumn fx:id="telephoneColumn" minWidth="0.0" prefWidth="125.5999755859375" text="Téléphone" />
-                  <TableColumn fx:id="identifiantColumn" minWidth="0.0" prefWidth="144.0001220703125" text="Identifiant" />
+                  <TableColumn fx:id="dciColumn" prefWidth="100.0" text="Médicament" />
+                  <TableColumn fx:id="formeColumn" prefWidth="100.0" text="Forme" />
+                  <TableColumn fx:id="familleColumn" prefWidth="192.0" text="Famille" />
+                   <TableColumn fx:id="dosageColumn" minWidth="0.0" prefWidth="150.0" text="Dosage" />
+                  <TableColumn fx:id="puachatColumn" minWidth="0.0" prefWidth="125.5999755859375" text="Prix unité achat" />
+                   <TableColumn fx:id="puventeColumn" minWidth="0.0" prefWidth="144.0001220703125" text="Prix unité vente" />
+                   <TableColumn fx:id="qtestockeColumn" minWidth="0.0" prefWidth="144.0001220703125" text="Quantité stocké" />
                   <TableColumn fx:id="actionsColumn" minWidth="0.0" prefWidth="150.0" text="Actions" />
                </columns>
             </TableView>
-            <Button fx:id="addUtilisateurPage" layoutX="777.0" layoutY="49.0" mnemonicParsing="false" onAction="#addUtilisateurPageButtonOnAction" text="Ajouter utilisateur" />
+            <Button fx:id="addMedicamentPage" layoutX="777.0" layoutY="49.0" mnemonicParsing="false" onAction="#addMedicamentPageButtonOnAction" text="Ajouter médicament" />
             <ImageView fitHeight="46.0" fitWidth="50.0" layoutX="856.0" layoutY="456.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../images/PharmaGest_logo.png" />
@@ -34,7 +36,7 @@
             <Button fx:id="maintenanceButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#maintenanceButtonOnAction" text="Retour" />
             <ComboBox fx:id="searchComboBox" layoutX="14.0" layoutY="62.0" prefWidth="150.0" promptText="Choisir une colone" />
             <TextField fx:id="searchField" layoutX="188.0" layoutY="62.0" />
-            <Button fx:id="searchButton"  layoutX="360.0" layoutY="62.0" mnemonicParsing="false" text="Rechercher" onAction="#searchButtonOnAction"/>
+            <Button fx:id="searchButton" layoutX="360.0" layoutY="62.0" mnemonicParsing="false" onAction="#searchButtonOnAction" text="Rechercher" />
             <Label fx:id="searchError" layoutX="14.0" layoutY="88.0" />
             <Button fx:id="searchButtonAnnuler" layoutX="451.0" layoutY="62.0" mnemonicParsing="false" onAction="#searchButtonAnnulerOnAction" text="Annuler" />
          </children>

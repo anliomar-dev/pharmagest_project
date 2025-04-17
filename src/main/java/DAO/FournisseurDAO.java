@@ -43,7 +43,7 @@ public class FournisseurDAO {
      */
     public List<Fournisseur> getAllFounisseur() throws SQLException{
         List<Fournisseur> Fournisseurs = new ArrayList<>();
-        String query = "select * from fournisseur";
+        String query = "SELECT * FROM fournisseur";
         try(Statement stmt = connection.createStatement();
             ResultSet resultSet = stmt.executeQuery(query)) {
 

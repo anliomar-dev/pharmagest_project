@@ -11,6 +11,36 @@ public class Medicament {
     private Forme forme;
     private Famille famille;
 
+    public Medicament(String DCI, double prixUnitVente, double prixUnitAchat) {
+        this.DCI = DCI;
+        this.prixUnitVente = prixUnitVente;
+        this.prixUnitAchat = prixUnitAchat;
+    }
+
+    public Medicament(String DCI) {
+        this.DCI = DCI;
+    }
+
+    public Medicament(String DCI, String dosage, double prixUnitVente, double prixUnitAchat, int qteStock, Forme forme, Famille famille) {
+        this.DCI = DCI;
+        this.dosage = dosage;
+        this.prixUnitVente = prixUnitVente;
+        this.prixUnitAchat = prixUnitAchat;
+        this.qteStock = qteStock;
+        this.forme = forme;
+        this.famille = famille;
+    }
+
+    @Override
+    public String toString() {
+        return "Medicament{" +
+                "DCI='" + DCI + '\'' +
+                ", dosage='" + dosage + '\'' +
+                ", forme=" + forme +
+                ", famille=" + famille +
+                '}';
+    }
+
     public String getDosage() {
         return dosage;
     }
@@ -64,17 +94,6 @@ public class Medicament {
     }
 
     public void setFamille(Famille famille) {
-        this.famille = famille;
-    }
-
-    // Constructeur
-    public Medicament(String DCI, String dosage, double prixUnitVente, double prixUnitAchat, int qteStock, Forme forme, Famille famille) {
-        this.DCI = DCI;
-        this.dosage = dosage;
-        this.prixUnitVente = prixUnitVente;
-        this.prixUnitAchat = prixUnitAchat;
-        this.qteStock = qteStock;
-        this.forme = forme;
         this.famille = famille;
     }
 
