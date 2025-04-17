@@ -17,6 +17,7 @@ import utils.ValidationUtils;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Objects;
 import java.util.Optional;
 
 public class FormeController {
@@ -29,7 +30,8 @@ public class FormeController {
     }
 
     public void searchButtonAnnulerOnAction(ActionEvent e) throws SQLException {
-        formeSearchField.clear();
+        loadFormeData();
+        clearSearch();
     }
 
     @FXML private TableView<Forme> formeTable;
@@ -38,15 +40,17 @@ public class FormeController {
     @FXML private TextField formeSearchField;
     @FXML private Label formeError;
 
+    private String originalForme;
+
     public void initialize() throws SQLException{
         formeColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNomForme()));
 
         formeTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
+                originalForme = newSelection.getNomForme();
                 formeSearchField.setText(newSelection.getNomForme());
             }
         });
-
         loadFormeData();
     }
 
@@ -75,41 +79,67 @@ public class FormeController {
     }
 
     public void addFormeButtonOnAction(ActionEvent e) throws SQLException {
-        FormeDAO formeDAO = new FormeDAO();
-        boolean isInvalid = false;
+        if(Objects.equals(originalForme, formeSearchField.getText())){
+            formeError.setText("Forme existant");
+        }else{
+            FormeDAO formeDAO = new FormeDAO();
+            boolean isInvalid = false;
 
-        if (ValidationUtils.validateForme(formeSearchField, formeError)) isInvalid = true;
+            if (ValidationUtils.validateForme(formeSearchField, formeError)) isInvalid = true;
 
-        if(!isInvalid){
-            String forme = formeSearchField.getText();
+            if(!isInvalid){
+                String forme = formeSearchField.getText();
 
-            Forme newforme = new Forme(forme);
-            if(formeDAO.addForme(newforme)){
-                formeSearchField.clear();
-                loadFormeData();
+                Forme newforme = new Forme(forme);
+                if(formeDAO.addForme(newforme)){
+                    loadFormeData();
+                    clearSearch();
+                }
             }
         }
     }
 
     public void modifierFormeButtonOnAction(ActionEvent e) throws SQLException {
+//        FormeDAO formeDAO = new FormeDAO();
+//        boolean isInvalid = false;
+//
+//        if (ValidationUtils.validateForme(formeSearchField, formeError)) isInvalid = true;
+//
+//        if(!isInvalid){
+//            String forme = formeSearchField.getText();
+//
+//            Forme modifierforme = new Forme(forme);
+//            if(formeDAO.modifierForme(originalForme, modifierforme)){
+//                loadFormeData();
+//                clearSearch();
+//            }
+//        }
     }
 
     public void supprimerFormeButtonOnAction(ActionEvent e) throws SQLException {
         String forme = formeSearchField.getText();
         if(forme.isEmpty()){
-            formeError.setText("Choissez une forme");
+            formeError.setText("Choisir une forme");
         }else{
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Supprimer forme");
-            alert.setHeaderText("Supprimer la forme : " + forme);
-            alert.setContentText("Vous voulez supprimer cette forme ?");
+            alert.setHeaderText("Vous voulez supprimer la forme : " + forme);
             Optional<ButtonType> result = alert.showAndWait();
             if (result.isPresent() && result.get() == ButtonType.OK) {
                 FormeDAO formeDAO = new FormeDAO();
                 formeDAO.deleteForme(forme);
                 loadFormeData();
+                clearSearch();
             }
         }
+    }
+
+    private void clearSearch(){
+        formeSearchField.clear();
+
+        formeError.setText("");
+
+        originalForme = null;
     }
 }
 

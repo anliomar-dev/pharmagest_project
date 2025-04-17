@@ -1,23 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MaintenanceController">
-   <children>
-      <Button fx:id="medicamentButton" layoutX="14.0" layoutY="165.0" mnemonicParsing="false" onAction="#medicamentButtonOnAction" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: #3399CC; -fx-border-color: gray;" text="Médicament" textFill="WHITE" />
-      <Button fx:id="familleButton" layoutX="347.0" layoutY="165.0" mnemonicParsing="false" onAction="#familleButtonOnAction" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: #3399CC; -fx-border-color: gray;" text="Famille" textFill="WHITE" />
-      <Button fx:id="formeButton" layoutX="180.0" layoutY="165.0" mnemonicParsing="false" onAction="#formeButtonOnAction" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: #3399CC; -fx-border-color: gray;" text="Forme" textFill="WHITE" />
-      <Button fx:id="returnButton" layoutX="180.0" layoutY="319.0" mnemonicParsing="false" onAction="#returnButtonOnAction" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: gray;" text="Retour" textFill="WHITE" />
-      <Button fx:id="founisseurButton" layoutX="14.0" layoutY="224.0" mnemonicParsing="false" onAction="#founisseurButtonOnAction" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: #3399CC; -fx-border-color: gray;" text="Fournisseur" textFill="WHITE" />
-      <Button fx:id="utilisateurButton" layoutX="180.0" layoutY="224.0" mnemonicParsing="false" onAction="#utilisateurButtonOnAction" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: #3399CC; -fx-border-color: gray;" text="Utilisateur" textFill="WHITE" />
-      <Button fx:id="majListPrixButton" layoutX="347.0" layoutY="224.0" mnemonicParsing="false" onAction="#majListPrixButtonOnAction" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: #3399CC; -fx-border-color: gray;" text=" MAJ Liste de Prix" textFill="WHITE" />
-      <ImageView fitHeight="113.0" fitWidth="120.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../images/PharmaGest_logo.png" />
-         </image>
-      </ImageView>
-   </children>
-</AnchorPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #f5f7fa;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MaintenanceController">
+   <top>
+      <HBox alignment="CENTER_RIGHT" style="-fx-background-color: #2c3e50; -fx-padding: 10;">
+         <children>
+            <Label fx:id="usernameLabel" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <VBox alignment="TOP_CENTER" spacing="30" style="-fx-padding: 30;">
+         <children>
+            <Label style="-fx-text-fill: #2c3e50;" text="Maintenance">
+               <font>
+                  <Font name="Segoe UI Bold" size="32.0" />
+               </font>
+               <effect>
+                  <DropShadow color="#d6d6d6" radius="3" spread="0.2" />
+               </effect>
+            </Label>
+            <HBox alignment="CENTER" spacing="30">
+               <children>
+                  <Button fx:id="medicamentButton" mnemonicParsing="false" onAction="#medicamentButtonOnAction" prefHeight="70.0" prefWidth="220.0" style="-fx-background-color: #3498db; -fx-background-radius: 5;" text="Médicament" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="formeButton" mnemonicParsing="false" onAction="#formeButtonOnAction" prefHeight="70.0" prefWidth="220.0" style="-fx-background-color: #3498db; -fx-background-radius: 5;" text="Forme" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="familleButton" mnemonicParsing="false" onAction="#familleButtonOnAction" prefHeight="70.0" prefWidth="220.0" style="-fx-background-color: #3498db; -fx-background-radius: 5;" text="Famille" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" spacing="30">
+               <children>
+                  <Button fx:id="founisseurButton" mnemonicParsing="false" onAction="#founisseurButtonOnAction" prefHeight="70.0" prefWidth="220.0" style="-fx-background-color: #2ecc71; -fx-background-radius: 5;" text="Fournisseur" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="utilisateurButton" mnemonicParsing="false" onAction="#utilisateurButtonOnAction" prefHeight="70.0" prefWidth="220.0" style="-fx-background-color: #2ecc71; -fx-background-radius: 5;" text="Utilisateur" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="majListPrixButton" mnemonicParsing="false" onAction="#majListPrixButtonOnAction" prefHeight="70.0" prefWidth="220.0" style="-fx-background-color: #2ecc71; -fx-background-radius: 5;" text="MAJ des prix" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" spacing="40" style="-fx-padding: 30;">
+               <children>
+                  <Button fx:id="returnButton" mnemonicParsing="false" onAction="#returnButtonOnAction" prefHeight="60.0" prefWidth="240.0" style="-fx-background-color: #7f8c8d; -fx-background-radius: 5;" text="Retour" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER" style="-fx-padding: 15; -fx-background-color: #ecf0f1;">
+         <children>
+            <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/PharmaGest_logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>

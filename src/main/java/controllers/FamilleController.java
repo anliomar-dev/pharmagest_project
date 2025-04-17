@@ -14,6 +14,7 @@ import utils.ValidationUtils;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Objects;
 import java.util.Optional;
 
 public class FamilleController {
@@ -32,6 +33,8 @@ public class FamilleController {
     @FXML private TextField familleSearchField;
     @FXML private Label familleError;
 
+    private String originalFamille;
+
     public void searchButtonAnnulerOnAction(ActionEvent e) throws SQLException {
         familleSearchField.clear();
     }
@@ -41,6 +44,7 @@ public class FamilleController {
 
         familleTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
+                originalFamille = newSelection.getNomFamille();
                 familleSearchField.setText(newSelection.getNomFamille());
             }
         });
@@ -73,18 +77,22 @@ public class FamilleController {
     }
 
     public void addFamilleButtonOnAction(ActionEvent e) throws SQLException {
-        FamilleDAO familleDAO = new FamilleDAO();
-        boolean isInvalid = false;
+        if(Objects.equals(originalFamille, familleSearchField.getText())){
+            familleError.setText("Famille existant");
+        }else{
+            FamilleDAO familleDAO = new FamilleDAO();
+            boolean isInvalid = false;
 
-        if (ValidationUtils.validateFamille(familleSearchField, familleError)) isInvalid = true;
+            if (ValidationUtils.validateFamille(familleSearchField, familleError)) isInvalid = true;
 
-        if(!isInvalid){
-            String famille = familleSearchField.getText();
+            if(!isInvalid){
+                String famille = familleSearchField.getText();
 
-            Famille newfamille = new Famille(famille);
-            if(familleDAO.addFamille(newfamille)){
-                familleSearchField.clear();
-                loadFamilleData();
+                Famille newfamille = new Famille(famille);
+                if(familleDAO.addFamille(newfamille)){
+                    loadFamilleData();
+                    clearFamille();
+                }
             }
         }
     }
@@ -95,19 +103,27 @@ public class FamilleController {
     public void supprimerFamilleButtonOnAction(ActionEvent e) throws SQLException {
         String famille = familleSearchField.getText();
         if(famille.isEmpty()){
-            familleError.setText("Choissisez une famille");
+            familleError.setText("Choisir une famille");
         }else{
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Supprimer forme");
-            alert.setHeaderText("Supprimer la forme : " + famille);
-            alert.setContentText("Vous voulez supprimer cette forme ?");
+            alert.setHeaderText("Vous voulez supprimer la forme : " + famille);
             Optional<ButtonType> result = alert.showAndWait();
             if (result.isPresent() && result.get() == ButtonType.OK) {
                 FamilleDAO familleDAO = new FamilleDAO();
                 familleDAO.deleteFamille(famille);
                 loadFamilleData();
+                clearFamille();
             }
         }
+    }
+
+    private void clearFamille(){
+        familleSearchField.clear();
+
+        familleError.setText("");
+
+        originalFamille = null;
     }
 }
 

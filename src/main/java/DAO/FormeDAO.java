@@ -56,6 +56,9 @@ public class FormeDAO {
         }
     }
 
+//    public boolean modifierForme(String originalForme, Forme forme) throws SQLException{
+//    }
+
     public void deleteForme(String forme) throws SQLException{
         String query = "DELETE FROM forme WHERE nom_forme = ?";
         try(PreparedStatement stmt = conn.prepareStatement(query)) {

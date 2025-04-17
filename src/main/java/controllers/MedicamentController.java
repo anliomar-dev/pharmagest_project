@@ -3,20 +3,22 @@ package controllers;
 import DAO.FormeDAO;
 import DAO.FamilleDAO;
 import DAO.MedicamentDAO;
-import DAO.UtilisateurDAO;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import models.Famille;
 import models.Forme;
 import models.Medicament;
-import models.Utilisateur;
 import utils.Utils;
 import utils.ValidationUtils;
 
@@ -56,7 +58,6 @@ public class MedicamentController {
     @FXML private TableColumn<Medicament, Double> puachatColumn;
     @FXML private TableColumn<Medicament, Double> puventeColumn;
     @FXML private TableColumn<Medicament, String> qtestockeColumn;
-    @FXML private TableColumn<Medicament, Void> actionsColumn;
 
     //ComboBox
     @FXML private ComboBox<String> searchComboBox;
@@ -65,6 +66,7 @@ public class MedicamentController {
 
     //ComboBox values
     private final ObservableList<String> columns = FXCollections.observableArrayList("Médicament", "Forme", "Famille", "Qte stocké");
+    private String originalDCI;
 
     public void initialize() throws SQLException{
         if (medicamentTable != null && searchComboBox != null) {
@@ -73,6 +75,19 @@ public class MedicamentController {
         if (formeComboBox != null && familleComboBox != null) {
             initializeForm();
         }
+        medicamentTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                originalDCI = newSelection.getDCI();
+
+                medicamentField.setText(newSelection.getDCI());
+                formeComboBox.setValue(newSelection.getForme().getNomForme());
+                familleComboBox.setValue(newSelection.getFamille().getNomFamille());
+                dosageField.setText(newSelection.getDosage());
+                puachatField.setText(String.valueOf(newSelection.getPrixUnitAchat()));
+                puventeField.setText(String.valueOf(newSelection.getPrixUnitVente()));
+                qtestockeField.setText(String.valueOf(newSelection.getQteStock()));
+            }
+        });
     }
 
     private void initializeTable() throws SQLException{
@@ -86,43 +101,12 @@ public class MedicamentController {
         puachatColumn.setCellValueFactory(new PropertyValueFactory<>("prixUnitAchat"));
         puventeColumn.setCellValueFactory(new PropertyValueFactory<>("prixUnitVente"));
         qtestockeColumn.setCellValueFactory(new PropertyValueFactory<>("qteStock"));
-        actionsColumn.setCellFactory(column -> new TableCell<>() {
-            private final Button modifyBtn = new Button("Edit");
-            private final Button deleteBtn = new Button("Delete");
-            private final HBox buttons = new HBox(5, modifyBtn, deleteBtn);{
-                buttons.setAlignment(Pos.CENTER);
-                modifyBtn.setOnAction(event -> {
-                    Medicament medicament = getTableView().getItems().get(getIndex());
-                    try {
-//                        modifierDisplayUtilisateurForm(utilisateur);
-                        sceneLoader.loadScene("FormUtilisateur.fxml", "Modifier utilisateur", modifyBtn);
-//                        utilisateurAddButton.setVisible(false);
-//                        utilisateurModifierButton.setVisible(true);
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
-                });
-                deleteBtn.setOnAction(event -> {
-                    Medicament medicament = getTableView().getItems().get(getIndex());
-                    try {
-                        deleteMedicament(medicament);
-                    } catch (SQLException e) {
-                        throw new RuntimeException(e);
-                    }
-                });
-            }
-
-            @Override
-            protected void updateItem(Void item, boolean empty) {
-                super.updateItem(item, empty);
-                setGraphic(empty ? null : buttons);
-            }
-        });
         loadMedicamentData();
     }
 
     private void initializeForm() throws SQLException {
-        FamilleDAO familleDAO = new FamilleDAO();        FormeDAO formeDAO = new FormeDAO();
+        FamilleDAO familleDAO = new FamilleDAO();
+        FormeDAO formeDAO = new FormeDAO();
 
 
         ObservableList<Forme> allFormes = formeDAO.getAllForme();
@@ -257,7 +241,7 @@ public class MedicamentController {
             int qteStcoke = Integer.parseInt(qtestockeField.getText().trim());
             String dosage = dosageField.getText();
 
-            Forme forme = formeDAO.getFormeByName(nomforme); // You'll need to implement this
+            Forme forme = formeDAO.getFormeByName(nomforme);
             int idfamille = familleDAO.getNumFamille(nomFamille);
 
             Famille numFamille = new Famille(idfamille);
@@ -274,17 +258,81 @@ public class MedicamentController {
         }
     }
 
-    private void deleteMedicament(Medicament medicament) throws SQLException {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Supprimer médicament");
-        alert.setHeaderText("Supprimer le médicament : " + medicament.getDCI());
-        alert.setContentText("Vous vouliez supprimer le médicament " + medicament.getDCI());
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.isPresent() && result.get() == ButtonType.OK) {
-            MedicamentDAO medicamentDAO = new MedicamentDAO();
+    public void medicamentModifierButtonOnAction(ActionEvent e) throws SQLException {
+        MedicamentDAO medicamentDAO = new MedicamentDAO();
 
-            medicamentDAO.deleteMedicament(medicament.getDCI());
-            loadMedicamentData();
+        boolean isInvalid = false;
+
+        if(ValidationUtils.validateDCI(medicamentField, medicamentFieldError)) isInvalid = true;
+        if(ValidationUtils.validatePrice(puachatField, puachatFieldError)) isInvalid = true;
+        if(ValidationUtils.validatePrice(puventeField, puventeFieldError)) isInvalid = true;
+        if(ValidationUtils.validateQteStock(qtestockeField, qtestockeFieldError)) isInvalid = true;
+
+        if(dosageField.getText().isEmpty()){
+            dosageFieldError.setText("Entrez le dosage du médicament en mg ou g");
+            isInvalid = true;
+        }else{
+            dosageFieldError.setText("");
+        }
+
+        if (formeComboBox.getValue() == null) {
+            formeFieldError.setText("Choisir la forme du médicament");
+            isInvalid = true;
+        } else {
+            formeFieldError.setText("");
+        }
+
+        if (familleComboBox.getValue() == null) {
+            familleFieldError.setText("Choisir la famille du médicament");
+            isInvalid = true;
+        } else {
+            familleFieldError.setText("");
+        }
+
+        if(!isInvalid){
+            FormeDAO formeDAO = new FormeDAO();
+            FamilleDAO familleDAO = new FamilleDAO();
+
+            String dci = medicamentField.getText().trim();
+            String nomforme = formeComboBox.getValue();
+            String nomFamille = familleComboBox.getValue();
+            double puAchat = Double.parseDouble(puachatField.getText().trim());
+            double puVente = Double.parseDouble(puventeField.getText().trim());
+            int qteStcoke = Integer.parseInt(qtestockeField.getText().trim());
+            String dosage = dosageField.getText();
+
+            Forme forme = formeDAO.getFormeByName(nomforme);
+            int idfamille = familleDAO.getNumFamille(nomFamille);
+
+            Famille numFamille = new Famille(idfamille);
+
+            Medicament modifierMedicament = new Medicament(dci, dosage, puVente, puAchat, qteStcoke, forme, numFamille);
+            if (medicamentDAO.modifierMedicament(originalDCI, modifierMedicament)) {
+                loadMedicamentData();
+                clearForm();
+            }
+        }
+    }
+
+    @FXML private Label deleteError;
+
+    public void supprimerMedicamentButtonOnAction(ActionEvent e) throws SQLException {
+        String dci = medicamentField.getText().trim();
+
+        if(dci.isEmpty()){
+            deleteError.setText("Choisir un médicament");
+        }else{
+            deleteError.setText("");
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Supprimer médicament");
+            alert.setHeaderText("Vous vouliez supprimer le médicament : " + dci);
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+                MedicamentDAO medicamentDAO = new MedicamentDAO();
+                medicamentDAO.deleteMedicament(dci);
+                clearForm();
+                loadMedicamentData();
+            }
         }
     }
 
@@ -304,6 +352,9 @@ public class MedicamentController {
         puachatFieldError.setText("");
         dosageFieldError.setText("");
         qtestockeFieldError.setText("");
+        deleteError.setText("");
+
+        originalDCI = null;
     }
 }
 
