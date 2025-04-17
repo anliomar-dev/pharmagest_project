@@ -21,7 +21,7 @@
     <style>-fx-background-color: white;</style>
 
     <left>
-        <VBox prefHeight="670.0" prefWidth="261.0" spacing="0" style="-fx-background-color: #efefef; -fx-background-radius: 15; -fx-border-radius: 15; -fx-padding: 10 10 10 10;">
+        <VBox prefHeight="670.0" prefWidth="261.0" spacing="10.0" style="-fx-background-color: #efefef; -fx-background-radius: 15; -fx-border-radius: 15; -fx-padding: 10 10 10 10;">
          <BorderPane.margin>
             <Insets bottom="15.0" left="15.0" top="15.0" />
          </BorderPane.margin>
@@ -91,7 +91,7 @@
                         <Cursor fx:constant="DEFAULT" />
                      </cursor>
                   </AnchorPane>
-                  <Button layoutX="3.0" layoutY="6.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="237.0" style="-fx-background-color: #f5f8f8;" text="Utilisateurs" textFill="#030e0e">
+                  <Button layoutX="3.0" layoutY="6.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="237.0" style="-fx-background-color: #f5f8f8;" text="Miantenance" textFill="#030e0e">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -119,7 +119,7 @@
                         <Cursor fx:constant="DEFAULT" />
                      </cursor>
                   </AnchorPane>
-                  <Button layoutX="3.0" layoutY="6.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="237.0" style="-fx-background-color: #f5f8f8;" text="Founisseurs" textFill="#030e0e">
+                  <Button layoutX="3.0" layoutY="6.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="237.0" style="-fx-background-color: #f5f8f8;" text="Vente" textFill="#030e0e">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -134,6 +134,38 @@
                   </ImageView>
                </children>
             </AnchorPane>
+            <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="237.0" style="-fx-background-color: #f5f8f8;" text="Caisse" textFill="#030e0e">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="20.0" layoutY="342.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="237.0" style="-fx-background-color: #f5f8f8;" text="Commande" textFill="#030e0e">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="20.0" layoutY="384.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="237.0" style="-fx-background-color: #f5f8f8;" text="Réception de commande" textFill="#030e0e">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button layoutX="20.0" layoutY="425.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="237.0" style="-fx-background-color: #f5f8f8;" text="Bilan financier" textFill="#030e0e">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
          </children>
         </VBox>
     </left>
@@ -141,7 +173,7 @@
     <center>
         <AnchorPane prefHeight="674.0" prefWidth="1500.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView fx:id="tableFournisseurs" layoutX="28.0" layoutY="109.0" prefHeight="264.0" prefWidth="1165.0">
+            <TableView fx:id="tableFournisseurs" layoutX="27.0" layoutY="87.0" prefHeight="331.0" prefWidth="1166.0" style="-fx-background-color: #FFFFFF;">
               <columns>
                 <TableColumn fx:id="colId" prefWidth="76.80001640319824" text="Id" />
                   <TableColumn fx:id="colPays" prefWidth="165.59998321533203" text="Pays" />
@@ -152,21 +184,42 @@
                   <TableColumn fx:id="calAction" prefWidth="125.5999755859375" text="Action" />
               </columns>
             </TableView>
-            <Button fx:id="NewFournisseurButton" layoutX="1032.0" layoutY="53.0" mnemonicParsing="false" onAction="#NewFournisseurOnAction" prefHeight="36.0" prefWidth="142.0" style="-fx-background-color: #00a3a3;" text="Ajouter un founisseur" textFill="WHITE">
+            <Button fx:id="NewFournisseurButton" layoutX="1030.0" layoutY="41.0" mnemonicParsing="false" onAction="#NewFournisseurOnAction" prefHeight="36.0" prefWidth="142.0" style="-fx-background-color: #00a3a3;" text="Ajouter un founisseur" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <TextField layoutX="210.0" layoutY="53.0" prefHeight="36.0" prefWidth="235.0" style="-fx-background-radius: 6 0 0 6; -fx-background-color: #efefef;" />
-            <Button layoutX="445.0" layoutY="53.0" minHeight="20.0" minWidth="42.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="86.0" style="-fx-background-color: #B0BEC5; -fx-background-radius: 0 6 6 0; -fx-border-radius: 0 6 6 0;" text="Rechercher" textFill="WHITE">
+            <TextField layoutX="209.0" layoutY="41.0" prefHeight="36.0" prefWidth="235.0" style="-fx-background-radius: 6 0 0 6; -fx-background-color: #efefef;" />
+            <Button layoutX="444.0" layoutY="41.0" minHeight="20.0" minWidth="42.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="86.0" style="-fx-background-color: #B0BEC5; -fx-background-radius: 0 6 6 0; -fx-border-radius: 0 6 6 0;" text="Rechercher" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <ComboBox layoutX="32.0" layoutY="53.0" prefHeight="35.0" prefWidth="150.0" />
-            <Label layoutX="39.0" layoutY="22.0" prefHeight="27.0" prefWidth="120.0" text=" Rechercher par :">
+            <ComboBox layoutX="32.0" layoutY="41.0" prefHeight="35.0" prefWidth="150.0" />
+            <Label layoutX="32.0" layoutY="14.0" prefHeight="27.0" prefWidth="120.0" text=" Rechercher par :">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
+            <AnchorPane layoutX="32.0" layoutY="430.0" prefHeight="255.0" prefWidth="674.0" style="-fx-background-color: #f0f0f0; -fx-border-radius: 10; -fx-background-radius: 10;">
+               <children>
+                  <TextField layoutX="32.0" layoutY="46.0" prefHeight="34.0" prefWidth="206.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;" />
+                  <TextField layoutX="267.0" layoutY="46.0" prefHeight="34.0" prefWidth="206.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;" />
+                  <TextField layoutX="32.0" layoutY="128.0" prefHeight="34.0" prefWidth="206.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;" />
+                  <TextField layoutX="267.0" layoutY="128.0" prefHeight="34.0" prefWidth="206.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;" />
+                  <TextField layoutX="32.0" layoutY="206.0" prefHeight="34.0" prefWidth="443.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10;" />
+                  <VBox layoutX="504.0" layoutY="46.0" prefHeight="182.0" prefWidth="147.0" spacing="10.0" style="-fx-background-radius: 10; -fx-background-color: #ffffff; -fx-padding: 10;">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="148.0" style="-fx-background-radius: 10; -fx-background-color: #00a3a3;" text="Modifier" />
+                        <Button layoutX="20.0" layoutY="20.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="148.0" style="-fx-background-radius: 10; -fx-background-color: #e0e0e0;" text="Annuler" />
+                        <Button layoutX="20.0" layoutY="61.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="148.0" style="-fx-background-radius: 10; -fx-background-color: #fa3030;" text="Supprimer" />
+                     </children>
+                  </VBox>
+                  <Label layoutX="32.0" layoutY="180.0" text="Adresse" />
+                  <Label layoutX="32.0" layoutY="18.0" text="Pays" />
+                  <Label layoutX="267.0" layoutY="18.0" text="Nom" />
+                  <Label layoutX="32.0" layoutY="100.0" text="Téléphone" />
+                  <Label layoutX="264.0" layoutY="100.0" text="Email" />
+               </children>
+            </AnchorPane>
          </children>
         </AnchorPane>
     </center>
