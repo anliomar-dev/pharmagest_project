@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="504.0" prefWidth="902.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FamilleController">
+    <center>
+        <AnchorPane prefHeight="548.0" prefWidth="703.0" BorderPane.alignment="CENTER">
+            <children>
+                <TableView fx:id="familleTable" layoutX="14.0" layoutY="111.0" prefHeight="342.0" prefWidth="875.0">
+                    <columns>
+                        <TableColumn fx:id="familleColumn" prefWidth="874.3999940872193" text="Forme" />
+                    </columns>
+                </TableView>
+                <Button fx:id="addFamille" layoutX="316.0" layoutY="62.0" mnemonicParsing="false" onAction="#addFamilleButtonOnAction" prefHeight="26.0" prefWidth="77.0" text="Ajouter" />
+                <ImageView fitHeight="46.0" fitWidth="50.0" layoutX="856.0" layoutY="456.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../../images/PharmaGest_logo.png" />
+                    </image>
+                </ImageView>
+                <Button fx:id="maintenanceButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#maintenanceButtonOnAction" text="Retour" />
+                <TextField fx:id="familleSearchField" layoutX="14.0" layoutY="62.0" prefHeight="26.0" prefWidth="190.0" />
+                <Button fx:id="searchButton" layoutX="229.0" layoutY="62.0" mnemonicParsing="false" onAction="#searchButtonOnAction" text="Rechercher" />
+                <Label fx:id="searchError" layoutX="14.0" layoutY="88.0" />
+                <Button fx:id="searchButtonAnnuler" layoutX="597.0" layoutY="62.0" mnemonicParsing="false" onAction="#searchButtonAnnulerOnAction" text="Annuler" />
+                <Button fx:id="modifierMedicament" layoutX="412.0" layoutY="61.0" mnemonicParsing="false" onAction="#modifierFamilleButtonOnAction" prefHeight="26.0" prefWidth="77.0" text="Modifier" />
+                <Button fx:id="supprimerMedicament" layoutX="506.0" layoutY="61.0" mnemonicParsing="false" onAction="#supprimerFamilleButtonOnAction" prefHeight="26.0" prefWidth="77.0" text="Supprimer" />
+                <Label fx:id="familleError" layoutX="14.0" layoutY="88.0" />
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>

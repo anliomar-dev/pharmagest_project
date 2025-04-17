@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Utils {
     /*
@@ -54,6 +56,7 @@ public class Utils {
      * @param button the button used to obtain the current scene
      * @throws IOException if the FXML file cannot be loaded
      */
+
     public void loadScene(String fxmlFile, String title, Button button) throws IOException {
         // path where fxml file is located
         String pathToFxmlFile = "/com/phamagest/pharmagest/";
@@ -87,6 +90,4 @@ public class Utils {
         Matcher matcher = pattern.matcher(str);
         return matcher.matches();
     }
-
-
 }

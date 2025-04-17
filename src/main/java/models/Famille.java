@@ -9,6 +9,14 @@ public class Famille {
         this.nomFamille = nomFamille;
     }
 
+    public Famille(String nomFamille) {
+        this.nomFamille = nomFamille;
+    }
+
+    public Famille(int numFamille) {
+        this.numFamille = numFamille;
+    }
+
     // Getters et Setters
     public int getNumFamille() {
         return numFamille;

@@ -86,4 +86,9 @@ public class SessionManager {
     public static boolean isUtilisateurConnecte() {
         return prenom != null && nom != null && identifiant != null;
     }
+
+    public static String setUserInfo(String identifiant) {
+        SessionManager.identifiant = identifiant;
+        return identifiant;
+    }
 }

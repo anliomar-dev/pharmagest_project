@@ -8,6 +8,11 @@ public class Forme {
         this.nomForme = nomForme;
     }
 
+    @Override
+    public String toString() {
+        return nomForme;
+    }
+
     // Getters et Setters
     public String getNomForme() {
         return nomForme;
@@ -16,5 +21,6 @@ public class Forme {
     public void setNomForme(String nomForme) {
         this.nomForme = nomForme;
     }
+
 }
 
