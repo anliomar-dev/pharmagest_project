@@ -10,7 +10,7 @@ public class MainApp extends javafx.application.Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("login.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 500, 550);
+        Scene scene = new Scene(fxmlLoader.load(), 650, 550);
         stage.setTitle("Login!");
         stage.setScene(scene);
         stage.show();
