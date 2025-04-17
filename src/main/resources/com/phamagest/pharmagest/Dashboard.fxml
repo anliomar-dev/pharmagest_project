@@ -63,14 +63,14 @@
 
          <!-- Second Row of Buttons -->
          <HBox spacing="30" alignment="CENTER">
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="220.0"
+            <Button fx:id="commandeButton" mnemonicParsing="false" onAction="#commandeButtonOnAction" prefHeight="70.0" prefWidth="220.0"
                     style="-fx-background-color: #2ecc71; -fx-background-radius: 5;"
                     text="Commande" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="220.0"
+            <Button fx:id="receptionCmdButton" mnemonicParsing="false" onAction="#setReceptionCmdButtonOnAction" prefHeight="70.0" prefWidth="220.0"
                     style="-fx-background-color: #2ecc71; -fx-background-radius: 5;"
                     text="Réception de Commande" textFill="WHITE">
                <font>
