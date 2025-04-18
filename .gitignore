@@ -42,6 +42,9 @@ DatabaseConnection.java
 TestConnection.java
 
 LoginController.java
+VenteController.java
 
 ## fxml ##
 login.fxml
+Vente.fxml
+Caisse.fxml

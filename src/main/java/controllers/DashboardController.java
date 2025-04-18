@@ -26,6 +26,16 @@ public class DashboardController {
         sceneLoader.loadScene("Maintenance.fxml", "Maintenance", maintenanceButton);
     }
 
+    @FXML private Button venteButton;
+    public void venteButtonOnAction(ActionEvent event) throws IOException {
+        sceneLoader.loadScene("Vente.fxml", "Vente", venteButton);
+    }
+
+    @FXML private Button caisseButton;
+    public void caisseButtonOnAction(ActionEvent event) throws IOException {
+        sceneLoader.loadScene("Caisse.fxml", "Caisse", caisseButton);
+    }
+
     @FXML private Button commandeButton;
     public void commandeButtonOnAction(ActionEvent event) throws IOException {
         sceneLoader.loadScene("commande.fxml", "Commande", commandeButton);
@@ -40,6 +50,7 @@ public class DashboardController {
     public void changeButtonOnAction(ActionEvent event) throws IOException {
         sceneLoader.loadScene("login.fxml", "Login", changeButton);
     }
+
 
     public void leaveButtonOnAction(ActionEvent event) { System.exit(0); }
 }
