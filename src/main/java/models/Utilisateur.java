@@ -32,18 +32,38 @@ public class Utilisateur {
     }
 
     //Contructeur pour modifier (unfinished)
-    public Utilisateur(int id, String nom, String prenom, String email, String tel, String identifiant, Boolean estSuperAdmin) {
+    public Utilisateur(int id, String nom, String prenom, String email, String telephone, String identifiant, Boolean estSuperAdmin) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
-        this.telephone = tel;
+        this.telephone = telephone;
         this.identifiant = identifiant;
         this.estSuperAdmin = estSuperAdmin;
     }
 
     public Utilisateur() {
 
+    }
+
+    public Utilisateur(int utilisateurId, String nom, String prenom, String email, String telephone, String identifiant, String status, boolean estSuperAdmin) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.telephone = telephone;
+        this.identifiant = identifiant;
+        this.status = status;
+        this.estSuperAdmin = estSuperAdmin;
+    }
+
+    public Utilisateur(String nom, String prenom, String email, String telephone, String identifiant, String status, boolean estSuperAdmin) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.telephone = telephone;
+        this.identifiant = identifiant;
+        this.status = status;
+        this.estSuperAdmin = estSuperAdmin;
     }
 
     public int getId() {

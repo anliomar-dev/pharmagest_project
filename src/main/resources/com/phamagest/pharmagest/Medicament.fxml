@@ -13,17 +13,17 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="504.0" prefWidth="902.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MedicamentController">
    <center>
-      <AnchorPane prefHeight="504.0" prefWidth="1002.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="548.0" prefWidth="703.0" BorderPane.alignment="CENTER">
          <children>
             <TableView fx:id="medicamentTable" layoutX="14.0" layoutY="111.0" prefHeight="342.0" prefWidth="875.0">
                <columns>
-                  <TableColumn fx:id="dciColumn" prefWidth="122.39999103546143" text="Médicament" />
-                  <TableColumn fx:id="formeColumn" prefWidth="89.5999755859375" text="Forme" />
-                  <TableColumn fx:id="familleColumn" prefWidth="149.6000518798828" text="Famille" />
-                   <TableColumn fx:id="dosageColumn" minWidth="0.0" prefWidth="106.4000244140625" text="Dosage" />
-                  <TableColumn fx:id="puachatColumn" minWidth="0.0" prefWidth="110.4000244140625" text="Prix unité achat" />
-                   <TableColumn fx:id="puventeColumn" minWidth="0.0" prefWidth="106.39996337890625" text="Prix unité vente" />
-                   <TableColumn fx:id="qtestockeColumn" minWidth="0.0" prefWidth="276.79998779296875" text="Quantité stocké" />
+                  <TableColumn fx:id="dciColumn" prefWidth="100.0" text="Médicament" />
+                  <TableColumn fx:id="formeColumn" prefWidth="100.0" text="Forme" />
+                  <TableColumn fx:id="familleColumn" prefWidth="192.0" text="Famille" />
+                   <TableColumn fx:id="dosageColumn" minWidth="0.0" prefWidth="150.0" text="Dosage" />
+                  <TableColumn fx:id="puachatColumn" minWidth="0.0" prefWidth="125.5999755859375" text="Prix unité achat" />
+                   <TableColumn fx:id="puventeColumn" minWidth="0.0" prefWidth="144.0001220703125" text="Prix unité vente" />
+                   <TableColumn fx:id="qtestockeColumn" minWidth="0.0" prefWidth="144.0001220703125" text="Quantité stocké" />
                   <TableColumn fx:id="actionsColumn" minWidth="0.0" prefWidth="150.0" text="Actions" />
                </columns>
             </TableView>

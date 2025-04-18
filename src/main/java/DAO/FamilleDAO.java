@@ -28,8 +28,6 @@ public class FamilleDAO {
                 );
                 familleList.add(famille);
             }
-            System.out.println(familleList);
-
         } catch (SQLException e) {
             System.err.println("Error fetching famille: " + e.getMessage());
         }

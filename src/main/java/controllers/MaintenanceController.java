@@ -3,12 +3,20 @@ package controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import utils.SessionManager;
 import utils.Utils;
 
 import java.io.IOException;
 
 public class MaintenanceController {
     Utils sceneLoader = new Utils();
+
+    @FXML private Label usernameLabel;
+
+    public void initialize(){
+        usernameLabel.setText("Bienvenue " + SessionManager.setUserInfo(SessionManager.getIdentifiant()));
+    }
 
     @FXML public Button founisseurButton;
     @FXML public  Button utilisateurButton;
@@ -43,6 +51,6 @@ public class MaintenanceController {
     }
 
     public void familleButtonOnAction(ActionEvent e) throws IOException {
-        sceneLoader.loadScene("Forme.fxml", "Forme", familleButton);
+        sceneLoader.loadScene("Famille.fxml", "Famille", familleButton);
     }
 }

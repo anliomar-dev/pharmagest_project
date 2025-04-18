@@ -1,6 +1,7 @@
 package controllers;
 
 import DAO.UtilisateurDAO;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,6 +17,7 @@ import utils.ValidationUtils;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Objects;
 import java.util.Optional;
 
 public class UtilisateurController {
@@ -65,7 +67,9 @@ public class UtilisateurController {
     @FXML
     private TableColumn<Utilisateur, String> identifiantColumn;
     @FXML
-    private TableColumn<Utilisateur, Void> actionsColumn;
+    private TableColumn<Utilisateur, String> roleColumn;
+    @FXML
+    private TableColumn<Utilisateur, String> adminColumn;
 
     //ComboBox
     @FXML
@@ -79,6 +83,7 @@ public class UtilisateurController {
     private final ObservableList<String> roles = FXCollections.observableArrayList("Pharmacien", "Vendeur");
     private final ObservableList<String> admin = FXCollections.observableArrayList("Admin", "Employé");
     private final ObservableList<String> columns = FXCollections.observableArrayList("Nom", "Prénom", "Email", "Téléphone", "Identifiant");
+    private String originalUsername;
 
     //Initialize
     @FXML
@@ -89,6 +94,19 @@ public class UtilisateurController {
         if (roleComboBox != null && adminComboBox != null) {
             initializeForm();
         }
+        utilisateurTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                originalUsername = newSelection.getIdentifiant();
+
+                nomField.setText(newSelection.getNom());
+                prenomField.setText(newSelection.getPrenom());
+                emailField.setText(newSelection.getEmail());
+                telephoneField.setText(newSelection.getTelephone());
+                adminComboBox.setValue(newSelection.isEstSuperAdmin() ? "Admin" : "Employé");
+                roleComboBox.setValue(String.valueOf(newSelection.getStatus()));
+                identifiantField.setText(String.valueOf(newSelection.getIdentifiant()));
+            }
+        });
     }
 
     //Initialize table
@@ -101,39 +119,9 @@ public class UtilisateurController {
         emailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
         telephoneColumn.setCellValueFactory(new PropertyValueFactory<>("telephone"));
         identifiantColumn.setCellValueFactory(new PropertyValueFactory<>("identifiant"));
-        actionsColumn.setCellFactory(column -> new TableCell<>() {
-            private final Button modifyBtn = new Button("Edit");
-            private final Button deleteBtn = new Button("Delete");
-            private final HBox buttons = new HBox(5, modifyBtn, deleteBtn);
-
-            {
-                buttons.setAlignment(Pos.CENTER);
-                modifyBtn.setOnAction(event -> {
-                    Utilisateur utilisateur = getTableView().getItems().get(getIndex());
-                    try {
-                        modifierDisplayUtilisateurForm(utilisateur);
-                        sceneLoader.loadScene("FormUtilisateur.fxml", "Modifier utilisateur", modifyBtn);
-                        utilisateurAddButton.setVisible(false);
-                        utilisateurModifierButton.setVisible(true);
-                    } catch (SQLException | IOException e) {
-                        throw new RuntimeException(e);
-                    }
-                });
-                deleteBtn.setOnAction(event -> {
-                    Utilisateur user = getTableView().getItems().get(getIndex());
-                    try {
-                        deleteUser(user);
-                    } catch (SQLException e) {
-                        throw new RuntimeException(e);
-                    }
-                });
-            }
-
-            @Override
-            protected void updateItem(Void item, boolean empty) {
-                super.updateItem(item, empty);
-                setGraphic(empty ? null : buttons);
-            }
+        roleColumn.setCellValueFactory(new PropertyValueFactory<>("status"));adminColumn.setCellValueFactory(cellData -> {
+            boolean isAdmin = cellData.getValue().isEstSuperAdmin();
+            return new SimpleStringProperty(isAdmin ? "Admin" : "Employé");
         });
         loadUtilisateurData();
     }
@@ -231,11 +219,6 @@ public class UtilisateurController {
         return !input.matches("^[a-zA-Z0-9]{3,16}$");
     }
 
-    //Handling modify utilisateur
-    public void modifierDisplayUtilisateurForm(Utilisateur utilisateur) throws SQLException{
-        System.out.println(utilisateur);
-    }
-
     //Handling adding utilisateur
     public void utilisateurAddButtonOnAction(ActionEvent e) throws SQLException {
         UtilisateurDAO utilisateurDAO = new UtilisateurDAO();
@@ -306,51 +289,88 @@ public class UtilisateurController {
         return false;
     }
 
-    //Delete utilisateur
-    private void deleteUser(Utilisateur user) throws SQLException{
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Supprimer utilisateur");
-        alert.setHeaderText("Supprimer l'utilisateur : " + user.getNom() + " " + user.getPrenom());
-        alert.setContentText("Are you sure you want to delete this user?");
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.isPresent() && result.get() == ButtonType.OK) {
-            UtilisateurDAO utilisateurDAO = new UtilisateurDAO();
+    public void utilisateurModifierButtonOnAction(ActionEvent e) throws SQLException{
+        UtilisateurDAO utilisateurDAO = new UtilisateurDAO();
+        boolean isInvalid = false;
+        boolean isAdmin = false;
 
-            utilisateurDAO.deleteUtilisateur(user.getId());
-            loadUtilisateurData();
+        // Accumulate validation errors
+        if (ValidationUtils.validateName(nomField, nomFieldError)) isInvalid = true;
+        if (ValidationUtils.validateName(prenomField, prenomFieldError)) isInvalid = true;
+        if (ValidationUtils.validateEmail(emailField, emailFieldError)) isInvalid = true;
+        if (ValidationUtils.validatePhone(telephoneField, telephoneFieldError)) isInvalid = true;
+
+        if(Objects.equals(identifiantField.getText(), originalUsername)){
+            identifiantFieldError.setText("");
+        }else{
+            if (validateIdentifiant()) isInvalid = true;
+        }
+
+        if(passwordField.getText().isEmpty()){
+            passwordFieldError.setText("");
+            passwordIdentiqueFieldError.setText("");
+        }else{
+            if (ValidationUtils.validatePassword(passwordField, passwordIdentiqueField, passwordFieldError, passwordIdentiqueFieldError)) isInvalid = true;
+        }
+
+        if (roleComboBox.getValue() == null) {
+            roleFieldError.setText("Choisir un rôle");
+            isInvalid = true;
+        } else {
+            roleFieldError.setText("");
+        }
+
+        if (adminComboBox.getValue() != null) {
+            String selectedAdmin = adminComboBox.getValue().trim();
+            isAdmin = selectedAdmin.equals("Admin");
+            adminFieldError.setText("");
+        } else {
+            adminFieldError.setText("Choisir un statut");
+            isInvalid = true;
+        }
+
+        if (!isInvalid) {
+            String nom = nomField.getText().trim();
+            String prenom = prenomField.getText().trim();
+            String email = emailField.getText().trim();
+            String tel = telephoneField.getText().trim();
+            String identifiant = identifiantField.getText().trim();
+            String role = roleComboBox.getValue().trim();
+
+            if(passwordField.getText().isEmpty()){
+                Utilisateur modifierUtilisateur = new Utilisateur(nom, prenom, email, tel, identifiant, role, isAdmin);
+                if (utilisateurDAO.modifierUtilisateur(originalUsername, modifierUtilisateur)) {
+                    loadUtilisateurData();
+                    clearForm();
+                }
+            }else{
+                String password = Utils.hashWithSHA256((passwordField).getText().trim());
+                Utilisateur modifierUtilisateur = new Utilisateur(nom, prenom, email, tel, identifiant, password, role, isAdmin);
+                if (utilisateurDAO.modifierUtilisateurPassword(originalUsername, modifierUtilisateur)) {
+                    loadUtilisateurData();
+                    clearForm();
+                }
+            }
         }
     }
 
-    //  TextField for modifier
-    @FXML private TextField nomModifier;
-    @FXML private TextField prenomModifier;
-    @FXML private TextField emailModifier;
-    @FXML private TextField telephoneModifier;
-    @FXML private TextField identifiantModifier;
-    @FXML private PasswordField passwordModifier;
-    @FXML private PasswordField passwordIdentiqueModifier;
+    //Delete utilisateur
+    public void supprimerMedicamentButtonOnAction(ActionEvent e) throws SQLException{
+        String nom = nomField.getText().trim();
+        String prenom = prenomField.getText().trim();
 
-    //  Message erros
-    @FXML private Label nomModifierError;
-    @FXML private Label prenomModifierError;
-    @FXML private Label emailModifierError;
-    @FXML private Label telephoneModifierError;
-    @FXML private Label roleModifierError;
-    @FXML private Label adminModifierError;
-    @FXML private Label identifiantModifierError;
-    @FXML private Label passwordModifierError;
-    @FXML private Label passwordIdentiqueModifierError;
-
-    private Utilisateur user;
-
-    public void setUser(Utilisateur user){
-        this.user = user;
-        nomModifier.setText(user.getNom());
-        prenomModifier.setText(user.getPrenom());
-        emailModifier.setText(user.getEmail());
-        telephoneModifier.setText(user.getTelephone());
-        identifiantModifier.setText(user.getIdentifiant());
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Supprimer utilisateur");
+        alert.setHeaderText("Vous voulez supprimer l'utilisateur : " + prenom + " " + nom);
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            UtilisateurDAO utilisateurDAO = new UtilisateurDAO();
+            utilisateurDAO.deleteUtilisateur(originalUsername);
+            loadUtilisateurData();
+            clearForm();
+        }
     }
+
 
     private void clearForm() {
         // Clear text fields

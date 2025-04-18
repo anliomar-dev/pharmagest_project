@@ -72,7 +72,7 @@ public class MedicamentDAO {
         }
     }
 
-    public boolean addMedicament (Medicament medicament) throws SQLException{
+    public boolean addMedicament(Medicament medicament) throws SQLException{
         String query = "INSERT INTO medicament (dci, dosage, prixunit_vente, prixunit_achat, qte_stock, forme_nom_forme, famille_num_famille) VALUES (?, ?, ?, ?, ?, ?, ?)";
         try(PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setString(1, medicament.getDCI());
@@ -82,6 +82,21 @@ public class MedicamentDAO {
             stmt.setInt(5, medicament.getQteStock());
             stmt.setString(6, medicament.getForme().getNomForme());
             stmt.setInt(7, medicament.getFamille().getNumFamille());
+            return stmt.executeUpdate() > 0;
+        }
+    }
+
+    public boolean modifierMedicament(String originalDCI, Medicament medicament) throws SQLException{
+        String sql = "UPDATE medicament SET dci = ?, dosage = ?, prixunit_vente = ?, prixunit_achat = ?, qte_stock = ?, forme_nom_forme = ?, famille_num_famille = ? WHERE dci = ?";
+        try(PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, medicament.getDCI());
+            stmt.setString(2, medicament.getDosage());
+            stmt.setDouble(3, medicament.getPrixUnitVente());
+            stmt.setDouble(4, medicament.getPrixUnitAchat());
+            stmt.setInt(5, medicament.getQteStock());
+            stmt.setString(6, medicament.getForme().getNomForme());
+            stmt.setInt(7, medicament.getFamille().getNumFamille());
+            stmt.setString(8, originalDCI);
             return stmt.executeUpdate() > 0;
         }
     }
