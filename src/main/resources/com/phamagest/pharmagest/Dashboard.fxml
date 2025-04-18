@@ -29,7 +29,7 @@
             </Label>
             <Button fx:id="maintenanceButton" layoutX="52.0" layoutY="128.0" mnemonicParsing="false" onAction="#maintenanceButtonOnAction" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: #3399CC; -fx-border-color: gray;" text="Maintenance" textFill="WHITE" />
             <Button layoutX="488.0" layoutY="128.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: #3399CC; -fx-border-color: gray;" text="Caisse" textFill="WHITE" />
-            <Button layoutX="270.0" layoutY="128.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: #3399CC; -fx-border-color: gray;" text="Vente" textFill="WHITE" />
+            <Button fx:id="venteButton" layoutX="270.0" layoutY="128.0" mnemonicParsing="false" onAction="#venteButtonOnAction" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: #3399CC; -fx-border-color: gray;" text="Vente" textFill="WHITE" />
             <Button fx:id="changeButton" layoutX="132.0" layoutY="327.0" mnemonicParsing="false" onAction="#changeButtonOnAction" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: #FF0000;" text="Changer d'utilisateur" textFill="WHITE" />
             <Button fx:id="leaveButton" layoutX="408.0" layoutY="327.0" mnemonicParsing="false" onAction="#leaveButtonOnAction" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: gray;" text="Quitter" textFill="WHITE" />
             <Button fx:id="commandeButton" layoutX="52.0" layoutY="214.0" mnemonicParsing="false" onAction="#commandeButtonOnAction" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: #3399CC; -fx-border-color: gray;" text="Commande" textFill="WHITE" />

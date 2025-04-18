@@ -36,6 +36,11 @@ public class DashboardController {
         sceneLoader.loadScene("receptionCommande.fxml", "Reception des commandes", receptionCmdButton);
     }
 
+    @FXML private Button venteButton;
+    public void venteButtonOnAction(ActionEvent event) throws IOException {
+        sceneLoader.loadScene("vente.fxml", "Vente", venteButton);
+    }
+
     @FXML private Button changeButton;
     public void changeButtonOnAction(ActionEvent event) throws IOException {
         sceneLoader.loadScene("login.fxml", "Login", changeButton);

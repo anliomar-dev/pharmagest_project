@@ -6,6 +6,7 @@ public class Medicament {
     private double prixUnitVente;
     private double prixUnitAchat;
     private int qteStock;
+    private String nomFamille;
 
     // Associations
     private Forme forme;
@@ -29,6 +30,13 @@ public class Medicament {
         this.qteStock = qteStock;
         this.forme = forme;
         this.famille = famille;
+    }
+
+    public Medicament(String DCI, double prixUnitVente, String nomFamille, int qteStock) {
+        this.DCI = DCI;
+        this.prixUnitVente = prixUnitVente;
+        this.nomFamille = nomFamille;
+        this.qteStock = qteStock;
     }
 
     @Override
