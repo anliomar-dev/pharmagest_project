@@ -4,29 +4,46 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.effect.DropShadow?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.DashboardController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="600.0" prefWidth="900.0" style="-fx-background-color: #f5f7fa;"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controllers.DashboardController">
+
+   <top>
+      <HBox alignment="CENTER_RIGHT" style="-fx-background-color: #2c3e50; -fx-padding: 10;">
+         <Label fx:id="usernameLabel" textFill="WHITE">
+            <font>
+               <Font name="System Bold" size="14.0" />
+            </font>
+         </Label>
+      </HBox>
+   </top>
+
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <HBox alignment="TOP_RIGHT" layoutX="10.0" layoutY="1.0" prefHeight="25.0" prefWidth="680.0">
-               <children>
-                  <Label fx:id="usernameLabel" layoutX="10.0" prefHeight="25.0">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
-            <Label layoutX="292.0" layoutY="34.0" text="Dashboard">
+      <VBox alignment="TOP_CENTER" spacing="30" style="-fx-padding: 30;">
+         <Label text="Dashboard" style="-fx-text-fill: #2c3e50;">
+            <font>
+               <Font name="Segoe UI Bold" size="32.0" />
+            </font>
+            <effect>
+               <DropShadow color="#d6d6d6" radius="3" spread="0.2" />
+            </effect>
+         </Label>
+
+         <!-- First Row of Buttons -->
+         <HBox spacing="30" alignment="CENTER">
+            <Button fx:id="maintenanceButton" mnemonicParsing="false" onAction="#maintenanceButtonOnAction"
+                    prefHeight="70.0" prefWidth="220.0" style="-fx-background-color: #3498db; -fx-background-radius: 5;"
+                    text="Maintenance" textFill="WHITE">
                <font>
-                  <Font name="Segoe UI" size="24.0" />
+                  <Font size="16.0" />
                </font>
-<<<<<<< HEAD
             </Button>
             <Button fx:id="venteButton" mnemonicParsing="false" onAction="#venteButtonOnAction" prefHeight="70.0" prefWidth="220.0"
                     style="-fx-background-color: #3498db; -fx-background-radius: 5;"
@@ -89,23 +106,15 @@
             </Button>
          </HBox>
       </VBox>
-=======
-            </Label>
-            <Button fx:id="maintenanceButton" layoutX="52.0" layoutY="128.0" mnemonicParsing="false" onAction="#maintenanceButtonOnAction" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: #3399CC; -fx-border-color: gray;" text="Maintenance" textFill="WHITE" />
-            <Button layoutX="488.0" layoutY="128.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: #3399CC; -fx-border-color: gray;" text="Caisse" textFill="WHITE" />
-            <Button fx:id="venteButton" layoutX="270.0" layoutY="128.0" mnemonicParsing="false" onAction="#venteButtonOnAction" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: #3399CC; -fx-border-color: gray;" text="Vente" textFill="WHITE" />
-            <Button fx:id="changeButton" layoutX="132.0" layoutY="327.0" mnemonicParsing="false" onAction="#changeButtonOnAction" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: #FF0000;" text="Changer d'utilisateur" textFill="WHITE" />
-            <Button fx:id="leaveButton" layoutX="408.0" layoutY="327.0" mnemonicParsing="false" onAction="#leaveButtonOnAction" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: gray;" text="Quitter" textFill="WHITE" />
-            <Button fx:id="commandeButton" layoutX="52.0" layoutY="214.0" mnemonicParsing="false" onAction="#commandeButtonOnAction" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: #3399CC; -fx-border-color: gray;" text="Commande" textFill="WHITE" />
-            <Button fx:id="receptionCmdButton" layoutX="270.0" layoutY="214.0" mnemonicParsing="false" onAction="#setReceptionCmdButtonOnAction" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: #3399CC; -fx-border-color: gray;" text="Réception de Commande" textFill="WHITE" />
-            <Button layoutX="488.0" layoutY="214.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: #3399CC; -fx-border-color: gray;" text="Bilan Financier" textFill="WHITE" />
-            <ImageView fitHeight="43.0" fitWidth="45.0" layoutX="654.0" layoutY="354.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../images/PharmaGest_logo.png" />
-               </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
->>>>>>> 614b180b7f30000e8805e9016e6dd1466d677c62
    </center>
+
+   <bottom>
+      <HBox alignment="CENTER" style="-fx-padding: 15; -fx-background-color: #ecf0f1;">
+         <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../../images/PharmaGest_logo.png" />
+            </image>
+         </ImageView>
+      </HBox>
+   </bottom>
 </BorderPane>
