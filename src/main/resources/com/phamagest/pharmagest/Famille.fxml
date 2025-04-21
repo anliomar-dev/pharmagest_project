@@ -36,9 +36,6 @@
                 <Button fx:id="addFamille" mnemonicParsing="false" onAction="#addFamilleButtonOnAction"
                         style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-background-radius: 4; -fx-pref-width: 100;"
                         text="Ajouter" />
-                <Button fx:id="modifierMedicament" mnemonicParsing="false" onAction="#modifierFamilleButtonOnAction"
-                        style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-background-radius: 4; -fx-pref-width: 100;"
-                        text="Modifier" />
                 <Button fx:id="supprimerMedicament" mnemonicParsing="false" onAction="#supprimerFamilleButtonOnAction"
                         style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 4; -fx-pref-width: 100;"
                         text="Supprimer" />

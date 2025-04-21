@@ -30,7 +30,6 @@
             <TextField fx:id="formeSearchField" prefHeight="35.0" prefWidth="200.0" promptText="Rechercher une forme" style="-fx-background-radius: 4;" />
             <Button mnemonicParsing="false" onAction="#searchButtonOnAction" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-background-radius: 4; -fx-pref-width: 100;" text="Rechercher" />
             <Button mnemonicParsing="false" onAction="#addFormeButtonOnAction" style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-background-radius: 4; -fx-pref-width: 100;" text="Ajouter" />
-            <Button mnemonicParsing="false" onAction="#modifierFormeButtonOnAction" style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-background-radius: 4; -fx-pref-width: 100;" text="Modifier" />
             <Button mnemonicParsing="false" onAction="#supprimerFormeButtonOnAction" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 4; -fx-pref-width: 100;" text="Supprimer" />
             <Button mnemonicParsing="false" onAction="#searchButtonAnnulerOnAction" style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-background-radius: 4; -fx-pref-width: 80;" text="Annuler" />
          </HBox>

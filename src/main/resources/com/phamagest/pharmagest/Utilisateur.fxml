@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.geometry.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-            prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UtilisateurController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.UtilisateurController">
 
    <!-- Top section remains unchanged -->
    <top>
       <HBox alignment="CENTER_LEFT" style="-fx-background-color: #2c3e50; -fx-padding: 10;">
-         <Button fx:id="maintenanceButton" mnemonicParsing="false" onAction="#maintenanceButtonOnAction"
-                 style="-fx-background-color: transparent; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 4;"
-                 text="Retour">
+         <Button fx:id="maintenanceButton" mnemonicParsing="false" onAction="#maintenanceButtonOnAction" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 4;" text="Retour">
          </Button>
          <Label style="-fx-text-fill: white; -fx-padding: 0 0 0 20;" text="Gestion des Utilisateurs">
             <font>
@@ -25,21 +28,16 @@
    </top>
 
    <center>
-      <VBox style="-fx-padding: 20;" spacing="15">
+      <VBox spacing="15" style="-fx-padding: 20;">
          <!-- Search Controls (unchanged) -->
-         <HBox spacing="10" alignment="CENTER_LEFT">
-            <ComboBox fx:id="searchComboBox" style="-fx-background-radius: 4; -fx-pref-width: 200;"
-                      promptText="Choisir une colonne"/>
-            <TextField fx:id="searchField" style="-fx-background-radius: 4; -fx-pref-width: 250;"/>
-            <Button mnemonicParsing="false" onAction="#searchButtonOnAction"
-                    style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-background-radius: 4; -fx-pref-width: 100;"
-                    text="Rechercher"/>
-            <Button mnemonicParsing="false" onAction="#searchButtonAnnulerOnAction"
-                    style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-background-radius: 4; -fx-pref-width: 80;"
-                    text="Annuler"/>
-            <Label fx:id="searchError" style="-fx-text-fill: #e74c3c; -fx-padding: 0 0 0 10;"/>
+         <HBox alignment="CENTER_LEFT" spacing="10">
+            <ComboBox fx:id="searchComboBox" promptText="Choisir une colonne" style="-fx-background-radius: 4; -fx-pref-width: 200;" />
+            <TextField fx:id="searchField" style="-fx-background-radius: 4; -fx-pref-width: 250;" />
+            <Button mnemonicParsing="false" onAction="#searchButtonOnAction" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-background-radius: 4; -fx-pref-width: 100;" text="Rechercher" />
+            <Button mnemonicParsing="false" onAction="#searchButtonAnnulerOnAction" style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-background-radius: 4; -fx-pref-width: 80;" text="Annuler" />
             <Button fx:id="supprmierMedicament" mnemonicParsing="false" onAction="#supprimerMedicamentButtonOnAction" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-background-radius: 4; -fx-pref-width: 100;" text="Supprimer">
             </Button>
+            <Label fx:id="searchError" style="-fx-text-fill: #e74c3c; -fx-padding: 0 0 0 10;" />
          </HBox>
 
          <!-- User Table (unchanged) -->
@@ -59,81 +57,77 @@
          </TableView>
 
          <!-- Add User Form - Reorganized in rows -->
-         <VBox style="-fx-padding: 20; -fx-background-color: #f8f9fa; -fx-border-color: #dee2e6; -fx-border-radius: 5; -fx-border-width: 1;" spacing="15">
-            <Label text="Ajouter un nouvel utilisateur" style="-fx-font-weight: bold; -fx-font-size: 16;"/>
+         <VBox spacing="15" style="-fx-padding: 20; -fx-background-color: #f8f9fa; -fx-border-color: #dee2e6; -fx-border-radius: 5; -fx-border-width: 1;">
+            <Label style="-fx-font-weight: bold; -fx-font-size: 16;" text="Utilisateur" />
 
             <!-- Row 1: Nom, Prénom, Email, Téléphone -->
-            <HBox spacing="15" alignment="CENTER_LEFT">
+            <HBox alignment="CENTER_LEFT" spacing="15">
                <VBox spacing="5">
-                  <Label text="Nom"/>
-                  <TextField fx:id="nomField" prefWidth="180"/>
-                  <Label fx:id="nomFieldError" style="-fx-text-fill: #e74c3c;"/>
+                  <Label text="Nom" />
+                  <TextField fx:id="nomField" prefWidth="180" />
+                  <Label fx:id="nomFieldError" style="-fx-text-fill: #e74c3c;" />
                </VBox>
 
                <VBox spacing="5">
-                  <Label text="Prénom"/>
-                  <TextField fx:id="prenomField" prefWidth="180"/>
-                  <Label fx:id="prenomFieldError" style="-fx-text-fill: #e74c3c;"/>
+                  <Label text="Prénom" />
+                  <TextField fx:id="prenomField" prefWidth="180" />
+                  <Label fx:id="prenomFieldError" style="-fx-text-fill: #e74c3c;" />
                </VBox>
 
                <VBox spacing="5">
-                  <Label text="Email"/>
-                  <TextField fx:id="emailField" prefWidth="180"/>
-                  <Label fx:id="emailFieldError" style="-fx-text-fill: #e74c3c;"/>
+                  <Label text="Email" />
+                  <TextField fx:id="emailField" prefWidth="180" />
+                  <Label fx:id="emailFieldError" style="-fx-text-fill: #e74c3c;" />
                </VBox>
 
                <VBox spacing="5">
-                  <Label text="Téléphone"/>
-                  <TextField fx:id="telephoneField" prefWidth="180"/>
-                  <Label fx:id="telephoneFieldError" style="-fx-text-fill: #e74c3c;"/>
+                  <Label text="Téléphone" />
+                  <TextField fx:id="telephoneField" prefWidth="180" />
+                  <Label fx:id="telephoneFieldError" style="-fx-text-fill: #e74c3c;" />
                </VBox>
             </HBox>
 
             <!-- Row 2: Rôle and Status -->
-            <HBox spacing="15" alignment="CENTER_LEFT">
+            <HBox alignment="CENTER_LEFT" spacing="15">
                <VBox spacing="5">
-                  <Label text="Rôle"/>
-                  <ComboBox fx:id="roleComboBox" prefWidth="180" promptText="Choisir un rôle"/>
-                  <Label fx:id="roleFieldError" style="-fx-text-fill: #e74c3c;"/>
+                  <Label text="Rôle" />
+                  <ComboBox fx:id="roleComboBox" prefWidth="180" promptText="Choisir un rôle" />
+                  <Label fx:id="roleFieldError" style="-fx-text-fill: #e74c3c;" />
                </VBox>
 
                <VBox spacing="5">
-                  <Label text="Status"/>
-                  <ComboBox fx:id="adminComboBox" prefWidth="180" promptText="Status"/>
-                  <Label fx:id="adminFieldError" style="-fx-text-fill: #e74c3c;"/>
+                  <Label text="Status" />
+                  <ComboBox fx:id="adminComboBox" prefWidth="180" promptText="Status" />
+                  <Label fx:id="adminFieldError" style="-fx-text-fill: #e74c3c;" />
                </VBox>
             </HBox>
 
             <!-- Row 3: Identifiant, MDP, Confirmer MDP -->
-            <HBox spacing="15" alignment="CENTER_LEFT">
+            <HBox alignment="CENTER_LEFT" spacing="15">
                <VBox spacing="5">
-                  <Label text="Identifiant"/>
-                  <TextField fx:id="identifiantField" prefWidth="180"/>
-                  <Label fx:id="identifiantFieldError" style="-fx-text-fill: #e74c3c;"/>
+                  <Label text="Identifiant" />
+                  <TextField fx:id="identifiantField" prefWidth="180" />
+                  <Label fx:id="identifiantFieldError" style="-fx-text-fill: #e74c3c;" />
                </VBox>
 
                <VBox spacing="5">
-                  <Label text="Mot de passe"/>
-                  <PasswordField fx:id="passwordField" prefWidth="180"/>
-                  <Label fx:id="passwordFieldError" style="-fx-text-fill: #e74c3c;"/>
+                  <Label text="Mot de passe" />
+                  <PasswordField fx:id="passwordField" prefWidth="180" />
+                  <Label fx:id="passwordFieldError" style="-fx-text-fill: #e74c3c;" />
                </VBox>
 
                <VBox spacing="5">
-                  <Label text="Confirmer mot de passe"/>
-                  <PasswordField fx:id="passwordIdentiqueField" prefWidth="180"/>
-                  <Label fx:id="passwordIdentiqueFieldError" style="-fx-text-fill: #e74c3c;"/>
+                  <Label text="Confirmer mot de passe" />
+                  <PasswordField fx:id="passwordIdentiqueField" prefWidth="180" />
+                  <Label fx:id="passwordIdentiqueFieldError" style="-fx-text-fill: #e74c3c;" />
                </VBox>
             </HBox>
 
             <!-- Action Buttons -->
-            <HBox spacing="15" alignment="CENTER_RIGHT">
-               <Button fx:id="utilisateurAddButton" mnemonicParsing="false" onAction="#utilisateurAddButtonOnAction"
-                       style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-background-radius: 4;"
-                       prefWidth="150" text="Ajouter"/>
+            <HBox alignment="CENTER_RIGHT" spacing="15">
+               <Button fx:id="utilisateurAddButton" mnemonicParsing="false" onAction="#utilisateurAddButtonOnAction" prefWidth="150" style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-background-radius: 4;" text="Ajouter" />
                <Button fx:id="utilisateurModifierButton" mnemonicParsing="false" onAction="#utilisateurModifierButtonOnAction" prefWidth="150" style="-fx-background-color: #f39c12; -fx-text-fill: white; -fx-background-radius: 4; -fx-pref-width: 100;" text="Modifier" />
-               <Button fx:id="utilisateurAnnulerButton" mnemonicParsing="false" onAction="#utilisateurAnnulerButtonOnAction"
-                       style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-background-radius: 4;"
-                       prefWidth="150" text="Annuler"/>
+               <Button fx:id="utilisateurAnnulerButton" mnemonicParsing="false" onAction="#utilisateurAnnulerButtonOnAction" prefWidth="150" style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-background-radius: 4;" text="Annuler" />
             </HBox>
          </VBox>
       </VBox>

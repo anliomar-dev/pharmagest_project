@@ -43,8 +43,12 @@ TestConnection.java
 
 LoginController.java
 VenteController.java
+SessionManager.java
+
+LoginDAO.java
 
 ## fxml ##
 login.fxml
 Vente.fxml
 Caisse.fxml
+Dashboard.fxml

@@ -1,10 +1,7 @@
 package controllers;
 
 import DAO.MedicamentDAO;
-import DAO.UtilisateurDAO;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.css.converter.StringConverter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -15,11 +12,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import models.Medicament;
 import models.Utilisateur;
 import utils.Utils;
-import javafx.collections.transformation.FilteredList;
 import utils.ValidationUtils;
-
-import java.awt.*;
-import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -35,7 +28,10 @@ public class ListePrixController {
     @FXML private TableColumn<Utilisateur, String> medicamentColumn;
     @FXML private TableColumn<Utilisateur, Double> prixachatColumn;
     @FXML private TableColumn<Utilisateur, Double> prixventeColumn;
+
     @FXML private TextField medicamentSearchField;
+    @FXML private TextField PUachatField;
+    @FXML private TextField PUventeField;
 
     @FXML
     public void initialize() throws SQLException {
@@ -43,13 +39,16 @@ public class ListePrixController {
             medicamentColumn.setCellValueFactory(new PropertyValueFactory<>("DCI"));
             prixachatColumn.setCellValueFactory(new PropertyValueFactory<>("prixUnitAchat"));
             prixventeColumn.setCellValueFactory(new PropertyValueFactory<>("prixUnitVente"));
-            loadMedicamentData();
 
             listPrixTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
                 if (newSelection != null) {
                     medicamentSearchField.setText(newSelection.getDCI());
+                    PUachatField.setText(String.valueOf(newSelection.getPrixUnitAchat()));
+                    PUventeField.setText(String.valueOf(newSelection.getPrixUnitVente()));
                 }
             });
+
+            loadMedicamentData();
         }
     }
 
@@ -59,30 +58,6 @@ public class ListePrixController {
         listPrixTable.setItems(medicamentList);
     }
 
-    @FXML
-    private void refreshTable() throws SQLException {
-        loadMedicamentData();
-    }
-
-    public void listPrixExcelButtonOnAction(ActionEvent e){
-        try {
-            File excelFile = new File("C:/IdeaProjects/Groupe_PharmaGest/Liste-de-prix.xlsx");
-
-            if (!excelFile.exists()) {
-                System.err.println("File not found!");
-                return;
-            }
-
-            // Open with default application
-            Desktop.getDesktop().open(excelFile);
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    @FXML private TextField newPUachatField;
-    @FXML private TextField newPUventeField;
     @FXML private Label medicamentError;
     @FXML private Label prixachatError;
     @FXML private Label prixventeError;
@@ -97,13 +72,14 @@ public class ListePrixController {
         }else{
             medicamentError.setText("");
         }
-        if (ValidationUtils.validatePrice(newPUachatField, prixachatError)) isInvalid = true;
-        if (ValidationUtils.validatePrice(newPUventeField, prixventeError)) isInvalid = true;
+
+        if (ValidationUtils.validatePrice(PUachatField, prixachatError)) isInvalid = true;
+        if (ValidationUtils.validatePrice(PUventeField, prixventeError)) isInvalid = true;
 
         if(!isInvalid){
             String dci = medicamentSearchField.getText().trim();
-            double prixachat = Double.parseDouble(newPUachatField.getText().trim());
-            double prixvente = Double.parseDouble(newPUventeField.getText().trim());
+            double prixachat = Double.parseDouble(PUachatField.getText().trim());
+            double prixvente = Double.parseDouble(PUventeField.getText().trim());
 
             if(medicamentDAO.MAJprix(dci, prixachat, prixvente)){
                 clearMAJ();
@@ -112,9 +88,16 @@ public class ListePrixController {
         }
     }
 
+    public void annulerButtonOnAction(ActionEvent actionEvent) throws SQLException {
+        loadMedicamentData();
+        clearMAJ();
+    }
+
     private void clearMAJ(){
         medicamentSearchField.clear();
-        newPUachatField.clear();
-        newPUventeField.clear();
+        PUachatField.clear();
+        PUventeField.clear();
     }
+
+
 }

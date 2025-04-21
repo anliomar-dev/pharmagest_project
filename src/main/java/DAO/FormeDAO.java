@@ -19,7 +19,8 @@ public class FormeDAO {
 
     public ObservableList<Forme> getAllForme() throws SQLException{
         ObservableList<Forme> formList = FXCollections.observableArrayList();
-        try (PreparedStatement stmt = conn.prepareStatement("SELECT * FROM forme");
+        String allForme = "SELECT * FROM forme ORDER BY nom_forme";
+        try (PreparedStatement stmt = conn.prepareStatement(allForme);
              ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {
                 Forme forme = new Forme(
@@ -27,15 +28,13 @@ public class FormeDAO {
                 );
                 formList.add(forme);
             }
-        } catch (SQLException e) {
-            System.err.println("Error fetching forme: " + e.getMessage());
         }
         return formList;
     }
 
     public Forme getFormeByName(String nomForme) throws SQLException {
-        String query = "SELECT * FROM forme WHERE nom_forme = ?";
-        try (PreparedStatement stmt = conn.prepareStatement(query)) {
+        String nameForme = "SELECT * FROM forme WHERE nom_forme = ?";
+        try (PreparedStatement stmt = conn.prepareStatement(nameForme)) {
             stmt.setString(1, nomForme);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
@@ -48,22 +47,27 @@ public class FormeDAO {
         throw new SQLException("Forme not found: " + nomForme);
     }
 
+    public boolean verifyMedicamentForme(String nameForme) throws SQLException{
+        String verifyForme = "SELECT 1 FROM medicament WHERE forme_nom_forme = ?";
+        try(PreparedStatement stmt = conn.prepareStatement(verifyForme)){
+            stmt.setString(1, nameForme);
+            return stmt.execute();
+        }
+    }
+
     public boolean addForme (Forme forme) throws SQLException{
-        String query = "INSERT INTO forme (nom_forme) VALUES (?)";
-        try(PreparedStatement stmt = conn.prepareStatement(query)) {
+        String ajouterForme = "INSERT INTO forme (nom_forme) VALUES (?)";
+        try(PreparedStatement stmt = conn.prepareStatement(ajouterForme)) {
             stmt.setString(1, forme.getNomForme());
             return stmt.executeUpdate() > 0;
         }
     }
 
-//    public boolean modifierForme(String originalForme, Forme forme) throws SQLException{
-//    }
-
-    public void deleteForme(String forme) throws SQLException{
-        String query = "DELETE FROM forme WHERE nom_forme = ?";
-        try(PreparedStatement stmt = conn.prepareStatement(query)) {
+    public boolean deleteForme(String forme) throws SQLException{
+        String supprimerForme = "DELETE FROM forme WHERE nom_forme = ?";
+        try(PreparedStatement stmt = conn.prepareStatement(supprimerForme)) {
             stmt.setString(1, forme);
-            stmt.executeUpdate();
+            return stmt.executeUpdate() > 0;
         }
     }
 }

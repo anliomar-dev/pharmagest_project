@@ -3,11 +3,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import dataBase.DatabaseConnection;
 import models.Utilisateur;
-import utils.Utils;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class UtilisateurDAO {
 
@@ -20,7 +17,8 @@ public class UtilisateurDAO {
     //Get all information of utilisateurs
     public ObservableList<Utilisateur> getAllUtilisateurs() throws SQLException{
         ObservableList<Utilisateur> utilisateurList = FXCollections.observableArrayList();
-        try (PreparedStatement stmt = conn.prepareStatement("SELECT * FROM utilisateur ORDER BY nom");
+        String allUtilisateur = "SELECT * FROM utilisateur ORDER BY nom";
+        try (PreparedStatement stmt = conn.prepareStatement(allUtilisateur);
              ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {
                 Utilisateur utilisateur = new Utilisateur(
@@ -43,8 +41,8 @@ public class UtilisateurDAO {
 
     //Verify existing username
     public boolean verifyUsername(String identifiant) {
-        String sql = "SELECT COUNT(*) FROM utilisateur WHERE TRIM(LOWER(identifiant)) = TRIM(LOWER(?))";
-        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+        String verifyIdentifiant = "SELECT COUNT(*) FROM utilisateur WHERE TRIM(LOWER(identifiant)) = TRIM(LOWER(?))";
+        try (PreparedStatement stmt = conn.prepareStatement(verifyIdentifiant)) {
             stmt.setString(1, identifiant);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
@@ -56,10 +54,24 @@ public class UtilisateurDAO {
         return false;
     }
 
+    //Get utilisateur id
+    public int getUtilisateurId(String username) throws SQLException{
+        String getId = "SELECT utilisateur_id FROM utilisateur WHERE identifiant = ?";
+        try(PreparedStatement stmt = conn.prepareStatement(getId)){
+            stmt.setString(1, username);
+            try(ResultSet rs = stmt.executeQuery()){
+                if(rs.next()){
+                    return rs.getInt("utilisateur_id");
+                }
+            }
+        }
+        return -1;
+    }
+
     //Ajouter utilisateur
     public boolean addUtilisateur (Utilisateur utilisateur) throws SQLException{
-        String query = "INSERT INTO utilisateur (prenom, nom, telephone, email, identifiant, mot_de_passe, status, est_superadmin) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-        try(PreparedStatement stmt = conn.prepareStatement(query)) {
+        String ajouterUtilisateur = "INSERT INTO utilisateur (prenom, nom, telephone, email, identifiant, mot_de_passe, status, est_superadmin) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        try(PreparedStatement stmt = conn.prepareStatement(ajouterUtilisateur)) {
             stmt.setString(1, utilisateur.getPrenom());
             stmt.setString(2, utilisateur.getNom());
             stmt.setString(3, utilisateur.getTelephone());
@@ -72,10 +84,10 @@ public class UtilisateurDAO {
         }
     }
 
-    //Modify with password
-    public boolean modifierUtilisateurPassword(String originalUsername, Utilisateur utilisateur) throws SQLException{
-        String sql = "UPDATE utilisateur SET prenom = ?, nom = ?, telephone = ?, email = ?, identifiant = ?, mot_de_passe = ?, status = ?, est_superadmin = ? WHERE identifiant = ?";
-        try(PreparedStatement stmt = conn.prepareStatement(sql)) {
+    //Modify utilisateur
+    public boolean modifierUtilisateur(int userID, Utilisateur utilisateur) throws SQLException{
+        String modifyUtilisateurPassword = "UPDATE utilisateur SET prenom = ?, nom = ?, telephone = ?, email = ?, identifiant = ?, mot_de_passe = ?, status = ?, est_superadmin = ? WHERE utilisateur_id = ?";
+        try(PreparedStatement stmt = conn.prepareStatement(modifyUtilisateurPassword)) {
             stmt.setString(1, utilisateur.getPrenom());
             stmt.setString(2, utilisateur.getNom());
             stmt.setString(3, utilisateur.getTelephone());
@@ -84,32 +96,16 @@ public class UtilisateurDAO {
             stmt.setString(6, utilisateur.getMotDePasse());
             stmt.setString(7, utilisateur.getStatus());
             stmt.setBoolean(8, utilisateur.isEstSuperAdmin());
-            stmt.setString(9, originalUsername);
-            return stmt.executeUpdate() > 0;
-        }
-    }
-
-    //Modify without password
-    public boolean modifierUtilisateur(String originalUsername, Utilisateur utilisateur) throws SQLException{
-        String sql = "UPDATE utilisateur SET prenom = ?, nom = ?, telephone = ?, email = ?, identifiant = ?, status = ?, est_superadmin = ? WHERE identifiant = ?";
-        try(PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, utilisateur.getPrenom());
-            stmt.setString(2, utilisateur.getNom());
-            stmt.setString(3, utilisateur.getTelephone());
-            stmt.setString(4, utilisateur.getEmail());
-            stmt.setString(5, utilisateur.getIdentifiant());
-            stmt.setString(6, utilisateur.getStatus());
-            stmt.setBoolean(7, utilisateur.isEstSuperAdmin());
-            stmt.setString(8, originalUsername);
+            stmt.setInt(9, userID);
             return stmt.executeUpdate() > 0;
         }
     }
 
     //Supprimer utilisateur
-    public boolean deleteUtilisateur(String orginalUsername) throws SQLException{
-        String query = "DELETE FROM utilisateur WHERE identifiant = ?";
-        try(PreparedStatement stmt = conn.prepareStatement(query)) {
-            stmt.setString(1, orginalUsername);
+    public boolean deleteUtilisateur(int userID) throws SQLException{
+        String supprimerUtilisateur = "DELETE FROM utilisateur WHERE utilisateur_id = ?";
+        try(PreparedStatement stmt = conn.prepareStatement(supprimerUtilisateur)) {
+            stmt.setInt(1, userID);
             return stmt.executeUpdate() > 0;
         }
     }

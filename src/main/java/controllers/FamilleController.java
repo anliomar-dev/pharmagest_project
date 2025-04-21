@@ -1,7 +1,6 @@
 package controllers;
 
 import DAO.FamilleDAO;
-import DAO.FormeDAO;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,7 +10,6 @@ import javafx.scene.control.*;
 import models.Famille;
 import utils.Utils;
 import utils.ValidationUtils;
-
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Objects;
@@ -95,9 +93,6 @@ public class FamilleController {
                 }
             }
         }
-    }
-
-    public void modifierFamilleButtonOnAction(ActionEvent e) throws SQLException {
     }
 
     public void supprimerFamilleButtonOnAction(ActionEvent e) throws SQLException {

@@ -1,20 +1,15 @@
 package controllers;
 
 import DAO.FormeDAO;
-import DAO.UtilisateurDAO;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import models.Forme;
-import models.Utilisateur;
-import org.w3c.dom.Text;
 import utils.Utils;
 import utils.ValidationUtils;
-
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Objects;
@@ -52,6 +47,10 @@ public class FormeController {
             }
         });
         loadFormeData();
+    }
+
+    public boolean isRowSelected() {
+        return formeTable.getSelectionModel().getSelectedItem() != null;
     }
 
     private ObservableList<Forme> formeList = FXCollections.observableArrayList();
@@ -99,38 +98,29 @@ public class FormeController {
         }
     }
 
-    public void modifierFormeButtonOnAction(ActionEvent e) throws SQLException {
-//        FormeDAO formeDAO = new FormeDAO();
-//        boolean isInvalid = false;
-//
-//        if (ValidationUtils.validateForme(formeSearchField, formeError)) isInvalid = true;
-//
-//        if(!isInvalid){
-//            String forme = formeSearchField.getText();
-//
-//            Forme modifierforme = new Forme(forme);
-//            if(formeDAO.modifierForme(originalForme, modifierforme)){
-//                loadFormeData();
-//                clearSearch();
-//            }
-//        }
-    }
-
     public void supprimerFormeButtonOnAction(ActionEvent e) throws SQLException {
-        String forme = formeSearchField.getText();
-        if(forme.isEmpty()){
-            formeError.setText("Choisir une forme");
-        }else{
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Supprimer forme");
-            alert.setHeaderText("Vous voulez supprimer la forme : " + forme);
-            Optional<ButtonType> result = alert.showAndWait();
-            if (result.isPresent() && result.get() == ButtonType.OK) {
-                FormeDAO formeDAO = new FormeDAO();
-                formeDAO.deleteForme(forme);
-                loadFormeData();
-                clearSearch();
+        if(isRowSelected()) {
+            String forme = formeSearchField.getText();
+            if (forme.isEmpty()) {
+                formeError.setText("Choisir une forme");
+            } else {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Supprimer forme");
+                alert.setHeaderText("Vous voulez supprimer la forme : " + forme);
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.isPresent() && result.get() == ButtonType.OK) {
+                    FormeDAO formeDAO = new FormeDAO();
+                    if (formeDAO.verifyMedicamentForme(forme)) {
+                        formeError.setText("Suppression invalide !");
+                    } else {
+                        formeDAO.deleteForme(forme);
+                        loadFormeData();
+                        clearSearch();
+                    }
+                }
             }
+        }else{
+            formeError.setText("Choisir une forme");
         }
     }
 

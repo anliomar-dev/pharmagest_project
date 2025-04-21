@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.geometry.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-            prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ListePrixController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ListePrixController">
    <top>
       <HBox alignment="CENTER_LEFT" style="-fx-background-color: #2c3e50; -fx-padding: 10;">
-         <Button fx:id="maintenanceButton" mnemonicParsing="false" onAction="#maintenanceButtonOnAction"
-                 style="-fx-background-color: transparent; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 4;"
-                 text="Retour">
+         <Button fx:id="maintenanceButton" mnemonicParsing="false" onAction="#maintenanceButtonOnAction" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 4;" text="Retour">
          </Button>
          <Label style="-fx-text-fill: white; -fx-padding: 0 0 0 20;" text="Liste des Prix">
             <font>
@@ -23,37 +24,31 @@
    </top>
 
    <center>
-      <VBox style="-fx-padding: 20;" spacing="15">
+      <VBox spacing="15" style="-fx-padding: 20;">
          <!-- File Import Section -->
-         <HBox alignment="CENTER_LEFT" spacing="10">
-            <Button mnemonicParsing="false" onAction="#listPrixExcelButtonOnAction"
-                    style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-background-radius: 4; -fx-pref-width: 280;"
-                    text="Ouvrir Fichier 'Liste de Prix' (Xlsx)">
-            </Button>
-         </HBox>
+         <HBox alignment="CENTER_LEFT" spacing="10" />
 
          <!-- Price Update Section -->
          <VBox spacing="10" style="-fx-padding: 10; -fx-background-color: #f8f9fa; -fx-background-radius: 5;">
-            <HBox spacing="20" alignment="CENTER_LEFT">
+            <HBox alignment="CENTER_LEFT" spacing="20">
                <VBox spacing="5">
-                  <Label text="Médicament"/>
-                  <TextField fx:id="medicamentSearchField" style="-fx-background-radius: 4;" prefWidth="200" disable="true"/>
-                  <Label fx:id="medicamentError" style="-fx-text-fill: #e74c3c;"/>
+                  <Label text="Médicament" />
+                  <TextField fx:id="medicamentSearchField" disable="true" prefHeight="26.0" prefWidth="150.0" style="-fx-background-radius: 4;" />
+                  <Label fx:id="medicamentError" style="-fx-text-fill: #e74c3c;" />
                </VBox>
                <VBox spacing="5">
-                  <Label text="Nouveau prix unité achat"/>
-                  <TextField fx:id="newPUachatField" style="-fx-background-radius: 4;" prefWidth="150"/>
-                  <Label fx:id="prixachatError" style="-fx-text-fill: #e74c3c;"/>
+                  <Label text="Nouveau prix unité achat" />
+                  <TextField fx:id="PUachatField" prefWidth="150" style="-fx-background-radius: 4;" />
+                  <Label fx:id="prixachatError" style="-fx-text-fill: #e74c3c;" />
                </VBox>
                <VBox spacing="5">
-                  <Label text="Nouveau prix unité vente"/>
-                  <TextField fx:id="newPUventeField" style="-fx-background-radius: 4;" prefWidth="150"/>
-                  <Label fx:id="prixventeError" style="-fx-text-fill: #e74c3c;"/>
+                  <Label text="Nouveau prix unité vente" />
+                  <TextField fx:id="PUventeField" prefWidth="150" style="-fx-background-radius: 4;" />
+                  <Label fx:id="prixventeError" style="-fx-text-fill: #e74c3c;" />
                </VBox>
-               <Button fx:id="MAJprixButton" mnemonicParsing="false" onAction="#MAJprixButtonOnAction"
-                       style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-background-radius: 4; -fx-pref-height: 35; -fx-pref-width: 120;"
-                       text="MAJ des prix">
+               <Button fx:id="MAJprixButton" mnemonicParsing="false" onAction="#MAJprixButtonOnAction" prefHeight="21.0" style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-background-radius: 4; -fx-pref-height: 35; -fx-pref-width: 120;" text="MAJ des prix">
                </Button>
+               <Button mnemonicParsing="false" onAction="#annulerButtonOnAction" style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-background-radius: 4; -fx-pref-width: 80;" text="Annuler" />
             </HBox>
          </VBox>
 
